@@ -7,47 +7,38 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="agents")
-public class Agent {
+@Table(name="roles")
+public class Role {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String mail;
-	private String mdp;
+	private String role;
 	
-	public Agent() {
+	public Role() {
 		super();
-	}
-	
-	public Agent(int id, String mail, String mdp) {
-		super();
-		this.id = id;
-		this.mail = mail;
-		this.mdp = mdp;
 	}
 
+	public Role(int id, String role) {
+		super();
+		this.id = id;
+		this.role = role;
+	}
 
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getMail() {
-		return mail;
+
+	public String getRole() {
+		return role;
 	}
-	public void setMail(String mail) {
-		this.mail = mail;
+
+	public void setRole(String role) {
+		this.role = role;
 	}
-	public String getMdp() {
-		return mdp;
-	}
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
-	}
-	
-	
-	
-	
+
 }
