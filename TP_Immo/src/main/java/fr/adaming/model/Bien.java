@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.util.Date;
 
+import javax.persistence.Embedded;
 import javax.persistence.Lob;
 
 public abstract class Bien {
@@ -10,6 +11,7 @@ public abstract class Bien {
 	private String statut;
 	private Date dateDispo;
 	private Date dateMiseEnGerance;
+	@Embedded 
 	private Adresse adresse;
 	private String description;
 	private double revenuCasdastral;

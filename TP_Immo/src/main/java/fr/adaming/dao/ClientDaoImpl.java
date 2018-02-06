@@ -32,8 +32,14 @@ public class ClientDaoImpl implements IClientDao{
 	@Override
 	public Client updateClient(Client client) {
 		s=sf.getCurrentSession();
+		//recup du client par son id
+		Client cModif = (Client) s.get(Client.class, client.getId());
+		//modif du client
+		cModif.setNom(client.getNom());
+		cModif.setAdresse(client.getAdresse());
+		cModif.setTel(client.getTel());
 		
-		return null;
+		return cModif;
 	}
 
 	@Override
