@@ -32,13 +32,13 @@ public class Visite {
 	private Client client;
 	
 	//relation visite/bien
-	@ManyToOne
-	@JoinColumn(name="loc_id",referencedColumnName="id")
-	private List<Location> listeLocation;
-	
-	@ManyToOne
-	@JoinColumn(name="achat_id",referencedColumnName="id")
-	private List<Achat> listeAchat;
+//	@ManyToOne
+//	@JoinColumn(name="loc_id",referencedColumnName="id")
+//	private List<Location> listeLocation;
+//	
+//	@ManyToOne
+//	@JoinColumn(name="achat_id",referencedColumnName="id")
+//	private List<Achat> listeAchat;
 	
 	//relation visite/agent
 	@ManyToOne
@@ -104,24 +104,24 @@ public class Visite {
 	}
 
 
-	public List<Location> getListeLocation() {
-		return listeLocation;
-	}
-
-
-	public void setListeLocation(List<Location> listeLocation) {
-		this.listeLocation = listeLocation;
-	}
-
-
-	public List<Achat> getListeAchat() {
-		return listeAchat;
-	}
-
-
-	public void setListeAchat(List<Achat> listeAchat) {
-		this.listeAchat = listeAchat;
-	}
+//	public List<Location> getListeLocation() {
+//		return listeLocation;
+//	}
+//
+//
+//	public void setListeLocation(List<Location> listeLocation) {
+//		this.listeLocation = listeLocation;
+//	}
+//
+//
+//	public List<Achat> getListeAchat() {
+//		return listeAchat;
+//	}
+//
+//
+//	public void setListeAchat(List<Achat> listeAchat) {
+//		this.listeAchat = listeAchat;
+//	}
 	
 	
 	
