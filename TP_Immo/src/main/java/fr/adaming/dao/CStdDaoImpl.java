@@ -50,9 +50,16 @@ public class CStdDaoImpl implements ICStdDao {
 	}
 
 	@Override
-	public int updateCStd(ClasseStandard cStd) {
-		// TODO Auto-generated method stub
-		return 0;
+	public ClasseStandard updateCStd(ClasseStandard cStd) {
+		s = sf.getCurrentSession();
+
+		ClasseStandard cStdOut = (ClasseStandard) s.get(ClasseStandard.class, cStd.getIdCode());
+		cStdOut.setModeOffre(cStd.isModeOffre());
+		cStdOut.setPrixMax(cStd.getPrixMax());
+		cStdOut.setSurfaceMin(cStd.getSurfaceMin());
+		cStdOut.setType(cStd.getType());
+		s.saveOrUpdate(cStdOut);
+		return cStdOut;
 	}
 
 }

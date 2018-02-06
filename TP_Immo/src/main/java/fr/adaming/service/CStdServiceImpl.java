@@ -23,6 +23,11 @@ public class CStdServiceImpl implements ICStdService {
 	public int deleteCStd(int id) {
 		return cStdDao.deleteCStd(id);
 	}
+
+	@Override
+	public ClasseStandard updateCStd(ClasseStandard cStd) {
+		return cStdDao.updateCStd(cStd);
+	}
 	
 	
 }

@@ -8,6 +8,6 @@ public interface ICStdDao {
 	
 	public int deleteCStd(int id);
 	
-	public int updateCStd(ClasseStandard cStd);
+	public ClasseStandard updateCStd(ClasseStandard cStd);
 
 }
