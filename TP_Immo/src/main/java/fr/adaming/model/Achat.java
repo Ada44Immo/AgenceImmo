@@ -87,6 +87,48 @@ public class Achat extends Bien{
 	public void setProprietaire(Proprietaire proprietaire) {
 		this.proprietaire = proprietaire;
 	}
+
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+
+	public double getPrix() {
+		return prix;
+	}
+
+
+
+
+	public void setPrix(double prix) {
+		this.prix = prix;
+	}
+
+
+
+
+	public String getEtat() {
+		return etat;
+	}
+
+
+
+
+	public void setEtat(String etat) {
+		this.etat = etat;
+	}
 	
 	
 	
