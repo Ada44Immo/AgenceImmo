@@ -33,9 +33,11 @@ public class Visite {
 	
 	//relation visite/bien
 	@ManyToOne
+	@JoinColumn(name="loc_id",referencedColumnName="id")
 	private List<Location> listeLocation;
 	
 	@ManyToOne
+	@JoinColumn(name="achat_id",referencedColumnName="id")
 	private List<Achat> listeAchat;
 	
 	//relation visite/agent
@@ -99,6 +101,26 @@ public class Visite {
 
 	public void setAgent(Agent agent) {
 		this.agent = agent;
+	}
+
+
+	public List<Location> getListeLocation() {
+		return listeLocation;
+	}
+
+
+	public void setListeLocation(List<Location> listeLocation) {
+		this.listeLocation = listeLocation;
+	}
+
+
+	public List<Achat> getListeAchat() {
+		return listeAchat;
+	}
+
+
+	public void setListeAchat(List<Achat> listeAchat) {
+		this.listeAchat = listeAchat;
 	}
 	
 	
