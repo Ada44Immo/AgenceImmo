@@ -8,5 +8,9 @@ public interface IProprietaireService {
 
 	public List<Proprietaire> getAllPropietaire(); 
 
+	public Proprietaire addProprietaire(Proprietaire p);
+
+	public Proprietaire updateProprietaire(Proprietaire p);
+
 	
 }

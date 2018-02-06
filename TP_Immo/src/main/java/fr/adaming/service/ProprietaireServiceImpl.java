@@ -25,4 +25,14 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 		return proprietaireDao.getAllPropietaire();
 	}
 
+	@Override
+	public Proprietaire addProprietaire(Proprietaire p) {
+		return proprietaireDao.addProprietaire(p);
+	}
+
+	@Override
+	public Proprietaire updateProprietaire(Proprietaire p) {
+		return proprietaireDao.updateProprietaire(p);
+	}
+
 }
