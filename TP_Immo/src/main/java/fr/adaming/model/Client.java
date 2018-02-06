@@ -3,7 +3,7 @@ package fr.adaming.model;
 public class Client {
 
 	public Client() {
-		// TODO Auto-generated constructor stub
+		// TODO Aut  o-generated constructor stub
 	}
 
 }
