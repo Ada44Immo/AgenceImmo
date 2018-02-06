@@ -28,10 +28,10 @@ public class ClasseStandard implements Serializable{
 	@ManyToMany(mappedBy="listeCStd")
 	private List<Client> listeClient;	
 	
-	@OneToMany(mappedBy="location")
+	@OneToMany(mappedBy="cStd")
 	private List<Location> listeLocation;
 	
-	@OneToMany(mappedBy="achat")
+	@OneToMany(mappedBy="cStd")
 	private List<Achat> listeAchat;
 	
 	//constructeur vide

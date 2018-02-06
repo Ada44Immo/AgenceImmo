@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -73,11 +75,6 @@ public class Achat extends Bien implements Serializable {
 		this.proprietaire = proprietaire;
 	}
 
-
-
-
-
-
 	// Transformation des associations UML en java
 	@ManyToOne
 	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
@@ -86,7 +83,14 @@ public class Achat extends Bien implements Serializable {
 	@OneToOne
 	@JoinColumn(name="acquereur_id", referencedColumnName="id_a")
 	private Acquereur acquereur;
-
+	
+	@OneToMany(mappedBy="achat")
+	private List<Visite> listeVisite;
+	
+	@ManyToOne
+	@JoinColumn(name="cStd_id", referencedColumnName="idCode")
+	private ClasseStandard cStd;
+	
 	public Proprietaire getProprietaire() {
 		return proprietaire;
 	}
@@ -149,6 +153,34 @@ public class Achat extends Bien implements Serializable {
 
 	public void setEtat(String etat) {
 		this.etat = etat;
+	}
+
+
+
+
+	public List<Visite> getListeVisite() {
+		return listeVisite;
+	}
+
+
+
+
+	public void setListeVisite(List<Visite> listeVisite) {
+		this.listeVisite = listeVisite;
+	}
+
+
+
+
+	public ClasseStandard getcStd() {
+		return cStd;
+	}
+
+
+
+
+	public void setcStd(ClasseStandard cStd) {
+		this.cStd = cStd;
 	}
 	
 	

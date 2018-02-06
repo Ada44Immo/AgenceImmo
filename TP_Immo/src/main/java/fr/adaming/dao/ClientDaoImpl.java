@@ -2,6 +2,7 @@ package fr.adaming.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,26 +39,46 @@ public class ClientDaoImpl implements IClientDao{
 		cModif.setNom(client.getNom());
 		cModif.setAdresse(client.getAdresse());
 		cModif.setTel(client.getTel());
-		
+		s.saveOrUpdate(cModif);
 		return cModif;
 	}
 
 	@Override
 	public int deleteClient(Client client) {
-		// TODO Auto-generated method stub
-		return 0;
+		s=sf.getCurrentSession();
+		//recup client par son id
+		Client cSupp = (Client) s.get(Client.class, client.getId());
+		//suppresion du client
+		s.delete(cSupp);
+		return 1;
 	}
 
 	@Override
 	public List<Client> getAllClient() {
-		// TODO Auto-generated method stub
-		return null;
+		s=sf.getCurrentSession();
+		
+		//requete HQL
+		String req="FROM Client";
+		
+		Query query=s.createQuery(req);		
+		
+		return query.list();
 	}
 
 	@Override
 	public Client getByNom(String nom) {
-		// TODO Auto-generated method stub
-		return null;
+		s=sf.getCurrentSession();
+		
+		//requete HQL
+		String req="FROM Client as c WHERE c.nom=:pNom";
+		
+		Query query=s.createQuery(req);
+		
+		query.setParameter("pNom", nom);
+		
+		Client c=(Client) query.uniqueResult();
+		
+		return c;
 	}
 
 }

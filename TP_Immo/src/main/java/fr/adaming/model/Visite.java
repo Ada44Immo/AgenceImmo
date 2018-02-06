@@ -34,12 +34,12 @@ public class Visite implements Serializable {
 	
 	//relation visite/bien
 	@ManyToOne
-	@JoinColumn(name="loc_id",referencedColumnName="id")
-	private List<Location> listeLocation;
+	@JoinColumn(name="visite_id_loc",referencedColumnName="id")	
+	private Location location;
 	
 	@ManyToOne
-	@JoinColumn(name="achat_id",referencedColumnName="id")
-	private List<Achat> listeAchat;
+	@JoinColumn(name="visite_id_achat",referencedColumnName="id")		
+	private Achat achat;
 	
 	//relation visite/agent
 	@ManyToOne
@@ -105,25 +105,27 @@ public class Visite implements Serializable {
 	}
 
 
-	public List<Location> getListeLocation() {
-		return listeLocation;
+	public Location getLocation() {
+		return location;
 	}
 
 
-	public void setListeLocation(List<Location> listeLocation) {
-		this.listeLocation = listeLocation;
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 
-	public List<Achat> getListeAchat() {
-		return listeAchat;
+	public Achat getAchat() {
+		return achat;
 	}
 
 
-	public void setListeAchat(List<Achat> listeAchat) {
-		this.listeAchat = listeAchat;
+	public void setAchat(Achat achat) {
+		this.achat = achat;
 	}
-	
+
+
+
 	
 	
 }

@@ -36,6 +36,8 @@ public class Client extends Personne{
 	@ManyToMany
 	@JoinTable(name="client_cstd",joinColumns=@JoinColumn(name="client_id"),inverseJoinColumns=@JoinColumn(name="cstd_id"))
 	private List<ClasseStandard> listeCStd=new ArrayList<ClasseStandard>();
+	
+	
 			
 	//constructeur
 	public Client() {

@@ -29,10 +29,10 @@ public class Proprietaire extends Personne implements Serializable {
 	private int id;
 	
 	// Transformation des associations UML en Java
-	@OneToMany(mappedBy="propietaire")
+	@OneToMany(mappedBy="proprietaire")
 	private List<Achat> listeAchat;
 	
-	@OneToMany(mappedBy="propietaire")
+	@OneToMany(mappedBy="proprietaire")
 	private List<Location> listeLocation;
 
 	public Proprietaire() {

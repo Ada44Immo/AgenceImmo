@@ -23,26 +23,26 @@ public class ClientServiceImpl implements IClientService{
 
 	@Override
 	public Client updateClient(Client client) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return clientDao.updateClient(client);
 	}
 
 	@Override
 	public int deleteClient(Client client) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return clientDao.deleteClient(client);
 	}
 
 	@Override
 	public List<Client> getAllClient() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return clientDao.getAllClient();
 	}
 
 	@Override
 	public Client getByNom(String nom) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return clientDao.getByNom(nom);
 	}
 
 }
