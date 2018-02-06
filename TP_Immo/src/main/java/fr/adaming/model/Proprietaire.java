@@ -1,5 +1,6 @@
 package fr.adaming.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="proprietaires")
-public class Proprietaire extends Personne {
+public class Proprietaire extends Personne implements Serializable {
 
 	@Id
 	@Column(name="id_p")

@@ -9,7 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 @Entity
 @Table(name="achats")
 public class Achat extends Bien implements Serializable {
@@ -80,6 +82,10 @@ public class Achat extends Bien implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="proprietaire_id", referencedColumnName="id_p")
 	private Proprietaire proprietaire;
+	
+	@OneToOne
+	@JoinColumn(name="acquereur_id", referencedColumnName="id_a")
+	private Acquereur acquereur;
 
 	public Proprietaire getProprietaire() {
 		return proprietaire;
@@ -87,6 +93,20 @@ public class Achat extends Bien implements Serializable {
 
 	public void setProprietaire(Proprietaire proprietaire) {
 		this.proprietaire = proprietaire;
+	}
+
+	
+
+
+	public Acquereur getAcquereur() {
+		return acquereur;
+	}
+
+
+
+
+	public void setAcquereur(Acquereur acquereur) {
+		this.acquereur = acquereur;
 	}
 
 
