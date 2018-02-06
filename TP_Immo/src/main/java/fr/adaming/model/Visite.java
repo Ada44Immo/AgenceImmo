@@ -1,5 +1,6 @@
 package fr.adaming.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="visites")
-public class Visite {
+public class Visite implements Serializable {
 	//attributs
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
