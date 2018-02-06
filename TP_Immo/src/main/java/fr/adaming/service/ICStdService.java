@@ -4,6 +4,6 @@ import fr.adaming.model.ClasseStandard;
 
 public interface ICStdService {
 	
-	public ClasseStandard addCStd(ClasseStandard CStd);
+	public ClasseStandard addCStd(ClasseStandard cStd);
 
 }
