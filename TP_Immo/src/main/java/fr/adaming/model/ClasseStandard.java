@@ -24,15 +24,15 @@ public class ClasseStandard {
 	private double surfaceMin;
 	
 	//Transformation des associations UML en java
-	@ManyToMany(mappedBy="listeClient")
-	private List<Client> listeCStd;	
+	@ManyToMany(mappedBy="listeCStd")
+	private List<Client> listeClient;	
 	
-	@OneToMany(mappedBy="location")
-	private List<Location> listeLocation;
-	
-	@OneToMany(mappedBy="achat")
-	private List<Achat> listeAchat;
-	
+//	@OneToMany(mappedBy="location")
+//	private List<Location> listeLocation;
+//	
+//	@OneToMany(mappedBy="achat")
+//	private List<Achat> listeAchat;
+//	
 	//constructeur vide
 	public ClasseStandard() {
 		super();
@@ -98,29 +98,31 @@ public class ClasseStandard {
 		this.surfaceMin = surfaceMin;
 	}
 
-	public List<Client> getListeCStd() {
-		return listeCStd;
+	public List<Client> getListeClient() {
+		return listeClient;
 	}
 
-	public void setListeCStd(List<Client> listeCStd) {
-		this.listeCStd = listeCStd;
+	public void setListeClient(List<Client> listeClient) {
+		this.listeClient = listeClient;
 	}
 
-	public List<Location> getListeLocation() {
-		return listeLocation;
-	}
 
-	public void setListeLocation(List<Location> listeLocation) {
-		this.listeLocation = listeLocation;
-	}
-
-	public List<Achat> getListeAchat() {
-		return listeAchat;
-	}
-
-	public void setListeAchat(List<Achat> listeAchat) {
-		this.listeAchat = listeAchat;
-	}	
+//
+//	public List<Location> getListeLocation() {
+//		return listeLocation;
+//	}
+//
+//	public void setListeLocation(List<Location> listeLocation) {
+//		this.listeLocation = listeLocation;
+//	}
+//
+//	public List<Achat> getListeAchat() {
+//		return listeAchat;
+//	}
+//
+//	public void setListeAchat(List<Achat> listeAchat) {
+//		this.listeAchat = listeAchat;
+//	}	
 	
 	
 	

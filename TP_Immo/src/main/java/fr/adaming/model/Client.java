@@ -1,5 +1,6 @@
 package fr.adaming.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.mysql.fabric.xmlrpc.base.Array;
 
 @Entity
 @Table(name="clients")
@@ -31,8 +34,8 @@ public class Client extends Personne{
 			
 	//relation client/classe standard
 	@ManyToMany
-	@JoinTable(name="client_classestd",joinColumns=@JoinColumn(name="visite_id"),inverseJoinColumns=@JoinColumn(name="client_id"))
-	private List<ClasseStandard> listeCs;
+	@JoinTable(name="client_cstd",joinColumns=@JoinColumn(name="client_id"),inverseJoinColumns=@JoinColumn(name="cstd_id"))
+	private List<ClasseStandard> listeCStd=new ArrayList<ClasseStandard>();
 			
 	//constructeur
 	public Client() {
@@ -70,13 +73,17 @@ public class Client extends Personne{
 		this.listeVisite = listeVisite;
 	}
 
-	public List<ClasseStandard> getListeCs() {
-		return listeCs;
+
+	public List<ClasseStandard> getListeCStd() {
+		return listeCStd;
 	}
 
-	public void setListeCs(List<ClasseStandard> listeCs) {
-		this.listeCs = listeCs;
+
+	public void setListeCStd(List<ClasseStandard> listeCStd) {
+		this.listeCStd = listeCStd;
 	}
+
+
 	
 	
 	
