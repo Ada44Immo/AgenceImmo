@@ -16,6 +16,10 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 	@Autowired
 	private IProprietaireDao proprietaireDao;
 	
+	public void setProprietaireDao(IProprietaireDao proprietaireDao) {
+		this.proprietaireDao = proprietaireDao;
+	}
+
 	@Override
 	public List<Proprietaire> getAllPropietaire() {
 		return proprietaireDao.getAllPropietaire();

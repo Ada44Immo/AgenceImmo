@@ -1,10 +1,13 @@
 package fr.adaming.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -23,6 +26,13 @@ public class Proprietaire extends Personne {
 	@Column(name="id_p")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	// Transformation des associations UML en Java
+	@OneToMany(mappedBy="propietaire")
+	private List<Achat> listeAchat;
+	
+	@OneToMany(mappedBy="propietaire")
+	private List<Location> listeLocation;
 
 	public Proprietaire() {
 		super();
@@ -43,6 +53,22 @@ public class Proprietaire extends Personne {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public List<Achat> getListeAchat() {
+		return listeAchat;
+	}
+
+	public void setListeAchat(List<Achat> listeAchat) {
+		this.listeAchat = listeAchat;
+	}
+
+	public List<Location> getListeLocation() {
+		return listeLocation;
+	}
+
+	public void setListeLocation(List<Location> listeLocation) {
+		this.listeLocation = listeLocation;
 	}
 
 	@Override
