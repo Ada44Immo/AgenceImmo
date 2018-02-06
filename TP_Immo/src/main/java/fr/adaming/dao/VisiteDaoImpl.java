@@ -36,6 +36,13 @@ public class VisiteDaoImpl implements IVisiteDao{
 		query.setParameter("pId", id);
 		return query.executeUpdate();
 	}
+
+	@Override
+	public Visite updateVisite(Visite visite) {
+		s=sf.getCurrentSession();
+		s.saveOrUpdate(visite);
+		return visite;
+	}
 	
 	
 

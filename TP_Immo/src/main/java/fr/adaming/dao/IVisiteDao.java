@@ -7,4 +7,6 @@ public interface IVisiteDao {
 	public Visite addVisite(Visite visite);
 	
 	public int deleteVisite(int id);
+	
+	public Visite updateVisite(Visite visite);
 }

@@ -23,6 +23,11 @@ public class VisiteServiceImpl implements IVisiteService{
 	public int deleteVisite(int id) {
 		return visiteService.deleteVisite(id);
 	}
+
+	@Override
+	public Visite updateVisite(Visite visite) {
+		return visiteService.updateVisite(visite);
+	}
 	
 	
 
