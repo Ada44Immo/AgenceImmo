@@ -1,5 +1,7 @@
 package fr.adaming.dao;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -59,6 +61,40 @@ public class CStdDaoImpl implements ICStdDao {
 		cStdOut.setSurfaceMin(cStd.getSurfaceMin());
 		cStdOut.setType(cStd.getType());
 		s.saveOrUpdate(cStdOut);
+		return cStdOut;
+	}
+
+	@Override
+	public List<ClasseStandard> getAllCStd() {
+		// récupérer la session
+		s = sf.getCurrentSession();
+
+		// la requeteHQL
+		// écriture de la requete HQL
+		String req = "from ClasseStandard cs";
+
+		// création d'un query
+		Query query = s.createQuery(req);
+
+		return query.list();
+	}
+
+	@Override
+	public ClasseStandard getPaysByName(String name) {
+		// ouverture de la session
+		s = sf.getCurrentSession();
+
+		// écriture de la requete HQL
+		String req = "from ClasseStandard cs where cs.type=:pName";
+
+		// création d'un query
+		Query query = s.createQuery(req);
+
+		// assignation des paramètres
+		query.setParameter("pName", name);
+
+		ClasseStandard cStdOut = (ClasseStandard) query.uniqueResult();
+		
 		return cStdOut;
 	}
 

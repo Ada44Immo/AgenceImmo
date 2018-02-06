@@ -1,5 +1,7 @@
 package fr.adaming.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +29,17 @@ public class CStdServiceImpl implements ICStdService {
 	@Override
 	public ClasseStandard updateCStd(ClasseStandard cStd) {
 		return cStdDao.updateCStd(cStd);
+	}
+
+	@Override
+	public List<ClasseStandard> getAllCStd() {
+		return cStdDao.getAllCStd();
+
+	}
+
+	@Override
+	public ClasseStandard getPaysByName(String name) {
+		return cStdDao.getPaysByName(name);
 	}
 	
 	
