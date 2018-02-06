@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,6 +26,12 @@ public class ClasseStandard {
 	//Transformation des associations UML en java
 	@ManyToMany(mappedBy="listeClient")
 	private List<Client> listeCStd;	
+	
+	@OneToMany(mappedBy="location")
+	private List<Location> listeLocation;
+	
+	@OneToMany(mappedBy="achat")
+	private List<Achat> listeAchat;
 	
 	//constructeur vide
 	public ClasseStandard() {
