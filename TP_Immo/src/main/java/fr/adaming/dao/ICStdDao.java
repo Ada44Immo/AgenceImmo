@@ -5,5 +5,9 @@ import fr.adaming.model.ClasseStandard;
 public interface ICStdDao {
 	
 	public ClasseStandard addCStd(ClasseStandard cStd);
+	
+	public int deleteCStd(int id);
+	
+	public int updateCStd(ClasseStandard cStd);
 
 }

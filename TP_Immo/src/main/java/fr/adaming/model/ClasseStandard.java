@@ -96,6 +96,30 @@ public class ClasseStandard {
 
 	public void setSurfaceMin(double surfaceMin) {
 		this.surfaceMin = surfaceMin;
+	}
+
+	public List<Client> getListeCStd() {
+		return listeCStd;
+	}
+
+	public void setListeCStd(List<Client> listeCStd) {
+		this.listeCStd = listeCStd;
+	}
+
+	public List<Location> getListeLocation() {
+		return listeLocation;
+	}
+
+	public void setListeLocation(List<Location> listeLocation) {
+		this.listeLocation = listeLocation;
+	}
+
+	public List<Achat> getListeAchat() {
+		return listeAchat;
+	}
+
+	public void setListeAchat(List<Achat> listeAchat) {
+		this.listeAchat = listeAchat;
 	}	
 	
 	
