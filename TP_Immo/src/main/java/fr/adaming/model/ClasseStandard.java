@@ -5,4 +5,5 @@ public class ClasseStandard {
 	//les attributs de la classe
 	private int idCode;
 	
+	
 }
