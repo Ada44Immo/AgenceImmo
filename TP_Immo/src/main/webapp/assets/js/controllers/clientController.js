@@ -28,7 +28,7 @@ monApp
 	// fonction pour soumettre le client a ajouter
 	$scope.ajouterClient = function() {
 		// appel de la methode addClient du service
-		paysService.addClient($scope.clientAjout, function(callback) {
+		clientService.addClient($scope.clientAjout, function(callback) {
 			if (callback == 'OK') {
 				// redirection vers la methode afficher la liste
 				$location.path("liste")
@@ -36,4 +36,79 @@ monApp
 		});
 	}
 
+})
+
+.controller("updateClientCtrl", function($scope, clientService, $location,$rootScope) {
+	$scope.clientModif = {			
+			id:'',
+			nom : '',
+			tel:'',
+			adresse : {
+				cp: '', 
+				localite:'', 
+				num:'', 
+				pays:'', 
+				rue:''
+			}
+			
+		};
+	$scope.modifierClient = function() {
+		clientService.updateClient($scope.clientModif, function(callback) {
+			if (callback == 'OK') {
+				// redirection vers la methode afficher la liste
+				$location.path("liste")
+			}
+		})
+	}
+
+})
+
+
+
+.controller("deleteClientCtrl", function($scope, clientService, $location) {
+
+	$scope.clientSupp = {
+			
+			id:'',
+			nom : '',
+			tel:'',
+			adresse : {
+				cp: '', 
+				localite:'', 
+				num:'', 
+				pays:'', 
+				rue:''
+			}
+			
+		};
+
+	$scope.supprimerClient = function() {
+		clientService.deleteClient($scope.clientSupp, function(callback) {
+			if (callback == 'OK') {
+				// redirection vers la methode afficher la liste
+				$location.path("liste")
+			}
+		})
+	}
+
+})
+
+.controller("findByNomClientCtrl", function($scope, clientService,$location,$rootScope) {
+	
+
+		$scope.nom = '';
+		$scope.indice = false;
+	
+	// fonction pour soumettre le pays a ajouter
+	$scope.rechercherClient = function() {
+		// appel de la methode addPays du service
+		clientService.findByNomClient($scope.nom, function(callback) {
+			if (typeof callback == "object") {
+				$scope.clientRecherche = callback;
+				$scope.indice = true;
+			} else {
+				$scope.indice = false;
+			}
+		});
+	}
 })
