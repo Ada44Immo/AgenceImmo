@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.ILocationDao;
-import fr.adaming.model.Achat;
 import fr.adaming.model.Adresse;
 import fr.adaming.model.Location;
 
