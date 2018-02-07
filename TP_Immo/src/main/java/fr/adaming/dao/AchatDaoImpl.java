@@ -44,7 +44,7 @@ public class AchatDaoImpl implements IAchatDao{
 		String req="FROM Achat a";
 		
 		if (motCle != null) {
-			req = req + " WHERE a.localite LIKE :mKey";
+			req = req + " WHERE a.adresse.localite LIKE :mKey";
 		}
 		
 		Query query = s.createQuery(req);
@@ -81,12 +81,10 @@ public class AchatDaoImpl implements IAchatDao{
 	@Override
 	public int deleteAchat(Achat achat) {
 		s=sf.getCurrentSession();
-		
-		Achat aSupp=(Achat) s.get(Achat.class, achat.getId());
-		
-		s.delete(aSupp);
-		
-		return 1;
+		String req="delete from Achat a where a.id=:pId";
+		Query query = s.createQuery(req);
+		query.setParameter("pId", achat.getId());
+		return query.executeUpdate();
 	}
 
 	@Override
