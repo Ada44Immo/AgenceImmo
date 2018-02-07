@@ -56,8 +56,7 @@ public class VisiteServiceImpl implements IVisiteService{
 
 	@Override
 	public List<Visite> getVisiteByBienLocation(Location location) {
-		// TODO Auto-generated method stub
-		return null;
+		return visiteService.getVisiteByBienLocation(location);
 	}
 	
 	
