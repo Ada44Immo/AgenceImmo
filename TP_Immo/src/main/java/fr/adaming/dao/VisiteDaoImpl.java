@@ -1,6 +1,7 @@
 package fr.adaming.dao;
 
-import java.sql.Date;
+
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.criteria.Order;
@@ -80,16 +81,17 @@ public class VisiteDaoImpl implements IVisiteDao{
 		//Création des dates max et min pour le between
 		Date fromDate= date;
 		Date toDate= date;
-		toDate.setHours(23);
-		toDate.setMinutes(59);
-		fromDate.setHours(00);
-		fromDate.setMinutes(01);
-		
+		toDate.setDate(date.getDate()+1);
+		System.out.println("==============================================================");
+		System.out.println(fromDate +"\n");
+		System.out.println(toDate);
+		System.out.println("==============================================================");
 		//Création 
 		Criteria criteria = s.createCriteria(Visite.class);
-		criteria.add(Restrictions.between("DATE(paymentDate)", fromDate, toDate));
+		criteria.add(Restrictions.ge("date", fromDate)); 
+		criteria.add(Restrictions.lt("date", toDate));
 		
-		return null;
+		return criteria.list();
 	}
 
 	@Override
