@@ -25,9 +25,9 @@ monApp
 		}
 		
 	}
-	// fonction pour soumettre le pays a ajouter
+	// fonction pour soumettre le client a ajouter
 	$scope.ajouterClient = function() {
-		// appel de la methode addPays du service
+		// appel de la methode addClient du service
 		paysService.addClient($scope.clientAjout, function(callback) {
 			if (callback == 'OK') {
 				// redirection vers la methode afficher la liste
