@@ -7,6 +7,11 @@ monApp.config(function($routeProvider){
 			templateUrl: "views/listeClient.html",
 			controller: "findAllClientCtrl"
 		})
+		
+		.when("/listeVisite",{
+			templateUrl: "views/listeVisite.html",
+			controller: "findAllVisiteCtrl"
+		})
 	
 	
 })
