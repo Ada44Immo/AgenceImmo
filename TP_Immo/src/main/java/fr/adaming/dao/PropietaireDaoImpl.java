@@ -15,20 +15,20 @@ public class PropietaireDaoImpl implements IProprietaireDao {
 
 	@Autowired
 	private SessionFactory sf;
-	
+
 	public void setSf(SessionFactory sf) {
 		this.sf = sf;
 	}
 
 	@Override
 	public List<Proprietaire> getAllPropietaire() {
-		
+
 		Session s = sf.getCurrentSession();
-		
+
 		String req = "FROM Proprietaire";
-		
+
 		Query query = s.createQuery(req);
-		
+
 		return query.list();
 	}
 
@@ -42,16 +42,40 @@ public class PropietaireDaoImpl implements IProprietaireDao {
 	@Override
 	public Proprietaire updateProprietaire(Proprietaire p) {
 		Session s = sf.getCurrentSession();
-		
+
 		Proprietaire pOut = (Proprietaire) s.get(Proprietaire.class, p.getId());
-		
+
 		pOut.setNom(p.getNom());
 		pOut.setAdresse(p.getAdresse());
 		pOut.setTel(p.getTel());
-		
+
 		s.saveOrUpdate(pOut);
-		
+
 		return pOut;
+	}
+
+	@Override
+	public int deleteProprietaire(int id) {
+		Session s = sf.getCurrentSession();
+
+		Proprietaire pOut = (Proprietaire) s.get(Proprietaire.class, id);
+
+		s.delete(pOut);
+
+		Proprietaire pIn = (Proprietaire) s.get(Proprietaire.class, id);
+
+		if ((Proprietaire) s.get(Proprietaire.class, id) == null) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+
+	@Override
+	public Proprietaire getProprietaireById(int id) {
+		Session s = sf.getCurrentSession();
+
+		return (Proprietaire) s.get(Proprietaire.class, id);
 	}
 
 }

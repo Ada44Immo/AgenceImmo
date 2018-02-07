@@ -35,4 +35,14 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 		return proprietaireDao.updateProprietaire(p);
 	}
 
+	@Override
+	public int deleteProprietaire(int id) {
+		return proprietaireDao.deleteProprietaire(id);
+	}
+
+	@Override
+	public Proprietaire getProprietaireById(int id) {
+		return proprietaireDao.getProprietaireById(id);
+	}
+
 }

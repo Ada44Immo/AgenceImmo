@@ -12,4 +12,8 @@ public interface IProprietaireDao {
 	
 	public Proprietaire updateProprietaire(Proprietaire p);
 	
+	public int deleteProprietaire(int id);
+	
+	public Proprietaire getProprietaireById(int id);
+	
 }
