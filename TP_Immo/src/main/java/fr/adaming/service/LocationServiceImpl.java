@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.ILocationDao;
+import fr.adaming.model.ClasseStandard;
 import fr.adaming.model.Location;
+import fr.adaming.model.Proprietaire;
 
 @Service
 @Transactional
@@ -21,7 +23,9 @@ public class LocationServiceImpl implements ILocationService {
 	}
 
 	@Override
-	public Location addLocation(Location location) {
+	public Location addLocation(Location location,Proprietaire proprietaire, ClasseStandard cStd) {
+		location.setcStd(cStd);
+		location.setProprietaire(proprietaire);
 		return locationDao.addLocation(location);
 	}
 
@@ -49,5 +53,5 @@ public class LocationServiceImpl implements ILocationService {
 	public Location getLocationById(int id) {
 		return locationDao.getLocationById(id);
 	}
-
+	
 }
