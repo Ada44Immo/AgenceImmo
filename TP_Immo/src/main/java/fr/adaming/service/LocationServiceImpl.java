@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.dao.ICStdDao;
 import fr.adaming.dao.ILocationDao;
+import fr.adaming.dao.IProprietaireDao;
 import fr.adaming.model.ClasseStandard;
 import fr.adaming.model.Location;
 import fr.adaming.model.Proprietaire;
@@ -17,16 +19,23 @@ public class LocationServiceImpl implements ILocationService {
 
 	@Autowired
 	private ILocationDao locationDao;
+	@Autowired
+	ICStdDao cStdDao;
+	@Autowired
+	IProprietaireDao propDao;
 	
 	public void setLocationDao(ILocationDao locationDao) {
 		this.locationDao = locationDao;
 	}
 
 	@Override
-	public Location addLocation(Location location,Proprietaire proprietaire, ClasseStandard cStd) {
+	public Location addLocation(Location location, int idProp,String nameCstd) {
+		ClasseStandard cStd=cStdDao.getCStdByName(nameCstd);
 		location.setcStd(cStd);
+		Proprietaire proprietaire=propDao.getProprietaireById(idProp);
 		location.setProprietaire(proprietaire);
 		return locationDao.addLocation(location);
+
 	}
 
 	@Override

@@ -8,7 +8,7 @@ import fr.adaming.model.Proprietaire;
 
 public interface ILocationService {
 	
-	public Location addLocation(Location location, Proprietaire proprietaire, ClasseStandard cStd);
+	public Location addLocation(Location location,  int idProp,String nameCstd);
 	public Location updateLocation(Location location);
 	public int deleteLocation (int id);
 	public List<Location> getAllLocation();
