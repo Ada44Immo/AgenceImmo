@@ -80,7 +80,7 @@ public class CStdDaoImpl implements ICStdDao {
 	}
 
 	@Override
-	public ClasseStandard getPaysByName(String name) {
+	public ClasseStandard getCStdByName(String name) {
 		// ouverture de la session
 		s = sf.getCurrentSession();
 

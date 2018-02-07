@@ -14,6 +14,6 @@ public interface ICStdService {
 
 	public List<ClasseStandard> getAllCStd();
 	
-	public ClasseStandard getPaysByName(String name);
+	public ClasseStandard getCStdByName(String name);
 
 }

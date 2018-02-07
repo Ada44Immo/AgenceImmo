@@ -38,8 +38,8 @@ public class CStdServiceImpl implements ICStdService {
 	}
 
 	@Override
-	public ClasseStandard getPaysByName(String name) {
-		return cStdDao.getPaysByName(name);
+	public ClasseStandard getCStdByName(String name) {
+		return cStdDao.getCStdByName(name);
 	}
 	
 	
