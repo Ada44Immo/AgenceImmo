@@ -10,3 +10,30 @@ monApp
 	});
 	
 })
+
+.controller("addClientCtrl", function($scope, clientService, $location) {
+	// initialiser le pays du formulaire
+	$scope.clientAjout = {
+		nom : '',
+		tel:'',
+		adresse : {
+			cp: '', 
+			localite:'', 
+			num:'', 
+			pays:'', 
+			rue:''
+		}
+		
+	}
+	// fonction pour soumettre le pays a ajouter
+	$scope.ajouterClient = function() {
+		// appel de la methode addPays du service
+		paysService.addClient($scope.clientAjout, function(callback) {
+			if (callback == 'OK') {
+				// redirection vers la methode afficher la liste
+				$location.path("liste")
+			}
+		});
+	}
+
+})

@@ -16,11 +16,11 @@
 	<tr ng-repeat="client in listeClient">
 		<td>{{client.id}}</td>
 		<td>{{client.nom}}</td>	
-		<td>{{client.num}}</td>	
-		<td>{{client.rue}}</td>
-		<td>{{client.cp}}</td>
-		<td>{{client.localite}}</td>
-		<td>{{client.pays}}</td>
+		<td>{{client.adresse.num}}</td>	
+		<td>{{client.adresse.rue}}</td>
+		<td>{{client.adresse.cp}}</td>
+		<td>{{client.adresse.localite}}</td>
+		<td>{{client.adresse.pays}}</td>
 		<td>{{client.tel}}</td>
 		<td><button class="btn btn-success" ng-click="supprimLien()">Supprimer</button> | 
 		<button class="btn btn-success" ng-click="modifierLien()">Modifier</button> </td>
