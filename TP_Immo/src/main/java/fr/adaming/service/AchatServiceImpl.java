@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IAchatDao;
+import fr.adaming.dao.ICStdDao;
+import fr.adaming.dao.IProprietaireDao;
 import fr.adaming.model.Achat;
 import fr.adaming.model.Acquereur;
 import fr.adaming.model.ClasseStandard;
@@ -17,7 +19,10 @@ import fr.adaming.model.Proprietaire;
 public class AchatServiceImpl implements IAchatService{
 	@Autowired
 	IAchatDao achatDao;
-	
+	@Autowired
+	ICStdDao cStdDao;
+	@Autowired
+	IProprietaireDao propDao;
 	
 	public void setAchatDao(IAchatDao achatDao) {
 		this.achatDao = achatDao;
@@ -56,8 +61,10 @@ public class AchatServiceImpl implements IAchatService{
 
 
 	@Override
-	public Achat addAchat(Achat achat, Proprietaire proprietaire, ClasseStandard cStd) {		
+	public Achat addAchat(Achat achat, int idProp,String nameCstd) {	
+		ClasseStandard cStd=cStdDao.getCStdByName(nameCstd);
 		achat.setcStd(cStd);
+		Proprietaire proprietaire=propDao.getProprietaireById(idProp);
 		achat.setProprietaire(proprietaire);
 		return achatDao.addAchat(achat);
 	}

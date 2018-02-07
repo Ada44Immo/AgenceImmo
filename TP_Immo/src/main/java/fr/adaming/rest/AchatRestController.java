@@ -38,9 +38,9 @@ public class AchatRestController {
 	}
 	
 	@RequestMapping(value="add",method=RequestMethod.POST,consumes="application/json",produces="application/json")
-	public Achat addAchat(@RequestBody Achat achat,@RequestBody Proprietaire proprietaire,@RequestBody ClasseStandard cStd){
+	public Achat addAchat(@RequestBody Achat achat,@RequestParam("pIdP") int idProp,@RequestParam("pNomCS") String nameCstd){
 		
-		return achatService.addAchat(achat, proprietaire, cStd);
+		return achatService.addAchat(achat, idProp, nameCstd);
 	}
 	
 	@RequestMapping(value="update",method=RequestMethod.PUT,consumes="application/json",produces="application/json")
