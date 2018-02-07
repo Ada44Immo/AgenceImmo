@@ -22,28 +22,29 @@
 <script type="text/javascript" src="assets/js/module/app.js"></script>
 <script type="text/javascript" src="assets/js/routing/routing.js"></script>
 <script type="text/javascript" src="assets/js/service/clientProvider.js"></script>
-<script type="text/javascript" src="assets/js/controllers/clientController.js"></script>
+<script type="text/javascript"
+	src="assets/js/controllers/clientController.js"></script>
 
 </head>
 <body ng-app="monApp">
 
 	<ul class="nav nav-tabs">
-	
+
 		<li><a href="#">Accueil</a></li>
-		
+
 		<li role="presentation" class="dropdown"><a
 			class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 			aria-haspopup="true" aria-expanded="false"> Gestion des clients <span
 				class="caret"></span>
 		</a>
 			<ul class="dropdown-menu">
-				<li><a href="#!afficheClient">Liste des Clients</a></li>								
-				<li role="separator" class="divider"></li>				
-					<li><a href="#!ajoutClient">Ajout</a></li>
-					<li><a href="#!supprClient">Supprimer</a></li>
-					<li><a href="#!modifClient">Modifier</a></li>
+				<li><a href="#!afficheClient">Liste des Clients</a></li>
 				<li role="separator" class="divider"></li>
-					<li><a href="#!rechercheClient">Recherche</a></li>
+				<li><a href="#!ajoutClient">Ajout</a></li>
+				<li><a href="#!supprClient">Supprimer</a></li>
+				<li><a href="#!modifClient">Modifier</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a href="#!rechercheClient">Recherche</a></li>
 			</ul></li>
 
 
@@ -56,20 +57,27 @@
 				<li><a href="#">Chateau</a></li>
 				<li><a href="#">Villa</a></li>
 				<li><a href="#">Hotel Particulier</a></li>
-				
-				<li role="separator" class="divider"></li>				
+
+				<li role="separator" class="divider"></li>
 				<li><a href="#">Ajout</a></li>
 				<li><a href="#">Supprimer</a></li>
 				<li><a href="#">Modifier</a></li>
 				<li role="separator" class="divider"></li>
 				<li><a href="#">Recherche</a></li>
 			</ul></li>
-			
-		<ul class="dropdown-menu">
+
+
+		<li role="presentation" class="dropdown"><a
+			class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+			aria-haspopup="true" aria-expanded="false"> Gestion des visites <span
+				class="caret"></span>
+		</a>
+			<ul class="dropdown-menu">
 				<li><a href="#!listeVisite">Liste Visite</a></li>
 				<li><a href="#!">Liste Visite Par Achat</a></li>
 				<li><a href="#">Liste Visite Par Loc</a></li>
 			</ul></li>
+
 	</ul>
 
 	<!-- Spécifier l'endroit de l'injection des vues -->
