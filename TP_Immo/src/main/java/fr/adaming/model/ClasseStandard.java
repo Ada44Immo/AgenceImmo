@@ -11,6 +11,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="classestandard")
 public class ClasseStandard implements Serializable{
@@ -25,12 +27,15 @@ public class ClasseStandard implements Serializable{
 	private double surfaceMin;
 	
 	//Transformation des associations UML en java
+	@JsonIgnore
 	@ManyToMany(mappedBy="listeCStd")
 	private List<Client> listeClient;	
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="cStd")
 	private List<Location> listeLocation;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="cStd")
 	private List<Achat> listeAchat;
 	

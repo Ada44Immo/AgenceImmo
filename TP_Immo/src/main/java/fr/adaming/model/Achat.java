@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="achats")
 public class Achat extends Bien implements Serializable {
@@ -84,6 +86,7 @@ public class Achat extends Bien implements Serializable {
 	@JoinColumn(name="acquereur_id", referencedColumnName="id_a")
 	private Acquereur acquereur;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="achat")
 	private List<Visite> listeVisite;
 	

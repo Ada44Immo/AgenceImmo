@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "locations")
 public class Location extends Bien implements Serializable {
@@ -140,13 +142,12 @@ public class Location extends Bien implements Serializable {
 	private Acquereur acquereur;
 
 	@OneToMany(mappedBy="location")
+	@JsonIgnore
 	private List<Visite> listeVisite;
 	
 	@ManyToOne
 	@JoinColumn(name="cStd_id", referencedColumnName="idCode")
 	private ClasseStandard cStd;
-	
-	
 	
 	public ClasseStandard getcStd() {
 		return cStd;

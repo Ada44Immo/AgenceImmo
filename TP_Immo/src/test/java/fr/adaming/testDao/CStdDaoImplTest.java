@@ -64,39 +64,4 @@ public class CStdDaoImplTest {
 		assertEquals("Trololo", cModif.getType());
 	}
 
-	//
-	// ClasseStandard c1=clientDao.getByNom("TOTO");
-	// assertEquals("Nantes", c1.getAdresse().getLocalite());
-	// }
-	//
-	//
-	//
-	//
-	// //methode modifier
-	// @Ignore
-	// @Test
-	// @Rollback(true)
-	// @Transactional
-	// public void updateTest(){
-	// Client c2=clientDao.getByNom("TOTO");
-	// c2.setNom("TITI");
-	// Client cModif=clientDao.updateClient(c2);
-	//
-	// assertEquals("TITI", cModif.getNom());
-	//
-	// }
-	//
-	// //test delete
-	// @Ignore
-	// @Test
-	// @Rollback(true)
-	// @Transactional
-	// public void deleteTest(){
-	// int tailleAvant=clientDao.getAllClient().size();
-	// Client c3=clientDao.getByNom("TOTO");
-	// int verif=clientDao.deleteClient(c3);
-	// assertEquals(1, verif);
-	//
-	// }
-	//
 }

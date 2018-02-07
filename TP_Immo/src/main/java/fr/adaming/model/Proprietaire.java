@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * La classe Propietaire herite de la classe personne et ajoute comme attribut un entier id. 
@@ -29,9 +31,11 @@ public class Proprietaire extends Personne implements Serializable {
 	private int id;
 	
 	// Transformation des associations UML en Java
+	@JsonIgnore
 	@OneToMany(mappedBy="proprietaire")
 	private List<Achat> listeAchat;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="proprietaire")
 	private List<Location> listeLocation;
 

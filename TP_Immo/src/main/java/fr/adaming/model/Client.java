@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mysql.fabric.xmlrpc.base.Array;
 
 @Entity
@@ -29,10 +30,12 @@ public class Client extends Personne{
 	
 	//relation UML en JAVA	
 	//relation client/visite
+	@JsonIgnore
 	@OneToMany(mappedBy="client")
 	private List<Visite> listeVisite;
 			
 	//relation client/classe standard
+	@JsonIgnore
 	@ManyToMany
 	@JoinTable(name="client_cstd",joinColumns=@JoinColumn(name="client_id"),inverseJoinColumns=@JoinColumn(name="cstd_id"))
 	private List<ClasseStandard> listeCStd=new ArrayList<ClasseStandard>();
