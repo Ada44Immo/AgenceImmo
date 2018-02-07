@@ -9,6 +9,16 @@ monApp
 	visiteService.findListeVisite(function(callback){
 		// stocker la liste recuperer dans la variable listePays du scope pour quelle soit accessible depuis al vue
 		$scope.listeVisite=callback;
-	});
-	
+	});	
 })
+
+.controller("findVisiteAchatCtrl", function($scope, visiteService, $rootScope,$location) {
+	// Appel de la methode du service pour recuperer la liste du ws
+	visiteService.findListAchat(function(callback){
+		// stocker la liste recuperer dans la variable listePays du scope pour quelle soit accessible depuis al vue
+		$scope.listeVisiteAchat=callback;
+	});	
+})
+
+
+
