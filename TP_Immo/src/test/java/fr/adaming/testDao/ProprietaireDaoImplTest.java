@@ -29,7 +29,7 @@ public class ProprietaireDaoImplTest {
 	
 	@Ignore
 	@Test
-	@Transactional
+	@Transactional 
 	@Rollback(true)
 	public void testAddProprietaire(){
 		Proprietaire p = new Proprietaire(adresse, 2558, "dolt");
