@@ -1,8 +1,7 @@
 package fr.adaming.testDao;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-
-import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -29,6 +28,13 @@ public class ProprietaireDaoImplTest {
 	
 	@Ignore
 	@Test
+	@Transactional(readOnly=true)
+	public void testGetAllPropietaire(){
+		assertEquals(2, proprietaireDao.getAllPropietaire().size());
+	}
+	
+	@Ignore
+	@Test
 	@Transactional 
 	@Rollback(true)
 	public void testAddProprietaire(){
@@ -37,12 +43,33 @@ public class ProprietaireDaoImplTest {
 		assertNotNull(p.getId());
 	}
 	
-	// public List<Proprietaire> getAllPropietaire(); 
+	@Ignore
+	@Test
+	@Transactional(readOnly=true)
+	public void testGetProprietaireById(){
+		Proprietaire p = proprietaireDao.getProprietaireById(2);
+		assertNotNull(p);
+	}
 
-
-//	public Proprietaire updateProprietaire(Proprietaire p);
-//
-//	public int deleteProprietaire(int id);
-//
-//	public Proprietaire getProprietaireById(int id);
+	@Ignore
+	@Test
+	@Transactional 
+	@Rollback(true)
+	public void testUpdateProprietaire(){
+		Proprietaire p = new Proprietaire(adresse, 2558, "dolt");
+		p.setId(2);
+		p=proprietaireDao.updateProprietaire(p);
+		Proprietaire pOut = proprietaireDao.getProprietaireById(2);
+		assertEquals(p.getNom(), pOut.getNom());		
+	}
+	
+	@Ignore
+	@Test
+	@Transactional 
+	@Rollback(true)
+	public void testDeleteProprietaire(){
+		int size = proprietaireDao.getAllPropietaire().size();
+		proprietaireDao.deleteProprietaire(2);
+		assertEquals(size, proprietaireDao.getAllPropietaire().size()+1);		
+	}
 }
