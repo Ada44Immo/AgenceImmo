@@ -76,8 +76,19 @@ public class VisiteDaoImpl implements IVisiteDao{
 
 	@Override
 	public List<Visite> getVisiteByDate(Date date) {
-		Criteria criteria = s.createCriteria(Order.class);
-		criteria.add(Restrictions.eq("from Visite v where v.date", date));
+		
+		//Création des dates max et min pour le between
+		Date fromDate= date;
+		Date toDate= date;
+		toDate.setHours(23);
+		toDate.setMinutes(59);
+		fromDate.setHours(00);
+		fromDate.setMinutes(01);
+		
+		//Création 
+		Criteria criteria = s.createCriteria(Visite.class);
+		criteria.add(Restrictions.between("DATE(paymentDate)", fromDate, toDate));
+		
 		return null;
 	}
 

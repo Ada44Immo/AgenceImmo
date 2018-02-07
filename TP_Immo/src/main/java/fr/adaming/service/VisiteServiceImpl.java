@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.adaming.dao.IVisiteDao;
 import fr.adaming.model.Achat;
 import fr.adaming.model.Agent;
+import fr.adaming.model.Location;
 import fr.adaming.model.Visite;
 
 @Service
@@ -51,6 +52,12 @@ public class VisiteServiceImpl implements IVisiteService{
 	@Override
 	public Visite getVisiteById(int id) {
 		return visiteService.getVisiteById(id);
+	}
+
+	@Override
+	public List<Visite> getVisiteByBienLocation(Location location) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
