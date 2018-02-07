@@ -12,6 +12,16 @@ monApp.config(function($routeProvider){
 			templateUrl: "views/listeVisite.html",
 			controller: "findAllVisiteCtrl"
 		})
+		
+//		.when("/listeVisiteByAchat",{
+//			templateUrl: "views/listeVisiteAchat.html",
+//			controller: "findVisiteAchatCtrl"
+//		})
+//		
+//		.when("/listeVisite",{
+//			templateUrl: "views/listeVisiteLoc.html",
+//			controller: "findVisiteLocCtrl"
+//		})
 	
 	
 })

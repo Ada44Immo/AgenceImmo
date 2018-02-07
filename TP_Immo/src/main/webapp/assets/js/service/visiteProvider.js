@@ -37,7 +37,7 @@ monApp.factory("visiteService",function($http){
 	
 	//Le retour des fonctions du service
 	return {
-		findListe:recupListeVisite,
+		findListeVisite:recupListeVisite,
 		findListAchat:recupListeVisiteAchat
 	}
 	
