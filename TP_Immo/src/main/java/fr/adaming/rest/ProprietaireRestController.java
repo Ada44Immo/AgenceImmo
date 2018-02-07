@@ -38,7 +38,6 @@ public class ProprietaireRestController {
 		return proprietaireService.getProprietaireById(id);	
 	}
 	
-	
 	@RequestMapping(value="update", method= RequestMethod.PUT, produces="application/json",consumes="application/json")
 	public Proprietaire updateProprietaire(@RequestBody Proprietaire p){
 		return proprietaireService.updateProprietaire(p);
@@ -47,6 +46,11 @@ public class ProprietaireRestController {
 	@RequestMapping(value="delete", method= RequestMethod.DELETE)
 	public void deleteProprietaire(@RequestParam("pId") int id){
 		proprietaireService.deleteProprietaire(id);
+	}
+	
+	@RequestMapping(value="ByNom", method= RequestMethod.GET, produces="application/json")
+	public List<Proprietaire> getProprietaireByNom(@RequestParam("pNom") String nom){
+		return proprietaireService.getProprietaireParNom(nom);
 	}
 	
 }

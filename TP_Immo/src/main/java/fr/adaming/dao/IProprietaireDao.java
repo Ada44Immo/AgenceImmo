@@ -16,4 +16,6 @@ public interface IProprietaireDao {
 	
 	public Proprietaire getProprietaireById(int id);
 	
+	public List<Proprietaire> getProprietaireParNom(String nom);
+	
 }

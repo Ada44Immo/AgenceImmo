@@ -16,4 +16,6 @@ public interface IProprietaireService {
 
 	public Proprietaire getProprietaireById(int id);
 	
+	public List<Proprietaire> getProprietaireParNom(String nom);
+
 }

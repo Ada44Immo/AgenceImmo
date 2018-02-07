@@ -78,4 +78,17 @@ public class ProprietaireDaoImpl implements IProprietaireDao {
 		return (Proprietaire) s.get(Proprietaire.class, id);
 	}
 
+	@Override
+	public List<Proprietaire> getProprietaireParNom(String nom) {
+		Session s = sf.getCurrentSession();
+
+		String req ="FROM Proprietaire p WHERE p.nom=:pNom";
+		
+		Query query = s.createQuery(req);
+		
+		query.setParameter("pNom", nom);
+		
+		return query.list();
+	}
+
 }

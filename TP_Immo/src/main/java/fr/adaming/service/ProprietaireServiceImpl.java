@@ -45,4 +45,9 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 		return proprietaireDao.getProprietaireById(id);
 	}
 
+	@Override
+	public List<Proprietaire> getProprietaireParNom(String nom) {
+		return proprietaireDao.getProprietaireParNom(nom);
+	}
+
 }

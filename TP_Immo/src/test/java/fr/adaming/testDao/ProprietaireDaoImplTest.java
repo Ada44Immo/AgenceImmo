@@ -3,6 +3,8 @@ package fr.adaming.testDao;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.List;
+
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,4 +74,13 @@ public class ProprietaireDaoImplTest {
 		proprietaireDao.deleteProprietaire(2);
 		assertEquals(size, proprietaireDao.getAllProprietaire().size() + 1);
 	}
+	
+	@Ignore
+	@Test
+	@Transactional(readOnly=true)
+	public void testGetProprietaireParNom(){
+		List<Proprietaire> liste = proprietaireDao.getProprietaireParNom("Barbosa");
+		assertEquals(1,liste.size());
+	}
+	
 }
