@@ -4,7 +4,9 @@ import java.util.Date;
 
 import javax.persistence.Embedded;
 import javax.persistence.Lob;
+import javax.persistence.MappedSuperclass;
 
+@MappedSuperclass
 public abstract class Bien {
 	
 	//attribut

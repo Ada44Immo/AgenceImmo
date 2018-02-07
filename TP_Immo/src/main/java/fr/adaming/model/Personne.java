@@ -1,8 +1,9 @@
 package fr.adaming.model;
 
 import javax.persistence.Embedded;
+import javax.persistence.MappedSuperclass;
 
-
+@MappedSuperclass
 public class Personne {
 
 	@Embedded 
