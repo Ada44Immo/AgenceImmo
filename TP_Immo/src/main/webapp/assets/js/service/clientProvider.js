@@ -116,10 +116,10 @@ monApp.factory("clientService",function($http){
 	return {
 		//recuperation de des fonction et utilisation en dehors via un nom de methode
 		findListe:recupListe,
-		ajoutClient:addClient,
-		modifClient:updateClient,
-		supprClient:deleteClient,
-		rechercheClient:findByNomClient
+		addClient:ajoutClient,
+		updateClient:modifClient,
+		deleteClient:supprClient,
+		findByNomClient:rechercheClient
 		
 	}
 })

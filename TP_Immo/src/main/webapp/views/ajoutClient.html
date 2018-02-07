@@ -19,32 +19,32 @@
   <div class="form-group">
     <label for="idAdresse" class="col-sm-2 control-label">Adresse</label>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="idNum" placeholder="n°" ng-model="clientAjout.adresse.num">
+      <input type="text" class="form-control" id="idNum" placeholder="n°" ng-model="clientAjout.adresse.num">
     </div>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="idRue" placeholder="rue" ng-model="clientAjout.adresse.rue">
+      <input type="text" class="form-control" id="idRue" placeholder="rue" ng-model="clientAjout.adresse.rue">
     </div>
     <div class="col-sm-10">
       <input type="number" class="form-control" id="idCP" placeholder="Code postal" ng-model="clientAjout.adresse.cp">
     </div>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="idVille" placeholder="Ville" ng-model="clientAjout.adresse.localite">
+      <input type="text" class="form-control" id="idVille" placeholder="Ville" ng-model="clientAjout.adresse.localite">
     </div>
     <div class="col-sm-10">
-      <input type="number" class="form-control" id="idPays" placeholder="Pays" ng-model="clientAjout.adresse.pays">
+      <input type="text" class="form-control" id="idPays" placeholder="Pays" ng-model="clientAjout.adresse.pays">
     </div>
   </div>
   
     <div class="form-group">
     <label for="idTel" class="col-sm-2 control-label">Telephone</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="idTel" placeholder="n° de telephone" ng-model="clientAjout.tel">
+      <input type="number" class="form-control" id="idTel" placeholder="n° de telephone" ng-model="clientAjout.tel">
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button class="btn btn-default" ng-click="ajouterCLient()">Ajouter</button>
+      <button class="btn btn-default" ng-click="ajouterClient()">Ajouter</button>
     </div>
   </div>
 </form>
