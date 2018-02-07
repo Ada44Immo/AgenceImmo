@@ -2,9 +2,9 @@
 monApp.factory("clientService",function($http){
 	
 	//declartion de l'url source du projet webservice
-	var urlWS='http://localhost:8080/TP_Immo/';
+	var urlWS='http://localhost:8080/TP_Immo/client';
 	
-	//************************************GET ALL PAYS**************************************************************	
+	//************************************GET ALL Client**************************************************************	
 	//definition de la fonction pour recuperer la liste
 	function recupListe(callback){
 		// appel du webservice via le service $http(il est basé sur ajax(le bus
@@ -13,7 +13,7 @@ monApp.factory("clientService",function($http){
 
 		$http({
 			method : "GET",// methode http
-			url : urlWS+'client/liste'// url de la methode dans le WS
+			url : urlWS+'liste'// url de la methode dans le WS
 		}).then(function success(reponse) {
 			//stocker la reponse dans callback afin de le transporter au controller
 			callback(reponse.data)

@@ -1,26 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+
 <h1 style="text-align: center;">Liste des Clients</h1>
 <br/>
 <table class="table table-bordered" style="text-align: center;">
 	<tr>
 		<th>ID</th>
 		<th>Nom</th>
-		<th>Telephone</th>
-		<th>Adresse</th>
+		<th>Numero</th>
+		<th>Rue</th>
+		<th>Code Postal</th>
+		<th>Ville</th>
+		<th>Pays</th>
 		<th>Telephone</th>
 		<th>Operation</th>
 	</tr>
 	<tr ng-repeat="client in listeClient">
 		<td>{{client.id}}</td>
-		<td>{{client.nom}}</td>
+		<td>{{client.nom}}</td>	
+		<td>{{client.num}}</td>	
+		<td>{{client.rue}}</td>
+		<td>{{client.cp}}</td>
+		<td>{{client.localite}}</td>
+		<td>{{client.pays}}</td>
 		<td>{{client.tel}}</td>
-		<td>{{client.adresse}}</td>
 		<td><button class="btn btn-success" ng-click="supprimLien()">Supprimer</button> | 
 		<button class="btn btn-success" ng-click="modifierLien()">Modifier</button> </td>
 	</tr>
@@ -28,5 +29,3 @@
 
 
 
-</body>
-</html>

@@ -3,8 +3,8 @@
 monApp.config(function($routeProvider){
 	$routeProvider
 	
-		.when("/client/liste",{
-			templateUrl: "views/listeClient.html",
+		.when("/afficheClient",{
+			templateUrl: "views/afficheClient.html",
 			controller: "findAllClientCtrl"
 		})
 		
