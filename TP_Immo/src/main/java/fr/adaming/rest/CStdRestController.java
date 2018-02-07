@@ -14,33 +14,34 @@ import fr.adaming.model.ClasseStandard;
 import fr.adaming.service.ICStdService;
 
 @RestController // pour déclarer un web service restful avec Spring MVC rest
+@RequestMapping(value="cstd")
 public class CStdRestController {
 	
 	@Autowired
 	private ICStdService cStdService;
 	
-	@RequestMapping(value="/CStd/liste",method=RequestMethod.GET, produces="application/json")
+	@RequestMapping(value="liste",method=RequestMethod.GET, produces="application/json")
 	public List<ClasseStandard> getAllCStd(){
 		return cStdService.getAllCStd();
 	}
 	
-	@RequestMapping(value="/CStd",method=RequestMethod.GET, produces="application/json")
-	public List<ClasseStandard> getCStdByName(@RequestParam("pName") String name){
+	@RequestMapping(value="ByNom",method=RequestMethod.GET, produces="application/json")
+	public ClasseStandard getCStdByName(@RequestParam("pNom") String name){
 		return cStdService.getCStdByName(name);
 	}
 	
-	@RequestMapping(value="/CStd", method=RequestMethod.POST, produces="application/json", consumes="application/json" )
+	@RequestMapping(value="add", method=RequestMethod.POST, produces="application/json", consumes="application/json" )
 	public ClasseStandard addCStd(@RequestBody ClasseStandard cStd){ //annotation req body ca veut dire que l'objet est a recupérer dans le corps de la requete (lié a post)
 		return cStdService.addCStd(cStd);
 	}
 
-	@RequestMapping(value="/CStd", method=RequestMethod.PUT, produces="application/json", consumes="application/json" )
+	@RequestMapping(value="update", method=RequestMethod.PUT, produces="application/json", consumes="application/json" )
 	public ClasseStandard updateCStd(@RequestBody ClasseStandard cStd){ //annotation req body ca veut dire que l'objet est a recupérer dans le corps de la requete (lié a post)
 		return cStdService.updateCStd(cStd);
 	}
 	
-	@RequestMapping(value="/CStd/{pId}", method=RequestMethod.DELETE)
-	public void deleteCStd(@PathVariable ("pId") int id){
-		cStdService.deleteCStd(id);		
+	@RequestMapping(value="delete/{pId}", method=RequestMethod.DELETE)
+	public int deleteCStd(@PathVariable ("pId") int id){
+		return cStdService.deleteCStd(id);		
 	}
 }

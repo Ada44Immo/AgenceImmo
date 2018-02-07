@@ -57,7 +57,7 @@ public class CStdDaoImplTest {
 	@Test
 	@Transactional
 	public void updateTest() {
-		ClasseStandard c2 = cStdDao.getCStdByName("Manoir").get(0);
+		ClasseStandard c2 = cStdDao.getCStdByName("Manoir");
 		c2.setType("Trololo");
 		ClasseStandard cModif = cStdDao.updateCStd(c2);
 

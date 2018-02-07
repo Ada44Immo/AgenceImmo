@@ -80,20 +80,17 @@ public class CStdDaoImpl implements ICStdDao {
 	}
 
 	@Override
-	public List<ClasseStandard> getCStdByName(String name) {
+	public ClasseStandard getCStdByName(String name) {
+		
 		Session s = sf.getCurrentSession();
 
-		String req = "FROM ClasseStandard cs";
+		String req = "FROM ClasseStandard cs WHERE cs.type=:mKey";
 
-		if (name != null) {
-			req = req + " WHERE cs.type LIKE :mKey";
-		}
 		Query query = s.createQuery(req);
-		if (name != null) {
-			query.setString("mKey", "%" + name + "%");
-		}
 
-		return query.list();
+		query.setParameter("mKey", name);
+		
+		return (ClasseStandard) query.uniqueResult();
 	}
 
 }

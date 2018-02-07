@@ -38,7 +38,7 @@ public class CStdServiceImpl implements ICStdService {
 	}
 
 	@Override
-	public List<ClasseStandard> getCStdByName(String name) {
+	public ClasseStandard getCStdByName(String name) {
 		return cStdDao.getCStdByName(name);
 	}
 	
