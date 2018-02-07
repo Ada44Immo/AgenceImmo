@@ -10,6 +10,6 @@ public interface IAchatDao {
 	public List<Achat> getAllAchat();
 	public List<Achat> getAchatByMotCle(String motCle);
 	public Achat updateAchat(Achat achat);
-	public int deleteAchat(Achat achat);
+	public int deleteAchat(int id);
 	public Achat getAchatById(int id);
 }

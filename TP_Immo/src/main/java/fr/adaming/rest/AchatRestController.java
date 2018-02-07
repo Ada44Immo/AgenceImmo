@@ -50,8 +50,8 @@ public class AchatRestController {
 	}
 	
 	@RequestMapping(value="delete",method=RequestMethod.DELETE,consumes="application/json")
-	public int deleteAchat(@RequestBody Achat achat){
-		return achatService.deleteAchat(achat);
+	public int deleteAchat(@RequestParam("pId") int id){
+		return achatService.deleteAchat(id);
 	}
 	
 	@RequestMapping(value="ByMC",method=RequestMethod.GET,produces="application/json")

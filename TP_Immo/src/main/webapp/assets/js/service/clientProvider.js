@@ -26,7 +26,7 @@ monApp.factory("clientService",function($http){
 	
 //************************************ADD Client**************************************************************
 	
-	function ajoutClient(paysAjout,callback){
+	function ajoutClient(clientAjout,callback){
 		$http({
 	
 			method : "POST",// methode http
@@ -68,13 +68,12 @@ monApp.factory("clientService",function($http){
 	
 	//************************************DELETE PAYS**************************************************************
 	
-	function supprClient(clientSupp,callback){
+	function supprClient(id,callback){
 		$http({
 	
 			method : "DELETE",// methode http
-			url : urlWS+'delete',// url de la methode dans le WS
-			data:angular.toJson(clientSupp),//les données encapsulé dans le corps de la requete http
-			header:{'content-type':"application/json"}
+			url : urlWS+'delete?pId='+id,// url de la methode dans le WS
+		
 		
 		}).then(
 			function success(reponse) {

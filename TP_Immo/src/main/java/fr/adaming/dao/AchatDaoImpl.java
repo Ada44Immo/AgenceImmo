@@ -79,11 +79,11 @@ public class AchatDaoImpl implements IAchatDao{
 	}
 
 	@Override
-	public int deleteAchat(Achat achat) {
+	public int deleteAchat(int id) {
 		s=sf.getCurrentSession();
 		String req="delete from Achat a where a.id=:pId";
 		Query query = s.createQuery(req);
-		query.setParameter("pId", achat.getId());
+		query.setParameter("pId", id);
 		return query.executeUpdate();
 	}
 

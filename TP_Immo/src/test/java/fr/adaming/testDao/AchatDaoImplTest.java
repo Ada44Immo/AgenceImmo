@@ -59,7 +59,7 @@ public class AchatDaoImplTest {
 		Achat a = new Achat();
 		a.setAdresse(new Adresse());
 		a.setId(3);
-		achatDao.deleteAchat(a);
+		achatDao.deleteAchat(a.getId());
 		assertEquals(verif - 1, achatDao.getAllAchat().size());
 	}
 	

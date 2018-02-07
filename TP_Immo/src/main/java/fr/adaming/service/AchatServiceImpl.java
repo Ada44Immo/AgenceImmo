@@ -47,9 +47,9 @@ public class AchatServiceImpl implements IAchatService{
 	}
 
 	@Override
-	public int deleteAchat(Achat achat) {
+	public int deleteAchat(int id) {
 		
-		return achatDao.deleteAchat(achat);
+		return achatDao.deleteAchat(id);
 	}
 
 	@Override

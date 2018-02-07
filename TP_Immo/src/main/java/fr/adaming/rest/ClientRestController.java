@@ -34,10 +34,10 @@ public class ClientRestController {
 		return clientService.getByNom(nom);
 	}
 	
-	@RequestMapping(value="delete",method=RequestMethod.DELETE,consumes="application/json")
-	public int deleteClient(@RequestBody Client c){
+	@RequestMapping(value="delete",method=RequestMethod.DELETE)
+	public int deleteClient(@RequestParam("pId") int id){
 		
-		return clientService.deleteClient(c);
+		return clientService.deleteClient(id);
 	}
 	
 	@RequestMapping(value="update",method=RequestMethod.PUT,consumes="application/json",produces="application/json")

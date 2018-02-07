@@ -44,10 +44,10 @@ public class ClientDaoImpl implements IClientDao{
 	}
 
 	@Override
-	public int deleteClient(Client client) {
+	public int deleteClient(int id) {
 		s=sf.getCurrentSession();
 		//recup client par son id
-		Client cSupp = (Client) s.get(Client.class, client.getId());
+		Client cSupp = (Client) s.get(Client.class, id);
 		//suppresion du client
 		s.delete(cSupp);
 		return 1;

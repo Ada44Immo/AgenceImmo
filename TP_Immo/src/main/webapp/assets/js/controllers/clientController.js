@@ -31,7 +31,7 @@ monApp
 		clientService.addClient($scope.clientAjout, function(callback) {
 			if (callback == 'OK') {
 				// redirection vers la methode afficher la liste
-				$location.path("liste")
+				$location.path("afficheClient")
 			}
 		});
 	}
@@ -56,7 +56,7 @@ monApp
 		clientService.updateClient($scope.clientModif, function(callback) {
 			if (callback == 'OK') {
 				// redirection vers la methode afficher la liste
-				$location.path("liste")
+				$location.path("afficheClient")
 			}
 		})
 	}
@@ -67,26 +67,13 @@ monApp
 
 .controller("deleteClientCtrl", function($scope, clientService, $location) {
 
-	$scope.clientSupp = {
-			
-			id:'',
-			nom : '',
-			tel:'',
-			adresse : {
-				cp: '', 
-				localite:'', 
-				num:'', 
-				pays:'', 
-				rue:''
-			}
-			
-		};
+	$scope.id = '';
 
 	$scope.supprimerClient = function() {
-		clientService.deleteClient($scope.clientSupp, function(callback) {
+		clientService.deleteClient($scope.id, function(callback) {
 			if (callback == 'OK') {
 				// redirection vers la methode afficher la liste
-				$location.path("liste")
+				$location.path("afficheClient")
 			}
 		})
 	}

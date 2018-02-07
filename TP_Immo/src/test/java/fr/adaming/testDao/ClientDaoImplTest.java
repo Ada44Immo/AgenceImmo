@@ -81,7 +81,7 @@ public class ClientDaoImplTest {
 	 public void deleteTest(){
 		 int tailleAvant=clientDao.getAllClient().size();
 		 Client c3=clientDao.getByNom("TOTO");
-		 int verif=clientDao.deleteClient(c3);
+		 int verif=clientDao.deleteClient(c3.getId());
 		 assertEquals(1, verif);
 		 
 	 }
