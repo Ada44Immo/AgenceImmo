@@ -5,6 +5,28 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1 style="text-align: center;">Liste des Clients</h1>
+<br/>
+<table class="table table-bordered" style="text-align: center;">
+	<tr>
+		<th>ID</th>
+		<th>Nom</th>
+		<th>Telephone</th>
+		<th>Adresse</th>
+		<th>Telephone</th>
+		<th>Operation</th>
+	</tr>
+	<tr ng-repeat="client in listeClient">
+		<td>{{client.id}}</td>
+		<td>{{client.nom}}</td>
+		<td>{{client.tel}}</td>
+		<td>{{client.adresse}}</td>
+		<td><button class="btn btn-success" ng-click="supprimLien()">Supprimer</button> | 
+		<button class="btn btn-success" ng-click="modifierLien()">Modifier</button> </td>
+	</tr>
+</table>
+
+
 
 </body>
 </html>
