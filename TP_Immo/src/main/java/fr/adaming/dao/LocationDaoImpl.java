@@ -95,7 +95,7 @@ public class LocationDaoImpl implements ILocationDao {
 		String req = "FROM Location l";
 
 		if (localite != null) {
-			req = req + " WHERE l.localite LIKE :mKey";
+			req = req + " WHERE l.adresse.localite LIKE :mKey";
 		}
 		Query query = s.createQuery(req);
 		if (localite != null) {
