@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="acquereurs")
@@ -22,6 +24,7 @@ public class Acquereur extends Personne implements Serializable {
 	
 	private double prix;
 	
+	@Temporal(TemporalType.DATE)
 	private Date dateAchat;
 	
 	// Transformation des associations UML en java
