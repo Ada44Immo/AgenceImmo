@@ -2,11 +2,9 @@ package fr.adaming.testDao;
 
 import static org.junit.Assert.assertEquals;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 import java.util.Date;
-import java.util.GregorianCalendar;
+
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -19,10 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IVisiteDao;
 import fr.adaming.model.Achat;
-import fr.adaming.model.Adresse;
 import fr.adaming.model.Agent;
 import fr.adaming.model.Location;
-import fr.adaming.model.Proprietaire;
 import fr.adaming.model.Visite;
 
 @RunWith(SpringJUnit4ClassRunner.class) // Pour lancer les test avec le module
@@ -88,6 +84,23 @@ public class VisiteDaoImplTest {
 		assertEquals(visiteDao.getVisiteById(vTest.getId()).getAgent().getMail(), vTest.getAgent().getMail());
 	}
 
+	//Ok
+	@Ignore
+	@Test
+	public void testGetVisiteByBienAchat(){
+		Achat achat=new Achat();
+		achat.setId(1);
+		assertEquals(2, visiteDao.getVisiteByBienAchat(achat).size());
+		
+	}
+	//OK
+	@Ignore
+	@Test
+	public void testGetVisiteByBienLocation(){
+		Location loc= new Location();
+		loc.setId(2);
+		assertEquals(2,visiteDao.getVisiteByBienLocation(loc).size());
+	}
 	
 //	 @Test
 //	 public void testGetVisiteByDate(){

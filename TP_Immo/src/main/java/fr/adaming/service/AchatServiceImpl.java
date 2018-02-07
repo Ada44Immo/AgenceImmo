@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.dao.IAchatDao;
 import fr.adaming.model.Achat;
 import fr.adaming.model.Acquereur;
 import fr.adaming.model.ClasseStandard;
@@ -15,43 +16,41 @@ import fr.adaming.model.Proprietaire;
 @Transactional
 public class AchatServiceImpl implements IAchatService{
 	@Autowired
-	IAchatService achatService;
+	IAchatDao achatDao;
 	
 	
-	public void setAchatService(IAchatService achatService) {
-		this.achatService = achatService;
+	public void setAchatDao(IAchatDao achatDao) {
+		this.achatDao = achatDao;
 	}
-
-
 
 	@Override
 	public List<Achat> getAllAchat() {
 		
-		return achatService.getAllAchat();
+		return achatDao.getAllAchat();
 	}
 
 	@Override
 	public List<Achat> getAchatByMotCle(String motCle) {
 		
-		return achatService.getAchatByMotCle(motCle);
+		return achatDao.getAchatByMotCle(motCle);
 	}
 
 	@Override
 	public Achat updateAchat(Achat achat) {
 		
-		return achatService.updateAchat(achat);
+		return achatDao.updateAchat(achat);
 	}
 
 	@Override
 	public int deleteAchat(Achat achat) {
 		
-		return achatService.deleteAchat(achat);
+		return achatDao.deleteAchat(achat);
 	}
 
 	@Override
 	public Achat getAchatById(int id) {
 		
-		return achatService.getAchatById(id);
+		return achatDao.getAchatById(id);
 	}
 
 
@@ -60,7 +59,7 @@ public class AchatServiceImpl implements IAchatService{
 	public Achat addAchat(Achat achat, Proprietaire proprietaire, ClasseStandard cStd) {		
 		achat.setcStd(cStd);
 		achat.setProprietaire(proprietaire);
-		return achatService.addAchat(achat, proprietaire, cStd);
+		return achatDao.addAchat(achat);
 	}
 
 }
