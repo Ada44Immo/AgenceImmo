@@ -27,75 +27,88 @@
 <script type="text/javascript" src="assets/js/service/visiteProvider.js"></script>
 <script type="text/javascript"
 	src="assets/js/controllers/visiteController.js"></script>
+	
+	
+	
+	<!-- Ajout Style -->
+	<style type="text/css">
+		body {
+				background-image: url("assets/css/images/rose_paillette.jpg");
+				background-repeat: no-repeat;
+				background-size: cover;
+}
+	</style>
 </head>
 <body ng-app="monApp">
+	
+	<h2 style="text-align: center; color:orchid;"><img src=assets/css/images/chat.png width="60" height="60"><b>Chat Immo</b></h3>
 
-	<ul class="nav nav-tabs">
-
-		<li><a href="#">Accueil</a></li>
+	<ul class="nav nav-tabs" style="background-color: plum">
+		
+		<li><a href="#" style="color:white">Accueil</a></li>
 
 		<li role="presentation" class="dropdown"><a
 			class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-			aria-haspopup="true" aria-expanded="false"> Gestion des clients <span
+			aria-haspopup="true" aria-expanded="false" style="color:white"> Gestion des clients <span
 				class="caret"></span>
 		</a>
-			<ul class="dropdown-menu">
-				<li><a href="#!afficheClient">Liste des Clients</a></li>
+			<ul class="dropdown-menu" style="background-color:plum">
+				<li ><a href="#!afficheClient" style="color:white">Liste des Clients</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#!ajoutClient">Ajout</a></li>
-				<li><a href="#!supprClient">Supprimer</a></li>
-				<li><a href="#!modifClient">Modifier</a></li>
+				<li><a href="#!ajoutClient" style="color:white">Ajout</a></li>
+				<li><a href="#!supprClient" style="color:white">Supprimer</a></li>
+				<li><a href="#!modifClient" style="color:white">Modifier</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#!rechercheClient">Recherche</a></li>
+				<li><a href="#!rechercheClient" style="color:white">Recherche</a></li>
 			</ul></li>
 
 
 		<li role="presentation" class="dropdown"><a
 			class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-			aria-haspopup="true" aria-expanded="false"> Gestion des biens <span
+			aria-haspopup="true" aria-expanded="false" style="color:white"> Gestion des biens <span
 				class="caret"></span>
 		</a>
-			<ul class="dropdown-menu">
-				<li><a href="#">Chateau</a></li>
-				<li><a href="#">Villa</a></li>
-				<li><a href="#">Hotel Particulier</a></li>
+			<ul class="dropdown-menu" style="background-color:plum">
+				<li><a href="#" style="color:white">Chateau</a></li>
+				<li><a href="#" style="color:white">Villa</a></li>
+				<li><a href="#" style="color:white">Hotel Particulier</a></li>
 
 				<li role="separator" class="divider"></li>
-				<li><a href="#">Ajout</a></li>
-				<li><a href="#">Supprimer</a></li>
-				<li><a href="#">Modifier</a></li>
+				<li><a href="#" style="color:white">Ajout</a></li>
+				<li><a href="#" style="color:white">Supprimer</a></li>
+				<li><a href="#" style="color:white">Modifier</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#">Recherche</a></li>
+				<li><a href="#" style="color:white">Recherche</a></li>
 			</ul></li>
 
 
 		<li role="presentation" class="dropdown"><a
 			class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-			aria-haspopup="true" aria-expanded="false"> Gestion des visites <span
+			aria-haspopup="true" aria-expanded="false" style="color:white"> Gestion des visites <span
 				class="caret"></span>
 		</a>
-			<ul class="dropdown-menu">
-				<li><a href="#!listeVisite">Liste Visite</a></li>
-				<li><a href="#!listeVisiteByAchat">Liste Visite Par Achat</a></li>
-				<li><a href="#">Liste Visite Par Loc</a></li>
+			<ul class="dropdown-menu" style="background-color:plum">
+				<li><a href="#!listeVisite" style="color:white">Liste Visite</a></li>
+				<li><a href="#!listeVisiteByAchat" style="color:white">Liste Visite Par Achat</a></li>
+				<li><a href="#" style="color:white">Liste Visite Par Loc</a></li>
 			</ul></li>
 			<li role="presentation" class="dropdown"><a
 			class="dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-			aria-haspopup="true" aria-expanded="false"> Gestion des Classes Standards <span
+			aria-haspopup="true" aria-expanded="false" style="color:white"> Gestion des Classes Standards <span
 				class="caret"></span>
 		</a>
-			<ul class="dropdown-menu">
-				<li><a href="#">Chateau</a></li>
-				<li><a href="#">Villa</a></li>
-				<li><a href="#">Hotel Particulier</a></li>
+			<ul class="dropdown-menu" style="background-color:plum">
+				<li><a href="#" style="color:white">Chateau</a></li>
+				<li><a href="#" style="color:white">Villa</a></li>
+				<li><a href="#" style="color:white">Hotel Particulier</a></li>
 
-				<li><a href="#!afficheClasseStandard">Liste des Classes Standards</a></li>
+				<li><a href="#!afficheClasseStandard" style="color:white">Liste des Classes Standards</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#">Ajout</a></li>
-				<li><a href="#">Supprimer</a></li>
-				<li><a href="#">Modifier</a></li>
+				<li><a href="#" style="color:white">Ajout</a></li>
+				<li><a href="#" style="color:white">Supprimer</a></li>
+				<li><a href="#" style="color:white">Modifier</a></li>
 				<li role="separator" class="divider"></li>
-				<li><a href="#">Recherche</a></li>
+				<li><a href="#" style="color:white">Recherche</a></li>
 			</ul></li>
 	</ul>
 	

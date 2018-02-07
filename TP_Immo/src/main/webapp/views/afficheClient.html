@@ -1,9 +1,9 @@
 
 <h1 style="text-align: center;">Liste des Clients</h1>
 <br/>
-<table class="table table-bordered" style="text-align: center;">
+<table class="table table-bordered" style="text-align: center;background-color: mistyrose" >
 	<tr>
-		<th>ID</th>
+		<th >ID</th>
 		<th>Nom</th>
 		<th>Numero</th>
 		<th>Rue</th>
@@ -14,7 +14,7 @@
 		<th>Operation</th>
 	</tr>
 	<tr ng-repeat="client in listeClient">
-		<td>{{client.id}}</td>
+		<td >{{client.id}}</td>
 		<td>{{client.nom}}</td>	
 		<td>{{client.adresse.num}}</td>	
 		<td>{{client.adresse.rue}}</td>

@@ -1,41 +1,64 @@
-
+<h1 style="text-align: center">Formulaire d'ajout</h1>
+<br>
 <form class="form-horizontal">
 
   <div class="form-group">
     <label for="idNom" class="col-sm-2 control-label">Nom</label>
-    <div class="col-sm-10">
+    <div class="col-sm-5">
       <input type="text" class="form-control" id="idNom" placeholder="Nom" ng-model="clientAjout.nom">
     </div>
   </div>
-  
   <div class="form-group">
-    <label for="idAdresse" class="col-sm-2 control-label">Adresse</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="idNum" placeholder="n°" ng-model="clientAjout.adresse.num">
-    </div>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="idRue" placeholder="rue" ng-model="clientAjout.adresse.rue">
-    </div>
-    <div class="col-sm-10">
-      <input type="number" class="form-control" id="idCP" placeholder="Code postal" ng-model="clientAjout.adresse.cp">
-    </div>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="idVille" placeholder="Ville" ng-model="clientAjout.adresse.localite">
-    </div>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="idPays" placeholder="Pays" ng-model="clientAjout.adresse.pays">
-    </div>
+  <label for="idNom" class="col-sm-2 control-label">Adresse :</label>
+  </div>
+
+  <div class="form-group">
+     
+      <br>
+  <div class="form-group">   
+   
+    <label for="idNum" class="col-sm-3 control-label">Numero</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="idNum" placeholder="numero" ng-model="clientAjout.adresse.num">
+    </div>   
   </div>
   
+    <div class="form-group">      
+   <label for="idRue" class="col-sm-3 control-label">Rue</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="idRue" placeholder="rue" ng-model="clientAjout.adresse.rue">
+    </div>  
+  </div>
+  
+      <div class="form-group">    
+    <label for="idCP" class="col-sm-3 control-label">Code Postal</label>
+    <div class="col-sm-4">
+      <input type="number" class="form-control" id="idCP" placeholder="Code postal" ng-model="clientAjout.adresse.cp">
+    </div>  
+  </div> 
+      <div class="form-group">      
+    <label for="idVille" class="col-sm-3 control-label">Ville</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="idVille" placeholder="Ville" ng-model="clientAjout.adresse.localite">
+    </div> 
+  </div>
+      <div class="form-group">      
+
+    <label for="idPays" class="col-sm-3 control-label">Pays</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="idPays" placeholder="Pays" ng-model="clientAjout.adresse.pays">
+    </div>  
+  </div>
+  </div>
     <div class="form-group">
     <label for="idTel" class="col-sm-2 control-label">Telephone</label>
-    <div class="col-sm-10">
-      <input type="number" class="form-control" id="idTel" placeholder="n° de telephone" ng-model="clientAjout.tel">
+    <div class="col-sm-5">
+      <input type="number" class="form-control" id="idTel" placeholder="numero de telephone" ng-model="clientAjout.tel">
     </div>
   </div>
 
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-offset-2 col-sm-5">
       <button class="btn btn-default" ng-click="ajouterClient()">Ajouter</button>
     </div>
   </div>
