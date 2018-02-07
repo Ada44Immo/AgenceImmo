@@ -11,7 +11,7 @@ public interface ILocationDao {
 	public Location updateLocation(Location location);
 	public int deleteLocation (int id);
 	public List<Location> getAllLocation();
-	public List<Location> getLocationByMotCle(String motCle);
+	public List<Location> getLocationByLocalite(String localite);
 	public Location getLocationById(int id);
 	
 

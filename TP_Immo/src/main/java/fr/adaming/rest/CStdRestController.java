@@ -25,7 +25,7 @@ public class CStdRestController {
 	}
 	
 	@RequestMapping(value="/CStd",method=RequestMethod.GET, produces="application/json")
-	public ClasseStandard getCStdByName(@RequestParam("pName") String name){
+	public List<ClasseStandard> getCStdByName(@RequestParam("pName") String name){
 		return cStdService.getCStdByName(name);
 	}
 	

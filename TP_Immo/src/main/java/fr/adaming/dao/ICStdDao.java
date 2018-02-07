@@ -14,6 +14,6 @@ public interface ICStdDao {
 	
 	public List<ClasseStandard> getAllCStd();
 	
-	public ClasseStandard getCStdByName(String name);
+	public List<ClasseStandard> getCStdByName(String name);
 
 }

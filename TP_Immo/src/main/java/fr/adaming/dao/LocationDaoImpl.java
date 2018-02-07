@@ -88,18 +88,18 @@ public class LocationDaoImpl implements ILocationDao {
 	}
 
 	@Override
-	public List<Location> getLocationByMotCle(String motCle) {
+	public List<Location> getLocationByLocalite(String localite) {
 
 		Session s = sf.getCurrentSession();
 
 		String req = "FROM Location l";
 
-		if (motCle != null) {
-			req = req + " WHERE l.nom LIKE :mKey";
+		if (localite != null) {
+			req = req + " WHERE l.localite LIKE :mKey";
 		}
 		Query query = s.createQuery(req);
-		if (motCle != null) {
-			query.setString("mKey", "%" + motCle + "%");
+		if (localite != null) {
+			query.setString("mKey", "%" + localite + "%");
 		}
 
 		return query.list();
