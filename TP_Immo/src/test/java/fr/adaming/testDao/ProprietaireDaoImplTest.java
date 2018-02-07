@@ -23,53 +23,53 @@ public class ProprietaireDaoImplTest {
 	@Autowired
 	private IProprietaireDao proprietaireDao;
 	private Adresse adresse = new Adresse("a", "152", 456, "ko", "kol");
-	
+
 	// Test des methodes
-	
+
 	@Ignore
 	@Test
-	@Transactional(readOnly=true)
-	public void testGetAllPropietaire(){
-		assertEquals(2, proprietaireDao.getAllPropietaire().size());
+	@Transactional(readOnly = true)
+	public void testGetAllPropietaire() {
+		assertEquals(2, proprietaireDao.getAllProprietaire().size());
 	}
-	
+
 	@Ignore
 	@Test
-	@Transactional 
+	@Transactional
 	@Rollback(true)
-	public void testAddProprietaire(){
+	public void testAddProprietaire() {
 		Proprietaire p = new Proprietaire(adresse, 2558, "dolt");
-		p=proprietaireDao.addProprietaire(p);
+		p = proprietaireDao.addProprietaire(p);
 		assertNotNull(p.getId());
 	}
-	
+
 	@Ignore
 	@Test
-	@Transactional(readOnly=true)
-	public void testGetProprietaireById(){
+	@Transactional(readOnly = true)
+	public void testGetProprietaireById() {
 		Proprietaire p = proprietaireDao.getProprietaireById(2);
 		assertNotNull(p);
 	}
 
 	@Ignore
 	@Test
-	@Transactional 
+	@Transactional
 	@Rollback(true)
-	public void testUpdateProprietaire(){
+	public void testUpdateProprietaire() {
 		Proprietaire p = new Proprietaire(adresse, 2558, "dolt");
 		p.setId(2);
-		p=proprietaireDao.updateProprietaire(p);
+		p = proprietaireDao.updateProprietaire(p);
 		Proprietaire pOut = proprietaireDao.getProprietaireById(2);
-		assertEquals(p.getNom(), pOut.getNom());		
+		assertEquals(p.getNom(), pOut.getNom());
 	}
-	
+
 	@Ignore
 	@Test
-	@Transactional 
+	@Transactional
 	@Rollback(true)
-	public void testDeleteProprietaire(){
-		int size = proprietaireDao.getAllPropietaire().size();
+	public void testDeleteProprietaire() {
+		int size = proprietaireDao.getAllProprietaire().size();
 		proprietaireDao.deleteProprietaire(2);
-		assertEquals(size, proprietaireDao.getAllPropietaire().size()+1);		
+		assertEquals(size, proprietaireDao.getAllProprietaire().size() + 1);
 	}
 }

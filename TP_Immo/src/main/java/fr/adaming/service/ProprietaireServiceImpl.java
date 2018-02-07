@@ -21,8 +21,8 @@ public class ProprietaireServiceImpl implements IProprietaireService {
 	}
 
 	@Override
-	public List<Proprietaire> getAllPropietaire() {
-		return proprietaireDao.getAllPropietaire();
+	public List<Proprietaire> getAllProprietaire() {
+		return proprietaireDao.getAllProprietaire();
 	}
 
 	@Override

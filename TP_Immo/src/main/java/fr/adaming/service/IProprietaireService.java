@@ -6,7 +6,7 @@ import fr.adaming.model.Proprietaire;
 
 public interface IProprietaireService {
 
-	public List<Proprietaire> getAllPropietaire(); 
+	public List<Proprietaire> getAllProprietaire(); 
 
 	public Proprietaire addProprietaire(Proprietaire p);
 

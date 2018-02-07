@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import fr.adaming.model.Proprietaire;
 
 @Repository
-public class PropietaireDaoImpl implements IProprietaireDao {
+public class ProprietaireDaoImpl implements IProprietaireDao {
 
 	@Autowired
 	private SessionFactory sf;
@@ -21,7 +21,7 @@ public class PropietaireDaoImpl implements IProprietaireDao {
 	}
 
 	@Override
-	public List<Proprietaire> getAllPropietaire() {
+	public List<Proprietaire> getAllProprietaire() {
 
 		Session s = sf.getCurrentSession();
 
