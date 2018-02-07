@@ -24,4 +24,9 @@ monApp.config(function($routeProvider){
 //		})
 	
 	
+		//******************************ROUTING CLASSE STANDARD**********************************
+		.when("/afficheClasseStandard",{
+			templateUrl: "views/afficheClasseStandard",
+			controller: "findAllClasseStandardCtrl"
+		})
 })
