@@ -1,11 +1,23 @@
 package fr.adaming.dao;
 
+import java.sql.Date;
+import java.util.List;
+
+import javax.persistence.criteria.Order;
+
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fr.adaming.model.Achat;
+import fr.adaming.model.Agent;
+import fr.adaming.model.Bien;
+import fr.adaming.model.Location;
 import fr.adaming.model.Visite;
 
 @Repository
@@ -43,6 +55,58 @@ public class VisiteDaoImpl implements IVisiteDao{
 		s.saveOrUpdate(visite);
 		return visite;
 	}
+
+	@Override
+	public List<Visite> getVisiteByBienAchat(Achat achat) {
+		s=sf.getCurrentSession();
+		String req="from Visite v where v.achat.id=:pId";
+		Query query = s.createQuery(req);
+		query.setParameter("pId", achat.getId());
+		return query.list();
+	}
+	
+	@Override
+	public List<Visite> getVisiteByBienLocation(Location location) {
+		s=sf.getCurrentSession();
+		String req="from Visite v where v.location.id=:pId";
+		Query query = s.createQuery(req);
+		query.setParameter("pId", location.getId());
+		return query.list();
+	}
+
+	@Override
+	public List<Visite> getVisiteByDate(Date date) {
+		Criteria criteria = s.createCriteria(Order.class);
+		criteria.add(Restrictions.eq("from Visite v where v.date", date));
+		return null;
+	}
+
+	@Override
+	public List<Visite> getVisiteByAgent(Agent agent) {
+		s=sf.getCurrentSession();
+		String req=" from Visite v where v.agent.id=:pId";
+		Query query = s.createQuery(req);
+		query.setParameter("pId", agent.getId());
+		return query.list();
+	}
+
+	@Override
+	public List<Visite> getAllVisite() {
+		s=sf.getCurrentSession();
+		String req="from Visite";
+		Query query = s.createQuery(req);
+		return query.list();
+	}
+
+	@Override
+	public Visite getVisiteById(int id) {
+		s=sf.getCurrentSession();
+		String req=" from Visite v where v.id=:pId";
+		Query query = s.createQuery(req);
+		query.setParameter("pId", id);
+		return (Visite) query.uniqueResult();
+	}
+	
 	
 	
 

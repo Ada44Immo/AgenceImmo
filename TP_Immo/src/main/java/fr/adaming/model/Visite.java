@@ -23,7 +23,7 @@ public class Visite implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int id;
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	Date date;
 	
 	//relation UML en JAVA

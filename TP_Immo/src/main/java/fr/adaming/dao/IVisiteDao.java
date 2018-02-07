@@ -1,5 +1,11 @@
 package fr.adaming.dao;
 
+import java.sql.Date;
+import java.util.List;
+
+import fr.adaming.model.Achat;
+import fr.adaming.model.Agent;
+import fr.adaming.model.Location;
 import fr.adaming.model.Visite;
 
 public interface IVisiteDao {
@@ -9,4 +15,16 @@ public interface IVisiteDao {
 	public int deleteVisite(int id);
 	
 	public Visite updateVisite(Visite visite);
+	
+	public List<Visite> getVisiteByBienAchat(Achat achat);
+	
+	public List<Visite> getVisiteByBienLocation(Location location);
+	
+	public List<Visite> getVisiteByDate(Date date);
+	
+	public List<Visite> getVisiteByAgent(Agent agent);
+	
+	public List<Visite> getAllVisite();
+	
+	public Visite getVisiteById(int id);
 }
