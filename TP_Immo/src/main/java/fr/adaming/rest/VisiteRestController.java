@@ -43,7 +43,7 @@ public class VisiteRestController {
 		return visiteService.updateVisite(v);
 	}
 	
-	@RequestMapping(value="liste",method=RequestMethod.GET,consumes="application/json",produces="application/json")
+	@RequestMapping(value="ByAgent",method=RequestMethod.GET,consumes="application/json",produces="application/json")
 	public List<Visite> getVisiteByAgent(@RequestParam("agent") Agent agent){
 		return visiteService.getVisiteByAgent(agent);
 	}
@@ -53,12 +53,12 @@ public class VisiteRestController {
 		return visiteService.getVisiteById(id);
 	}
 	
-	@RequestMapping(value="liste",method=RequestMethod.GET,consumes="application/json",produces="application/json")
+	@RequestMapping(value="ByAchat",method=RequestMethod.GET,consumes="application/json",produces="application/json")
 	public List<Visite> getVisiteByBienAchat(@RequestParam("achat") Achat achat){
 		return visiteService.getVisiteByBienAchat(achat);
 	}
 	
-	@RequestMapping(value="liste",method=RequestMethod.GET,consumes="application/json",produces="application/json")
+	@RequestMapping(value="ByLoc",method=RequestMethod.GET,consumes="application/json",produces="application/json")
 	public List<Visite> getVisiteByBienlocation(@RequestParam("location") Location location){
 		return visiteService.getVisiteByBienLocation(location);
 	}
