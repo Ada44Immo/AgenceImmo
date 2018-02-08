@@ -74,8 +74,7 @@ monApp.factory("achatService",function($http){
 		$http({
 	
 			method : "DELETE",// methode http
-			url : urlWS+'delete?pId='+id,// url de la methode dans le WS
-		
+			url : urlWS+'delete?pId='+id,// url de la methode dans le WS		
 		
 		}).then(
 			function success(reponse) {

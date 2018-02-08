@@ -186,7 +186,7 @@ monApp
 		// appel de la methode addPays du service
 		achatService.findByMCAchat($scope.motCle, function(callback) {
 			if (typeof callback == "object") {
-				$scope.achatRecherche = callback;
+				$scope.achatRechercheMC = callback;
 				$scope.indice = true;
 			} else {
 				$scope.indice = false;

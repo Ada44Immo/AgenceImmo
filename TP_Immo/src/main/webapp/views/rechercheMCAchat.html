@@ -1,10 +1,65 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<h1 style="text-align: center">Formulaire de Recherche</h1>
+<br>
+<form class="form-horizontal">
 
-</body>
-</html>
+  <div class="form-group">
+    <label for="idNom" class="col-sm-2 control-label">Ville</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idNom" placeholder="ville" ng-model="motCle">
+    </div>
+  </div>
+  
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-default" ng-click="rechercherMCAchat()">Rechercher</button>
+    </div>
+  </div>
+</form>
+
+
+<h1 style="text-align: center;" ng-show=indice>Resultat de la recherche</h1>
+<br/>
+<table class="table table-bordered" style="text-align: center;background-color: mistyrose" ng-show=indice >
+	<tr>
+		<th>ID</th>
+		<th>Etat</th>
+		<th>Prix</th>
+		<th>Numero</th>
+		<th>Rue</th>
+		<th>Code Postal</th>
+		<th>Ville</th>
+		<th>Pays</th>
+		<th>Date de Disponibilite</th>
+		<th>Date de mise en Gerance</th>
+		<th>Description</th>
+		<th>Revenu Cadastral</th>
+		<th>Statut</th>
+		<th>Surface</th>
+		<th>Photo</th>
+		<th>Operations</th>
+	</tr>
+	<tr >
+		<td>{{achatRechercheMC.id}}</td>
+		<td>{{achatRechercheMC.etat}}</td>	
+		<td>{{achatRechercheMC.prix}}</td>	
+		<td>{{achatRechercheMC.adresse.num}}</td>	
+		<td>{{achatRechercheMC.adresse.rue}}</td>
+		<td>{{achatRechercheMC.adresse.cp}}</td>
+		<td>{{achatRechercheMC.adresse.localite}}</td>
+		<td>{{achatRechercheMC.adresse.pays}}</td>
+		<td>{{achatRechercheMC.dateDispo}}</td>
+		<td>{{achatRechercheMC.dateMiseEnGerance}}</td>
+		<td>{{achatRechercheMC.description}}</td>
+		<td>{{achatRechercheMC.revenuCadastral}}</td>
+		<td>{{achatRechercheMC.statut}}</td>
+		<td>{{achatRechercheMC.surface}}</td>
+		<td><img ng-src="data:image/JPEG;base64,{{achatRechercheMC.photo}}"
+					style="max-height: 50px; max-width: 50px"></td>
+
+	</tr>
+</table>
+
+
+
