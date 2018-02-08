@@ -33,18 +33,18 @@
 		<th>Telephone</th>
 		<th>Operation</th>
 	</tr>
-	<tr>
-		<td>{{proprioRecherche.id}}</td>
-		<td>{{proprioRecherche.nom}}</td>	
-		<td>{{proprioRecherche.adresse.num}}</td>	
-		<td>{{proprioRecherche.adresse.rue}}</td>
-		<td>{{proprioRecherche.adresse.cp}}</td>
-		<td>{{proprioRecherche.adresse.localite}}</td>
-		<td>{{proprioRecherche.adresse.pays}}</td>
-		<td>{{proprioRecherche.tel}}</td>
-		<td><button class="btn btn-success" ng-click="supprimerLien(proprioRecherche)">Supprimer</button> 
+	<tr ng-repeat="proprietaire in proprioRecherche">
+		<td>{{proprietaire.id}}</td>
+		<td>{{proprietaire.nom}}</td>	
+		<td>{{proprietaire.adresse.num}}</td>	
+		<td>{{proprietaire.adresse.rue}}</td>
+		<td>{{proprietaire.adresse.cp}}</td>
+		<td>{{proprietaire.adresse.localite}}</td>
+		<td>{{proprietaire.adresse.pays}}</td>
+		<td>{{proprietaire.tel}}</td>
+		<td><button class="btn btn-success" ng-click="supprimerLien(proprietaire)">Supprimer</button> 
 	| 
-	<button class="btn btn-success" ng-click="modifierLien(proprioRecherche)">Modifier</button></td>
+	<button class="btn btn-success" ng-click="modifierLien(proprietaire)">Modifier</button></td>
 	</tr>
 </table>
 

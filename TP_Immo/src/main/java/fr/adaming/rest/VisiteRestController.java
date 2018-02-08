@@ -59,9 +59,9 @@ public class VisiteRestController {
 		return visiteService.updateVisite(v);
 	}
 	
-	@RequestMapping(value="ByAgent",method=RequestMethod.POST,consumes="application/json",produces="application/json")
-	public List<Visite> getVisiteByAgent(@RequestBody Agent agent){
-		return visiteService.getVisiteByAgent(agent);
+	@RequestMapping(value="ByAgent",method=RequestMethod.GET,produces="application/json")
+	public List<Visite> getVisiteByAgent(@RequestParam("idAgent") int idA){
+		return visiteService.getVisiteByAgent(agentService.getAgentById(idA));
 	}
 	
 	@RequestMapping(value="getById",method=RequestMethod.GET,produces="application/json")
@@ -75,9 +75,10 @@ public class VisiteRestController {
 		return visiteService.getVisiteByBienAchat(achat);
 	}
 	
-	@RequestMapping(value="ByLoc",method=RequestMethod.POST,consumes="application/json",produces="application/json")
-	public List<Visite> getVisiteByBienlocation(@RequestBody Location location){
-		return visiteService.getVisiteByBienLocation(location);
+	@RequestMapping(value="ByLoc",method=RequestMethod.GET,produces="application/json")
+	public List<Visite> getVisiteByBienlocation(@RequestParam("idLoc") int idLoc){
+		
+		return visiteService.getVisiteByBienLocation(locationService.getLocationById(idLoc));
 	}
 	
 	@RequestMapping(value="addVisite",method=RequestMethod.POST,produces="application/json")
