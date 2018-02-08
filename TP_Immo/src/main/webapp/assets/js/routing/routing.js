@@ -46,7 +46,27 @@ monApp.config(function($routeProvider){
 	
 		//******************************ROUTING CLASSE STANDARD**********************************
 		.when("/afficheClasseStandard",{
-			templateUrl: "views/afficheClasseStandard",
+			templateUrl: "views/afficheClasseStandard.html",
 			controller: "findAllClasseStandardCtrl"
+		})
+		
+				.when("/ajoutClasseStandard",{
+			templateUrl: "views/ajoutClasseStandard.html",
+			controller: "addClasseStandardCtrl"
+		})
+		
+		.when("/supprClasseStandard",{
+			templateUrl: "views/supprClasseStandard.html",
+			controller: "deleteClasseStandardCtrl"
+		})
+		
+		.when("/modifClasseStandard",{
+			templateUrl: "views/modifClasseStandard.html",
+			controller: "updateClasseStandardCtrl"
+		})
+		
+		.when("/rechercheClasseStandard",{
+			templateUrl: "views/rechercheClasseStandard.html",
+			controller: "findByNomClasseStandardCtrl"
 		})
 })
