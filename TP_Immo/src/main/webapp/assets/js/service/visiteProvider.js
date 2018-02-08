@@ -94,12 +94,12 @@ monApp.factory("visiteService",function($http){
 	function modifVisite(id,date,idC,choix,idBien,idAg,callback){
 		$http({
 			method:'PUT',
-			url:urlWS+'updatePays?idClient='+idC+'&date='+date+'&idAgent='+idAg+'&choix='+choix+'&idBien='+idBien+'&idVisite='+id
+			url:urlWS+'update?idClient='+idC+'&date='+date+'&idAgent='+idAg+'&choix='+choix+'&idBien='+idBien+'&idVisite='+id
 		}).then(function success(reponse) {
 			//Stocker la reponse dans la callback afin de la transporter au controller
 			callback(reponse.statusText);
 		},function error(reponse){
-			console.log("-----Erreur du serveur pour ajout :" +reponse.status + " " +reponse.statusText );
+			console.log("-----Erreur du serveur pour modif :" +reponse.status + " " +reponse.statusText );
 
 		});
 	};

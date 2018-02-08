@@ -70,7 +70,7 @@ monApp
 			// Fonction pour soumettre le pays à ajouter
 			$scope.modifierVisite = function() {
 				// Appel de la methode du paysService
-				visiteService.updateVisite($scope.id,$scope.date,$scope.idC,choix,$scope.idBien,$scope.idAg, function(
+				visiteService.updateVisite($scope.id,$scope.date,$scope.idC,$scope.choix,$scope.idBien,$scope.idAg, function(
 						callback) {
 					if (callback == 'OK') {
 						$location.path("listeVisite")
