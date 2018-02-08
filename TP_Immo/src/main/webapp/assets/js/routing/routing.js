@@ -126,7 +126,8 @@ monApp.config(function($routeProvider){
 		
 		//************google agenda**************************************************
 		.when("/planning",{
-			templateUrl:"views/planning.html"
+			templateUrl:"views/planning.html",
+			controller: "findAllVisiteCtrl"
 		})
 		
 		//*****************Achat Routing ********************************************
