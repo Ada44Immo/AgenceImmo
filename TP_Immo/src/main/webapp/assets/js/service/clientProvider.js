@@ -86,7 +86,7 @@ monApp.factory("clientService",function($http){
 		
 	}
 	
-	//************************************GET BY ID PAYS**************************************************************
+	//************************************GET BY NOM**************************************************************
 	
 	function rechercheClient(nom,callback){
 		$http({
@@ -106,8 +106,24 @@ monApp.factory("clientService",function($http){
 		
 	}
 	
+	//********************************GET BY ID******************************************************
+	function rechercheClientById(id,callback){
+		$http({
 	
-	
+			method : "GET",// methode http
+			url : urlWS+'ById?pId='+id,// url de la methode dans le WS
+		
+		
+		}).then(
+			function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter ua controller
+			callback(reponse.data)  			
+				},
+			function erreur(reponse) {
+					console.log("--------- Erreur du serveur pour delete : "+reponse.status+" "+reponse.statusText)
+				})
+		
+	}
 	
 	
 	
@@ -118,7 +134,8 @@ monApp.factory("clientService",function($http){
 		addClient:ajoutClient,
 		updateClient:modifClient,
 		deleteClient:supprClient,
-		findByNomClient:rechercheClient
+		findByNomClient:rechercheClient,
+		findByIdClient:rechercheClientById
 		
 	}
 })
