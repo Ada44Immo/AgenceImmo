@@ -38,10 +38,15 @@ monApp.config(function($routeProvider){
 			controller: "findVisiteAchatCtrl"
 		})
 		
-//		.when("/listeVisite",{
-//			templateUrl: "views/listeVisiteLoc.html",
-//			controller: "findVisiteLocCtrl"
-//		})
+		.when("/listeVisiteByLoc",{
+			templateUrl: "views/listeVisiteLoc.html",
+			controller: "findVisiteLocCtrl"
+		})
+		
+		.when("/listeVisiteByAgent",{
+			templateUrl: "views/listeVisiteAgent.html",
+			controller: "findVisiteAgentCtrl"
+		})
 		
 		.when("/ajoutVisite",{
 			templateUrl: "views/ajoutVisite.html",

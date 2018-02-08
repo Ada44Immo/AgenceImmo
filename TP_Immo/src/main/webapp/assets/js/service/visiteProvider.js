@@ -32,14 +32,10 @@ monApp.factory("visiteService",function($http){
 	};
 	
 	//Dev de la fonction pour recuperer la liste par Location
-	function recupListeVisiteLoc(location,callback){
+	function recupListeVisiteLoc(idLoc,callback){
 		$http({
-			method:'POST',
-			url:urlWS+'ByLoc',
-			data:angular.toJson(location), //Les données encapsulées dans le corps de la requete http
-			header:{
-				'content-type':"application/json"
-			}
+			method:'GET',
+			url:urlWS+'ByLoc?idLoc='+idLoc
 		}).then(function success(reponse) {
 			//Stocker la reponse dans la callback afin de la transporter au controller
 			callback(reponse.data);
@@ -50,14 +46,11 @@ monApp.factory("visiteService",function($http){
 	};
 	
 	//Dev de la fonction pour recuperer la liste par Agent
-	function recupListeVisiteAgent(agent,callback){
+	function recupListeVisiteAgent(idA,callback){
 		$http({
-			method:'POST',
-			url:urlWS+'ByAgent',
-			data:angular.toJson(location), //Les données encapsulées dans le corps de la requete http
-			header:{
-				'content-type':"application/json"
-			}
+			method:'GET',
+			url:urlWS+'ByAgent?idAgent='+idA
+			
 		}).then(function success(reponse) {
 			//Stocker la reponse dans la callback afin de la transporter au controller
 			callback(reponse.data);
