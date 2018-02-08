@@ -49,6 +49,7 @@ monApp.factory("achatService",function($http){
 	//************************************UPDATE PAYS**************************************************************
 	
 	function modifAchat(achatModif,callback){
+		achatModif.photo = achatModif.photo.base64;
 		$http({
 	
 			method : "PUT",// methode http

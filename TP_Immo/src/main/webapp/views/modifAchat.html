@@ -1,10 +1,123 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<h1 style="text-align: center">Formulaire de Modification</h1>
+<br>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="id" class="col-sm-2 control-label">ID</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="id" placeholder="ID" ng-model="achatModif.id">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Etat</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idetat" placeholder="Etat" ng-model="achatModif.etat">
+    </div>
+  </div>
+  <div class="form-group">
+  <label for="idNom" class="col-sm-2 control-label">Adresse :</label>
+  </div>
 
-</body>
-</html>
+  <div class="form-group">
+     
+      <br>
+  <div class="form-group">   
+   
+    <label for="idNum" class="col-sm-3 control-label">Numero</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="idNum" placeholder="numero" ng-model="achatModif.adresse.num">
+    </div>   
+  </div>
+  
+    <div class="form-group">      
+   <label for="idRue" class="col-sm-3 control-label">Rue</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="idRue" placeholder="rue" ng-model="achatModif.adresse.rue">
+    </div>  
+  </div>
+  
+      <div class="form-group">    
+    <label for="idCP" class="col-sm-3 control-label">Code Postal</label>
+    <div class="col-sm-4">
+      <input type="number" class="form-control" id="idCP" placeholder="Code postal" ng-model="achatModif.adresse.cp">
+    </div>  
+  </div> 
+      <div class="form-group">      
+    <label for="idVille" class="col-sm-3 control-label">Ville</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="idVille" placeholder="Ville" ng-model="achatModif.adresse.localite">
+    </div> 
+  </div>
+      <div class="form-group">      
+
+    <label for="idPays" class="col-sm-3 control-label">Pays</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="idPays" placeholder="Pays" ng-model="achatModif.adresse.pays">
+    </div>  
+  </div>
+  </div>
+    <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Prix de vente </label>
+    <div class="col-sm-5">
+      <input type="number" class="form-control" id="idetat" placeholder="prix" ng-model="achatModif.prix">
+    </div>
+  </div>
+<div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Date de Disponibilite</label>
+    <div class="col-sm-5">
+      <input type="date" class="form-control" id="idetat" placeholder="date" ng-model="achatModif.dateDispo">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Date de Mise en Gerance</label>
+    <div class="col-sm-5">
+      <input type="date" class="form-control" id="idetat" placeholder="date" ng-model="achatModif.dateMiseEnGerance">
+    </div>
+  </div>
+      <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Description </label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idetat" placeholder="Description" ng-model="achatModif.description">
+    </div>
+  </div>
+      <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Revenu Cadastral </label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idetat" placeholder="Revenu Cadastral" ng-model="achatModif.revenuCadastral">
+    </div>
+  </div>
+      <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Statut</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idetat" placeholder="Statut" ng-model="achatModif.statut">
+    </div>
+  </div>
+      <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Surface </label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idetat" placeholder="Surface" ng-model="achatModif.surface">
+    </div>
+  </div>
+      <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Proprietaire </label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idetat" placeholder="id Proprietaite" ng-model="achatModif.proprietaire.id">
+    </div>
+  </div>
+      <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Classe Standard </label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idetat" placeholder="Classe Standard" ng-model="achatModif.cStd.nom">
+    </div>
+  </div>
+        <div class="form-group">
+    <label for="idetat" class="col-sm-2 control-label">Photo du bien  </label>
+    <div class="col-sm-5">
+      <input type="file" ng-model="achatModif.photo" id="selectedFile" accept="image/*" class="form-control" base-sixty-four-input>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-5">
+      <button class="btn btn-default" ng-click="modifierAchat()">Modifier</button>
+    </div>
+  </div>
+</form>

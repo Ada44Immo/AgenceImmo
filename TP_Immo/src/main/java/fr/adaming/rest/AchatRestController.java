@@ -49,7 +49,7 @@ public class AchatRestController {
 		return achatService.updateAchat(achat);
 	}
 	
-	@RequestMapping(value="delete",method=RequestMethod.DELETE,consumes="application/json")
+	@RequestMapping(value="delete",method=RequestMethod.DELETE)
 	public int deleteAchat(@RequestParam("pId") int id){
 		return achatService.deleteAchat(id);
 	}

@@ -4,7 +4,7 @@ monApp
 
 	// appel de la methode du service pour recup la liste du WS
 	achatService.findListe(function(callback) {
-		// stocker la liste recup dans la variable listeClient du scope pour
+		// stocker la liste recup dans la variable liste du scope pour
 		// quelle soit accessible de la vue
 		$scope.listeAchat = callback;
 	});
@@ -41,7 +41,8 @@ monApp
 			description:'',
 			revenuCasdastral:'',
 			statut:'',
-			surface:''
+			surface:'',
+			photo:null
 			
 	
 	}
@@ -84,9 +85,9 @@ monApp
 			},
 			photo:null
 	}
-	// fonction pour soumettre le client a ajouter
+	// fonction pour soumettre le  a ajouter
 	$scope.ajouterAchat = function() {
-		// appel de la methode addClient du service
+		// appel de la methode add du service
 		achatService.addAchat($scope.achatAjout, function(callback) {
 			if (callback == 'OK') {
 				// redirection vers la methode afficher la liste
@@ -101,7 +102,7 @@ monApp
 	
 	
 	if($rootScope.achatUpdate.id==undefined){
-		$scope.clientModif = {			
+		$scope.achatModif = {			
 				id:'',
 				etat:'',
 				prix : '',
@@ -118,8 +119,8 @@ monApp
 				description:'',
 				revenuCasdastral:'',
 				statut:'',
-				surface:''
-				
+				surface:'',
+				photo:null
 			};
 	}else{
 		//sinon passage par le lien 
@@ -127,7 +128,7 @@ monApp
 	}
 	
 	$scope.modifierAchat = function() {
-		clientService.updateAchat($scope.achatModif, function(callback) {
+		achatService.updateAchat($scope.achatModif, function(callback) {
 			if (callback == 'OK') {
 				// redirection vers la methode afficher la liste
 				$location.path("afficheAchat")
