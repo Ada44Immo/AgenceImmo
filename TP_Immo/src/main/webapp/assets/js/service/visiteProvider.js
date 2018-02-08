@@ -18,14 +18,10 @@ monApp.factory("visiteService",function($http){
 	};
 	
 	//Dev de la fonction pour recuperer la liste par Achat
-	function recupListeVisiteAchat(achat,callback){
+	function recupListeVisiteAchat(idA,callback){
 		$http({
-			method:'POST',
-			url:urlWS+'ByAchat',
-			data:angular.toJson(achat), //Les données encapsulées dans le corps de la requete http
-			header:{
-				'content-type':"application/json"
-			}
+			method:'GET',
+			url:urlWS+'ByAchat?idAchat='+idA
 		}).then(function success(reponse) {
 			//Stocker la reponse dans la callback afin de la transporter au controller
 			callback(reponse.data);
@@ -73,10 +69,10 @@ monApp.factory("visiteService",function($http){
 	
 	
 	//Dev de la fonction pour ajouter
-	function ajoutVisite(idC,idA,date,callback){
+	function ajoutVisite(idC,date,idAg,choix,idBien,callback){
 		$http({
 			method:'POST',
-			url:urlWS+'addVisite?idClient='+idC+'&idAchat='+idA+'&date='+date
+			url:urlWS+'addVisite?idClient='+idC+'&date='+date+'&idAgent='+idAg+'&choix='+choix+'&idBien='+idBien
 		}).then(function success(reponse) {
 			//Stocker la reponse dans la callback afin de la transporter au controller
 			callback(reponse.statusText);

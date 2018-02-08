@@ -18,11 +18,13 @@ import fr.adaming.model.Agent;
 import fr.adaming.model.Location;
 import fr.adaming.model.Visite;
 import fr.adaming.service.IAchatService;
+import fr.adaming.service.IAgentService;
 import fr.adaming.service.IClientService;
+import fr.adaming.service.ILocationService;
 import fr.adaming.service.IVisiteService;
 
 @RestController
-@RequestMapping(value = "visite")
+@RequestMapping(value="visite")
 public class VisiteRestController {
 
 	@Autowired
@@ -30,58 +32,80 @@ public class VisiteRestController {
 	@Autowired
 	IAchatService achatService;
 	@Autowired
+	ILocationService locationService;
+	@Autowired
 	IClientService clientService;
-
-	@RequestMapping(value = "liste", method = RequestMethod.GET, produces = "application/json")
-	public List<Visite> getAllVisite() {
+	@Autowired
+	IAgentService agentService;
+	
+	
+	@RequestMapping(value="liste",method=RequestMethod.GET,produces="application/json")
+	public List<Visite> getAllVisite(){
 		return visiteService.getAllVisite();
 	}
-
-	@RequestMapping(value = "add", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public Visite addVisite(@RequestBody Visite v) {
+	
+	@RequestMapping(value="add",method=RequestMethod.POST,consumes="application/json",produces="application/json")
+	public Visite addVisite(@RequestBody Visite v){
 		return visiteService.addVisite(v);
 	}
-
-	@RequestMapping(value = "/{pId}", method = RequestMethod.DELETE)
-	public int deleteVisite(@PathVariable("pId") int id) {
-		return visiteService.deleteVisite(id);
+	
+	@RequestMapping(value="/{pId}", method=RequestMethod.DELETE)
+	public int deleteVisite(@PathVariable ("pId") int id){
+		return visiteService.deleteVisite(id);	
 	}
-
-	@RequestMapping(value = "update", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
-	public Visite updateVisite(@RequestBody Visite v) {
+	
+	@RequestMapping(value="update",method=RequestMethod.PUT,consumes="application/json",produces="application/json")
+	public Visite updateVisite(@RequestBody Visite v){
 		return visiteService.updateVisite(v);
 	}
-
-	@RequestMapping(value = "ByAgent", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public List<Visite> getVisiteByAgent(@RequestBody Agent agent) {
+	
+	@RequestMapping(value="ByAgent",method=RequestMethod.POST,consumes="application/json",produces="application/json")
+	public List<Visite> getVisiteByAgent(@RequestBody Agent agent){
 		return visiteService.getVisiteByAgent(agent);
 	}
-
-	@RequestMapping(value = "getById", method = RequestMethod.GET, produces = "application/json")
-	public Visite getVisiteById(@RequestParam("id") int id) {
+	
+	@RequestMapping(value="getById",method=RequestMethod.GET,produces="application/json")
+	public Visite getVisiteById(@RequestParam("id") int id){
 		return visiteService.getVisiteById(id);
 	}
-
-	@RequestMapping(value = "ByAchat", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public List<Visite> getVisiteByBienAchat(@RequestBody Achat achat) {
+	
+	@RequestMapping(value="ByAchat",method=RequestMethod.GET,produces="application/json")
+	public List<Visite> getVisiteByBienAchat(@RequestParam("idAchat") int idA){
+		Achat achat= achatService.getAchatById(idA);
 		return visiteService.getVisiteByBienAchat(achat);
 	}
-
-	@RequestMapping(value = "ByLoc", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public List<Visite> getVisiteByBienlocation(@RequestBody Location location) {
+	
+	@RequestMapping(value="ByLoc",method=RequestMethod.POST,consumes="application/json",produces="application/json")
+	public List<Visite> getVisiteByBienlocation(@RequestBody Location location){
 		return visiteService.getVisiteByBienLocation(location);
 	}
+	
+	@RequestMapping(value="addVisite",method=RequestMethod.POST,produces="application/json")
+	public Visite addVisite(@RequestParam("idClient") int idC,@RequestParam("date") String date,@RequestParam("idAgent") int idAg,@RequestParam("choix") int choix ,@RequestParam("idBien") int idBien){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		Date dateM;
+		try {
+			dateM = formatter.parse(date);
+			Visite v= new Visite(dateM);
+			v.setAgent(agentService.getAgentById(idAg));
+			
+			if (choix==1){
+				v.setLocation(locationService.getLocationById(idBien));
+			}else{
+				v.setAchat(achatService.getAchatById(idBien));
+			}
+			v.setClient(clientService.getById(idC));
+			return visiteService.addVisite(v);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 
-	@RequestMapping(value = "addVisite", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public Visite addVisite(@RequestParam("idClient") int idC, @RequestParam("idAchat") int idA,
-			@RequestParam("date") Date date) {
-
-		Visite v = new Visite(date);
-
-		v.setAchat(achatService.getAchatById(idA));
-		v.setClient(clientService.getById(idC));
-		return visiteService.addVisite(v);
-
+		
+		
 	}
+	
+	
 
 }
