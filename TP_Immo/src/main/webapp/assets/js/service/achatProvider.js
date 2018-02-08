@@ -126,6 +126,27 @@ monApp.factory("achatService",function($http){
 		
 	}
 	
+	//************************************GET PAR CS Client**************************************************************	
+	//definition de la fonction pour recuperer la liste
+	function recupListeParCS(nom,callback){
+		// appel du webservice via le service $http(il est basé sur ajax(le bus
+		// transporte la requete et recupere le resultat
+		// du WS : XMLHttpRequest (XHR))
+
+		$http({
+			method : "GET",// methode http
+			url : urlWS+'ByCS?nomCS='+nom// url de la methode dans le WS
+		}).then(function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter au controller
+			callback(reponse.data)
+	
+		}, function erreur(reponse) {
+			console.log("--------- Erreur du serveur pour liste : "+reponse.status+" "+reponse.statusText)
+		})
+		
+	}
+
+	
 	
 	
 	
@@ -136,6 +157,7 @@ monApp.factory("achatService",function($http){
 		updateAchat:modifAchat,
 		deleteAchat:supprAchat,
 		findByMCAchat:rechercheAchatByMC,
+		findListeParCS:recupListeParCS,
 		findByIdAchat:rechercheAchat
 		
 	}

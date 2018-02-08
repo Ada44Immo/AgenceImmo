@@ -111,8 +111,6 @@ monApp
 
 })
 
-
-
 .controller("deleteClasseStandardCtrl", function($scope, classeStandardService, $location) {
 
 	$scope.id = '';

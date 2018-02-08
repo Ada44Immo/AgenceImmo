@@ -160,4 +160,10 @@ monApp.config(function($routeProvider){
 			controller: "addAchatCtrl"
 		})
 		
+		
+		.when("/afficheAchatParCS",{
+			templateUrl: "views/listeAchatParCS.html",
+			controller: "findParCSAchatCtrl"
+		})
+		
 })
