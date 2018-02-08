@@ -70,13 +70,27 @@ monApp
 .controller("addVisiteCtrl", function($scope,visiteService, $location,$rootScope) {
 	
 	//Initliaiser la visite du formulaire
-	$scope.visiteAjout={
-		      "date": '',
-		      "client": '',
-		      "location": '',
-		      "achat":  '',    
-		      "agent":  ''
-		   }
+	$scope.date=''
+	$scope.idClient=''
+	$scope.idAchat=''
+	$scope.idLocation=''
+	
+	//Récuperer le client par son id
+		
+	//Récuperer la location par son id
+		
+	//Récuperer l'achat par son id
+		
+		
+	//créer l'objet visiteAjout qui sera injecter dans la fonction addVisite
+		$scope.visiteAjout=
+			{
+			      "date": $scope.date,
+			      "client": $scope.client,
+			      "location": $scope.location,
+			      "achat": $scope.achat,      
+			      "agent": $scope.agent    
+			   }
 
 	//Fonction pour soumettre le pays à ajouter
 	$scope.ajouterVisite=function(){
@@ -99,7 +113,7 @@ monApp
 		//Appel de la methode du paysService
 		visiteService.deleteVisite($scope.id,function (callback){
 			if(callback=='OK'){
-				$location.path("getAllPays")
+				$location.path("listeVisite")
 			}
 		})
 		
