@@ -24,16 +24,100 @@ monApp.factory("classeStandardService",function($http){
 		
 	}
 	
+//************************************ADD ClasseStandard**************************************************************
 	
+	function ajoutClasseStandard(classeStandardAjout,callback){
+		$http({
 	
+			method : "POST",// methode http
+			url : urlWS+'add',// url de la methode dans le WS
+			data:angular.toJson(classeStandardAjout),//les données encapsulées dans le corps de la requete http
+			header:{'content-type':"application/json"}
+		
+		}).then(
+			function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter ua controller
+			callback(reponse.statusText)  			
+				},
+			function erreur(reponse) {
+					console.log("--------- Erreur du serveur pour ajout : "+reponse.status+" "+reponse.statusText)
+				})
+		
+	}
 	
+	//************************************UPDATE ClasseStandard**************************************************************
+	
+	function modifClasseStandard(classeStandardModif,callback){
+		$http({
+	
+			method : "PUT",// methode http
+			url : urlWS+'update',// url de la methode dans le WS
+			data:angular.toJson(classeStandardModif),//les données encapsulées dans le corps de la requete http
+			header:{'content-type':"application/json"}
+		
+		}).then(
+			function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter du controller
+			callback(reponse.statusText)  			
+				},
+			function erreur(reponse) {
+					console.log("--------- Erreur du serveur pour modif : "+reponse.status+" "+reponse.statusText)
+				})
+		
+	}
+	
+	//************************************DELETE ClasseStandard**************************************************************
+	
+	function supprClasseStandard(id,callback){
+		$http({
+	
+			method : "DELETE",// methode http
+			url : urlWS+'delete?pId='+id,// url de la methode dans le WS
+		
+		
+		}).then(
+			function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter du controller
+			callback(reponse.statusText)  			
+				},
+			function erreur(reponse) {
+					console.log("--------- Erreur du serveur pour delete : "+reponse.status+" "+reponse.statusText)
+				})
+		
+	}
+	
+	//************************************GET BY ID ClasseStandard**************************************************************
+	
+	function rechercheClasseStandard(nom,callback){
+		$http({
+	
+			method : "GET",// methode http
+			url : urlWS+'ByNom?pNom='+nom,// url de la methode dans le WS
+		
+		
+		}).then(
+			function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter ua controller
+			callback(reponse.data)  			
+				},
+			function erreur(reponse) {
+					console.log("--------- Erreur du serveur pour findByNom : "+reponse.status+" "+reponse.statusText)
+				})
+		
+	}
 	
 	
 	
 	
 	return {
 		//recuperation de des fonction et utilisation en dehors via un nom de methode
-		findListe:recupListe
+		findListe:recupListe,
+		addClasseStandard:ajoutClasseStandard,
+		updateClasseStandard:modifClasseStandard,
+		deleteClasseStandard:supprClasseStandard,
+		findByNomClasseStandard:rechercheClasseStandard
 		
 	}
+	
+
 })

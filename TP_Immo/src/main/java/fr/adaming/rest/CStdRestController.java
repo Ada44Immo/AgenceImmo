@@ -40,8 +40,8 @@ public class CStdRestController {
 		return cStdService.updateCStd(cStd);
 	}
 	
-	@RequestMapping(value="delete/{pId}", method=RequestMethod.DELETE)
-	public int deleteCStd(@PathVariable ("pId") int id){
+	@RequestMapping(value="delete", method=RequestMethod.DELETE)
+	public int deleteCStd(@RequestParam("pId") int id){
 		return cStdService.deleteCStd(id);		
 	}
 }

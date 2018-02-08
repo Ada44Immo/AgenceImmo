@@ -1,0 +1,51 @@
+<h1 style="text-align: center">Formulaire de Modification</h1>
+<br>
+<form class="form-horizontal">
+	<div class="form-group">
+
+		<div class="form-group">
+		<label for="idID" class="col-sm-2 control-label">ID</label>
+		<div class="col-sm-5">
+			<input type="text" class="form-control" id="idID" placeholder="Id"
+				ng-model="classeStandardModif.idCode">
+		</div>
+		</div>
+
+		<div class="form-group">
+			<label for="idType" class="col-sm-2 control-label">Type</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="idType"
+					placeholder="Type de bien" ng-model="classeStandardModif.type">
+			</div>
+		</div>
+		
+		<br> <label for="idMode" class="col-sm-2 control-label">Mode
+			d'offre</label> <select ng-model="test" ng-options="item for item in types">
+		</select><br> <br>
+
+		<div class="form-group">
+			<label for="idType" class="col-sm-2 control-label">Prix
+				maximum</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="idPrix"
+					placeholder="Prix maximum" ng-model="classeStandardModif.prixMax">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="idSurface" class="col-sm-2 control-label">Surface
+				Minimum</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" id="idSurface"
+					placeholder="Surface Minimum"
+					ng-model="classeStandardModif.surfaceMin">
+			</div>
+		</div>
+
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-default" ng-click="modifierClasseStandard()">Modifier</button>
+		</div>
+	</div>
+</form>
