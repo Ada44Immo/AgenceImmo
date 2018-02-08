@@ -29,7 +29,7 @@ monApp
 	}
 	
 	$scope.modifierLien = function(proprietaire){
-		$rootScope.proprietaireUpdate = proprietaire;		
+		$rootScope.proprietaireUpdate = proprietaire;
 		$location.path("modifProprietaire");
 	}
 	
@@ -60,7 +60,7 @@ monApp
 
 .controller("updateProprietaireCtrl", function($scope, proprietaireService, $location, $rootScope) {
 	
-	if($rootScope.proprietaireUpdate.id == undefined) {
+	if($rootScope.proprietaireUpdate == undefined || $rootScope.proprietaireUpdate.id == undefined) {
 		$scope.proprietaireModif = {
 			id : '',
 			nom : '',
@@ -99,7 +99,7 @@ monApp
 	}
 })
 
-.controller("findByNomProprietaireCtrl", function($scope, proprietaireService, $rootScope) {
+.controller("findByNomProprietaireCtrl", function($scope, proprietaireService, $rootScope, $location) {
 	$scope.nom = '';
 	$scope.indice = false;
 	

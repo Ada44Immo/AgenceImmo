@@ -29,6 +29,10 @@ monApp.factory("proprietaireService", function($http){
 	}
 	
 	function modifierProprietaire(proprietaireModif,callback) {
+		
+		console.log("--------- provider pour modifier : "+proprietaireModif.nom);
+
+		
 		$http( {
 			method : "PUT",
 			url : urlWS + 'update',
