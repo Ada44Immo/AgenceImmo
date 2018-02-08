@@ -47,6 +47,11 @@ monApp.config(function($routeProvider){
 			templateUrl: "views/ajoutVisite.html",
 			controller: "addVisiteCtrl"
 		})
+		
+		.when("/supprimVisite",{
+			templateUrl: "views/supprVisite.html",
+			controller: "deleteVisiteCtrl"
+		})
 	
 		//******************************ROUTING CLASSE STANDARD**********************************
 		.when("/afficheClasseStandard",{
