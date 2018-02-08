@@ -12,11 +12,11 @@ monApp
 	});	
 })
 
-//Appel de la methode pour recuperer un achat par son id
-//Appel de la methode pour recuperer la liste des visites par l'achat
-.controller("findVisiteAchatCtrl", function($scope, visiteService, $rootScope,$location) {
+
+.controller("findVisiteAchatCtrl", function($scope, visiteService) {
+	$scope.idAchat=''
 	// Appel de la methode du service pour recuperer la liste du ws
-	visiteService.findListAchat(function(callback){
+	visiteService.findListAchat($scope.idAchat,function(callback){
 		// stocker la liste recuperer dans la variable listeVisiteAchat du scope pour quelle soit accessible depuis al vue
 		$scope.listeVisiteAchat=callback;
 	});	
@@ -72,13 +72,15 @@ monApp
 	//Initliaiser la visite du formulaire
 	$scope.date=''
 	$scope.idC=''
-	$scope.idA=''
+	$scope.idBien=''
+	$scope.idAg=''
 		
+	$scope.choix=0
 
 	//Fonction pour soumettre le pays à ajouter
 	$scope.ajouterVisite=function(){
 		//Appel de la methode du paysService
-		visiteService.addVisite($scope.idC,$scope.idA,$scope.date,function (callback){
+		visiteService.addVisite($scope.idC,$scope.date,$scope.idAg,$scope.choix,$scope.idBien,function (callback){
 			if(callback=='OK'){
 				$location.path("listeVisite")
 			}

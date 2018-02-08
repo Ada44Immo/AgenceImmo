@@ -2,18 +2,19 @@
 <br>
 <form class="form-horizontal">
 
-  <div class="form-group">
-    <label for="idAchat" class="col-sm-2 control-label">Ref</label>
-    <div class="col-sm-5">
-      <input type="text" class="form-control" id="idNom" placeholder="Ref (id) du bien achat" ng-model="id">
-    </div>
-  </div>
+ <div class="form-group">
+		<label for="idAchat" class="col-sm-2 control-label">Achat</label>
+		<div class="col-sm-10">
+			<input type="number" class="form-control" id="idAchat"
+				placeholder="Ref du bien" ng-model="idAchat">
+		</div>
+	</div>
   
 
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button class="btn btn-default" ng-click="rechercherClient()">Rechercher</button>
+      <button class="btn btn-default" ng-click="findListAchat()">Rechercher</button>
     </div>
   </div>
 </form>
@@ -28,11 +29,11 @@
 		
 	</tr>
 
-	<tr ng-repeat="l in listeVisite">
+	<tr ng-repeat="l in listeVisiteAchat">
 		<td>{{l.date}}</td>
 		<td>{{l.agent.mail}}</td>
-		<td>{{l.achat.adresse.num}} {{l.achat.adresse.rue}}  {{l.achat.adresse.localite}} {{l.achat.adresse.cp}}  </td>
-		<td>{{l.achat.adresse.pays}}</td>	
+		<td>{{l.location.adresse.num}} {{l.achat.adresse.num}} {{l.location.adresse.rue}} {{l.achat.adresse.rue}} {{l.location.adresse.localite}} {{l.achat.adresse.localite}} {{l.location.adresse.cp}} {{l.achat.adresse.cp}}  </td>
+		<td>{{l.location.adresse.pays}} {{l.achat.adresse.pays}}</td>	
 		<td>{{l.client.nom}} {{l.client.tel}}</td>			
 	</tr>
 

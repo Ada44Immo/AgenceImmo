@@ -1,0 +1,31 @@
+package fr.adaming.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import fr.adaming.dao.IAchatDao;
+import fr.adaming.dao.IAgentDao;
+import fr.adaming.model.Agent;
+
+@Service
+@Transactional
+public class AgentServiceImpl implements IAgentService{
+
+	@Autowired
+	private IAgentDao agentDao;
+	
+	
+	public void setAgentDao(IAgentDao agentDao) {
+		this.agentDao = agentDao;
+	}
+
+
+	@Override
+	public Agent getAgentById(int id) {
+		return agentDao.getAgentById(id);
+	}
+
+	
+
+}
