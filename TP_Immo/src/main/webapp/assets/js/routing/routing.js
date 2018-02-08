@@ -167,4 +167,9 @@ monApp.config(function($routeProvider){
 			controller: "findParCSAchatCtrl"
 		})
 		
+		.when("/attribuerBien",{
+			templateUrl: "views/attribuerBien.html",
+			controller: "attribuerAcquereurCtrl"
+		})
+		
 })

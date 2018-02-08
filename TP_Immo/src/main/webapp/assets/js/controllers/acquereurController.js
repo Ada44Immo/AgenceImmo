@@ -30,4 +30,18 @@ monApp
 	}
 })
 
+.controller("attribuerAcquereurCtrl", function($scope, acquereurService, $location) {
+	
+	$scope.idC=''
+	$scope.idA=''
+		
+	$scope.attribuerAcquereur = function() {
+		acquereurService.attributeAcquereur($scope.idC,$scope.idA, function (callback) {
+			if (callback == 'OK') {
+				$location.path("listeVisite")
+			}
+		});
+	}
+})
+
 

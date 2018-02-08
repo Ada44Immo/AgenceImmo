@@ -28,9 +28,24 @@ monApp.factory("acquereurService", function($http) {
 		})
 	}
 	
+	function attribuerBien(idC,idA,callback) {
+		$http( {
+			method : "GET",
+			url : urlWS + 'attribuer?idAchat='+idA+'&idClient='+idC
+			
+		}).then(function success(reponse){
+			callback(reponse.data)
+		},
+		function erreur(reponse){
+			console.log("--------- Erreur du serveur pour ajout : "+reponse.status+" "+reponse.statusText)
+
+		})
+	}
+	
 	return {
 		findListe : recupListe,
 		addAcquereur : ajoutAcquereur,
+		attributeAcquereur:attribuerBien
 		//findByNomProprietaire : rechercherProprietaire
 	}
 	
