@@ -45,7 +45,7 @@ monApp.factory("proprietaireService", function($http){
 	function supprimerProprietaire(id, callback) {
 		$http( {
 			method : "DELETE",
-			url : urlWS + 'delete?pId=' + id
+			url : urlWS+'delete?pId='+id
 		}).then(function success(reponse){
 			callback(reponse.statusText)
 		},

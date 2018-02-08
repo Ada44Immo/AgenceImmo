@@ -99,7 +99,7 @@ monApp
 	}
 })
 
-.controller("findByNomProprietaireCtrl", function($scope, proprietaireService) {
+.controller("findByNomProprietaireCtrl", function($scope, proprietaireService, $rootScope) {
 	$scope.nom = '';
 	$scope.indice = false;
 	
