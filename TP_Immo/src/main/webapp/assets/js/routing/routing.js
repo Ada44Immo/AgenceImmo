@@ -119,4 +119,35 @@ monApp.config(function($routeProvider){
 			templateUrl:"views/planning.html"
 		})
 		
+		//*****************Achat Routing ********************************************
+		
+		.when("/afficheAchat",{
+			templateUrl: "views/afficheAchat.html",
+			controller: "findAllAchatCtrl"
+		})
+		
+		.when("/rechercheAchat",{
+			templateUrl: "views/rechercheAchat.html",
+			controller: "findByIdAchatCtrl"
+		})
+		
+		.when("/modifAchat",{
+			templateUrl: "views/modifAchat.html",
+			controller: "updateAchatCtrl"
+		})
+		
+		.when("/supprAchat",{
+			templateUrl: "views/supprAchat.html",
+			controller: "deleteAchatCtrl"
+		})
+		
+		.when("/rechercheMCAchat",{
+			templateUrl: "views/rechercheMCAchat.html",
+			controller: "findByMCAchatCtrl"
+		})
+		.when("/ajoutAchat",{
+			templateUrl: "views/ajoutAchat.html",
+			controller: "addAchatCtrl"
+		})
+		
 })
