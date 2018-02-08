@@ -1,7 +1,7 @@
 
 <h1 style="text-align: center;">Liste des Classes Standards</h1>
 <br />
-<table class="table table-bordered" style="text-align: center;">
+<table class="table table-bordered" style="text-align: center;background-color: mistyrose">
 	<tr>
 		<th>ID</th>
 		<th>Mode d'offre</th>
@@ -12,8 +12,8 @@
 	</tr>
 	<tr ng-repeat="cs in listeCS">
 		<td>{{cs.idCode}}</td>
-		<td ng-hide="!cs.modeOffre">à louer</td>
-		<td ng-hide="cs.modeOffre">à acheter</td>
+		<td ng-if="!cs.modeOffre">à louer</td>
+		<td ng-if="cs.modeOffre">à acheter</td>
 		<td>{{cs.prixMax}}</td>
 		<td>{{cs.surfaceMin}}</td>
 		<td>{{cs.type}}</td>
