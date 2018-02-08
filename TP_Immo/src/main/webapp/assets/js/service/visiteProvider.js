@@ -71,15 +71,12 @@ monApp.factory("visiteService",function($http){
 		});
 	};
 	
+	
 	//Dev de la fonction pour ajouter
-	function ajoutVisite(visiteAjout,callback){
+	function ajoutVisite(idC,idA,date,callback){
 		$http({
 			method:'POST',
-			url:urlWS+'add',
-			data:angular.toJson(visiteAjout), //Les données encapsulées dans le corps de la requete http
-			header:{
-				'content-type':"application/json"
-			}
+			url:urlWS+'addVisite?idClient='+idC+'&idAchat='+idA+'&date='+date
 		}).then(function success(reponse) {
 			//Stocker la reponse dans la callback afin de la transporter au controller
 			callback(reponse.statusText);
@@ -88,6 +85,7 @@ monApp.factory("visiteService",function($http){
 
 		});
 	};	
+	
 	
 	//Dev de la fonction pour supprimer
 	function supprimVisite(id,callback){

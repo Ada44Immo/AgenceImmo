@@ -71,33 +71,16 @@ monApp
 	
 	//Initliaiser la visite du formulaire
 	$scope.date=''
-	$scope.idClient=''
-	$scope.idAchat=''
-	$scope.idLocation=''
-	
-	//Récuperer le client par son id
+	$scope.idC=''
+	$scope.idA=''
 		
-	//Récuperer la location par son id
-		
-	//Récuperer l'achat par son id
-		
-		
-	//créer l'objet visiteAjout qui sera injecter dans la fonction addVisite
-		$scope.visiteAjout=
-			{
-			      "date": $scope.date,
-			      "client": $scope.client,
-			      "location": $scope.location,
-			      "achat": $scope.achat,      
-			      "agent": $scope.agent    
-			   }
 
 	//Fonction pour soumettre le pays à ajouter
 	$scope.ajouterVisite=function(){
 		//Appel de la methode du paysService
-		visiteService.addVisite($scope.visiteAjout,function (callback){
+		visiteService.addVisite($scope.idC,$scope.idA,$scope.date,function (callback){
 			if(callback=='OK'){
-				$location.path("getAllVisite")
+				$location.path("listeVisite")
 			}
 		})
 		

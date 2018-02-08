@@ -143,23 +143,5 @@ monApp
 			}
 		});
 	}
+	})
 	
-.controller("findByIdClientCtrl", function($scope, clientService,$location,$rootScope) {
-		$scope.id = '';
-		$scope.indice = false;
-	
-	// fonction pour soumettre le pays a ajouter
-	$scope.rechercheClientById = function() {
-		// appel de la methode findClientById du service
-		clientService.findByIdClient($scope.id, function(callback) {
-			if (typeof callback == "object") {
-				$scope.clientRecherche = callback;
-				$scope.indice = true;
-			} else {
-				$scope.indice = false;
-			}
-		});
-	}
-	
-
-})
