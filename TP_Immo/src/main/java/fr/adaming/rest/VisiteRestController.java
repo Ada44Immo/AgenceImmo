@@ -55,8 +55,26 @@ public class VisiteRestController {
 	}
 	
 	@RequestMapping(value="update",method=RequestMethod.PUT,consumes="application/json",produces="application/json")
-	public Visite updateVisite(@RequestBody Visite v){
-		return visiteService.updateVisite(v);
+	public Visite updateVisite(@RequestParam("idClient") int idC,@RequestParam("date") String date,@RequestParam("idAgent") int idAg,@RequestParam("choix") int choix ,@RequestParam("idBien") int idBien,@RequestParam("idVisite") int idVisite){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		Date dateM;
+		try {
+			Visite v=visiteService.getVisiteById(idVisite);
+			dateM = formatter.parse(date);
+			v.setAgent(agentService.getAgentById(idAg));
+			
+			if (choix==1){
+				v.setLocation(locationService.getLocationById(idBien));
+			}else{
+				v.setAchat(achatService.getAchatById(idBien));
+			}
+			v.setClient(clientService.getById(idC));
+			return visiteService.addVisite(v);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	@RequestMapping(value="ByAgent",method=RequestMethod.GET,produces="application/json")

@@ -53,6 +53,11 @@ monApp.config(function($routeProvider){
 			controller: "addVisiteCtrl"
 		})
 		
+		.when("/modifVisite",{
+			templateUrl: "views/modifVisite.html",
+			controller: "updateVisiteCtrl"
+		})
+		
 		.when("/supprimVisite",{
 			templateUrl: "views/supprVisite.html",
 			controller: "deleteVisiteCtrl"

@@ -91,14 +91,10 @@ monApp.factory("visiteService",function($http){
 	};
 	
 	//Dev de la fonction pour modifier
-	function modifVisite(visiteModifier,callback){
+	function modifVisite(id,date,idC,choix,idBien,idAg,callback){
 		$http({
 			method:'PUT',
-			url:urlWS+'updatePays',
-			data:angular.toJson(visiteModifier), //Les données encapsulées dans le corps de la requete http
-			header:{
-				'content-type':"application/json"
-			}
+			url:urlWS+'updatePays?idClient='+idC+'&date='+date+'&idAgent='+idAg+'&choix='+choix+'&idBien='+idBien+'&idVisite='+id
 		}).then(function success(reponse) {
 			//Stocker la reponse dans la callback afin de la transporter au controller
 			callback(reponse.statusText);

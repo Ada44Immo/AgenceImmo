@@ -46,7 +46,7 @@ monApp
 
 		$scope.rechercherListAgent = function() {
 		// Appel de la methode du service pour recuperer la liste du ws
-		visiteService.findListAgent($scope.idLoc, function(callback) {
+		visiteService.findListAgent($scope.idAgent, function(callback) {
 			// stocker la liste recuperer dans la variable listeVisiteAchat du
 			// scope pour quelle soit accessible depuis al vue
 			$scope.listeVisiteAgent = callback;
@@ -59,22 +59,21 @@ monApp
 		function($scope, visiteService, $location, $rootScope) {
 
 			// Initliaiser la visite du formulaire
-			$scope.visiteModifier = {
-				"id" : '',
-				"date" : '',
-				"client" : '',
-				"location" : '',
-				"achat" : '',
-				"agent" : ''
-			}
+			$scope.id = ''
+			$scope.date = ''
+			$scope.idC = ''
+			$scope.idBien = ''
+			$scope.idAg = ''
+
+			$scope.choix = 0
 
 			// Fonction pour soumettre le pays à ajouter
 			$scope.modifierVisite = function() {
 				// Appel de la methode du paysService
-				visiteService.updateVisite($scope.visiteModifier, function(
+				visiteService.updateVisite($scope.id,$scope.date,$scope.idC,choix,$scope.idBien,$scope.idAg, function(
 						callback) {
 					if (callback == 'OK') {
-						$location.path("getAllVisite")
+						$location.path("listeVisite")
 					}
 				})
 
