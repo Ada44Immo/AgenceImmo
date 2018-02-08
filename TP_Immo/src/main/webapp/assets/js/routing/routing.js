@@ -42,7 +42,16 @@ monApp.config(function($routeProvider){
 //			templateUrl: "views/listeVisiteLoc.html",
 //			controller: "findVisiteLocCtrl"
 //		})
-	
+		
+		.when("/ajoutVisite",{
+			templateUrl: "views/ajoutVisite.html",
+			controller: "addVisiteCtrl"
+		})
+		
+		.when("/supprimVisite",{
+			templateUrl: "views/supprVisite.html",
+			controller: "deleteVisiteCtrl"
+		})
 	
 		//******************************ROUTING CLASSE STANDARD**********************************
 		.when("/afficheClasseStandard",{
