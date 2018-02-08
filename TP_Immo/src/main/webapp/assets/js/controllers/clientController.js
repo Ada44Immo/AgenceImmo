@@ -1,6 +1,6 @@
 monApp
 
-.controller("findAllClientCtrl", function($scope, clientService) {
+.controller("findAllClientCtrl", function($scope, clientService,$location,$rootScope) {
 
 	// appel de la methode du service pour recup la liste du WS
 	clientService.findListe(function(callback) {
@@ -8,6 +8,43 @@ monApp
 		// quelle soit accessible de la vue
 		$scope.listeClient = callback;
 	});
+	
+	// fonction pour supprimer avec un lien dans la liste
+	$scope.supprimLien = function(client) {
+		clientService.deleteClient(client.id, function(deletecallback) {
+			if (deletecallback == 'OK') {
+				// appel de la methode du service pour recup la liste du WS
+				clientService.findListe(function(callbackList) {
+					// stocker la liste recup dans la variable listePays du
+					// scope pour quelle soit accessible de la vue
+					$scope.listeClient = callbackList;
+				});
+			}
+		})
+	}
+	//initialiser l'object pays dans le rootScope
+	
+	$rootScope.clientUpdate={
+			id:undefined,
+			nom : '',
+			tel:'',
+			adresse : {
+				cp: '', 
+				localite:'', 
+				num:'', 
+				pays:'', 
+				rue:''
+			}
+	}
+	
+	//fonction modifier avec un lien dans la liste
+	$scope.modifierLien=function(client){
+		//stocker les données du pays recupéré dans le rootscope
+		$rootScope.clientUpdate=client;
+		//rediriger vers la vue modif	
+		$location.path("modifClient")
+	}
+	
 	
 })
 
@@ -39,19 +76,27 @@ monApp
 })
 
 .controller("updateClientCtrl", function($scope, clientService, $location,$rootScope) {
-	$scope.clientModif = {			
-			id:'',
-			nom : '',
-			tel:'',
-			adresse : {
-				cp: '', 
-				localite:'', 
-				num:'', 
-				pays:'', 
-				rue:''
-			}
-			
-		};
+	
+	
+	if($rootScope.clientUpdate.id==undefined){
+		$scope.clientModif = {			
+				id:'',
+				nom : '',
+				tel:'',
+				adresse : {
+					cp: '', 
+					localite:'', 
+					num:'', 
+					pays:'', 
+					rue:''
+				}
+				
+			};
+	}else{
+		//sinon passage par le lien 
+		$scope.clientModif=$rootScope.clientUpdate
+	}
+	
 	$scope.modifierClient = function() {
 		clientService.updateClient($scope.clientModif, function(callback) {
 			if (callback == 'OK') {
@@ -82,7 +127,7 @@ monApp
 
 .controller("findByNomClientCtrl", function($scope, clientService,$location,$rootScope) {
 	
-
+		
 		$scope.nom = '';
 		$scope.indice = false;
 	
@@ -98,4 +143,6 @@ monApp
 			}
 		});
 	}
+	
+
 })

@@ -19,9 +19,9 @@
 </form>
 
 
-<h1 style="text-align: center;">Resultat de la recherche</h1>
+<h1 style="text-align: center;" ng-show=indice>Resultat de la recherche</h1>
 <br/>
-<table class="table table-bordered" style="text-align: center;">
+<table class="table table-bordered" style="text-align: center;background-color: mistyrose;" ng-show=indice>
 	<tr>
 		<th>ID</th>
 		<th>Nom</th>
@@ -31,7 +31,7 @@
 		<th>Ville</th>
 		<th>Pays</th>
 		<th>Telephone</th>
-		<th>Operation</th>
+		
 	</tr>
 	<tr >
 		<td>{{clientRecherche.id}}</td>
@@ -42,8 +42,7 @@
 		<td>{{clientRecherche.adresse.localite}}</td>
 		<td>{{clientRecherche.adresse.pays}}</td>
 		<td>{{clientRecherche.tel}}</td>
-		<td><button class="btn btn-success" ng-click="supprimLien()">Supprimer</button> | 
-		<button class="btn btn-success" ng-click="modifierLien()">Modifier</button> </td>
+		
 	</tr>
 </table>
 
