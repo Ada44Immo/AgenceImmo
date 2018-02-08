@@ -21,8 +21,6 @@ public interface IVisiteDao {
 	
 	public List<Visite> getVisiteByBienLocation(Location location);
 	
-	public List<Visite> getVisiteByCS(Achat achat);
-	
 	public List<Visite> getVisiteByDate(Date date);
 	
 	public List<Visite> getVisiteByAgent(Agent agent);

@@ -120,9 +120,7 @@ public class VisiteDaoImpl implements IVisiteDao{
 		query.setParameter("pId", id);
 		return (Visite) query.uniqueResult();
 	}
-	
-	
-	
+
 
 	
 
