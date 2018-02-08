@@ -59,4 +59,9 @@ public class AchatRestController {
 		return achatService.getAchatByMotCle(motCle);
 	}
 	
+	@RequestMapping(value="ByCS",method=RequestMethod.GET,produces="application/json")
+	public List<Achat> getByCS(@RequestParam("nomCS")String nomCS){
+		return achatService.getAchatByCS(nomCS);
+	}
+	
 }

@@ -69,4 +69,9 @@ public class AchatServiceImpl implements IAchatService{
 		return achatDao.addAchat(achat);
 	}
 
+	@Override
+	public List<Achat> getAchatByCS(String nom) {
+		return achatDao.getAchatByCS(cStdDao.getCStdByName(nom));
+	}
+
 }

@@ -56,7 +56,7 @@ monApp
 	}
 	$scope.test
 	
-	if( $scope.classeStandardAjout.modeOffre=="a louer"){
+	if( $scope.test=="a louer"){
 		$scope.classeStandardAjout.modeOffre = false;
 	} else {
 		$scope.classeStandardAjout.modeOffre = true;
@@ -81,7 +81,7 @@ monApp
 	$scope.types = ["a vendre", "a louer"]
 	if($rootScope.classeStandardUpdate.idCode==undefined){
 		$scope.classeStandardModif = {			
-				id:'',
+				idCode:'',
 				modeOffre : '',
 				prixMax:'',
 				surfaceMin : '',
@@ -92,14 +92,15 @@ monApp
 		// sinon passage par le lien
 		$scope.classeStandardModif=$rootScope.classeStandardUpdate
 	}
-	
-	if( $scope.classeStandardAjout.modeOffre=="a louer"){
-		$scope.classeStandardAjout.modeOffre = false;
-	} else {
-		$scope.classeStandardAjout.modeOffre = true;
-	}
+	$scope.test
+
 	
 	$scope.modifierClasseStandard = function() {
+		if( $scope.test=="a louer"){
+			$scope.classeStandardModif.modeOffre = false;
+		} else {
+			$scope.classeStandardModif.modeOffre = true;
+		}
 		classeStandardService.updateClasseStandard($scope.classeStandardModif, function(callback) {
 			if (callback == 'OK') {
 				// redirection vers la methode afficher la liste
@@ -128,15 +129,14 @@ monApp
 })
 
 .controller("findByNomClasseStandardCtrl", function($scope, classeStandardService,$location,$rootScope) {
-	
-		
-		$scope.type = '';
+			
+		$scope.nom = '';
 		$scope.indice = false;
 	
 	// fonction pour soumettre le pays a ajouter
 	$scope.rechercherClasseStandard = function() {
 		// appel de la methode addPays du service
-		classeStandardService.findByNomClasseStandard($scope.type, function(callback) {
+		classeStandardService.findByNomClasseStandard($scope.nom, function(callback) {
 			if (typeof callback == "object") {
 				$scope.classeStandardRecherche = callback;
 				$scope.indice = true;

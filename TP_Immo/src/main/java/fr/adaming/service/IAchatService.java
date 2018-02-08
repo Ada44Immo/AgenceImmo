@@ -17,5 +17,6 @@ public interface IAchatService {
 	public Achat updateAchat(Achat achat);
 	public int deleteAchat(int id);
 	public Achat getAchatById(int id);
+	public List<Achat> getAchatByCS(String name);
 
 }

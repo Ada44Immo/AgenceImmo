@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import fr.adaming.model.Achat;
+import fr.adaming.model.ClasseStandard;
+import fr.adaming.model.Visite;
 
 @Repository
 public class AchatDaoImpl implements IAchatDao{
@@ -98,6 +100,16 @@ public class AchatDaoImpl implements IAchatDao{
 		query.setParameter("pId", id);		
 		
 		return (Achat) query.uniqueResult();
+	}
+	
+	
+	@Override
+	public List<Achat> getAchatByCS(ClasseStandard cs) {
+		s=sf.getCurrentSession();
+		String req="FROM Achat as a WHERE cStd.id=:pId";
+		Query query = s.createQuery(req);
+		query.setParameter("pId", cs.getIdCode());
+		return query.list();
 	}
 
 }

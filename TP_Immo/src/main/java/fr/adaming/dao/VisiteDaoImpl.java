@@ -75,6 +75,7 @@ public class VisiteDaoImpl implements IVisiteDao{
 		return query.list();
 	}
 
+
 	@Override
 	public List<Visite> getVisiteByDate(Date date) {
 		
