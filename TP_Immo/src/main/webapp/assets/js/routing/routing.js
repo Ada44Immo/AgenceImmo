@@ -69,4 +69,13 @@ monApp.config(function($routeProvider){
 			templateUrl: "views/rechercheClasseStandard.html",
 			controller: "findByNomClasseStandardCtrl"
 		})
+		
+		
+		//****************Routing map***********************************************
+		
+		.when("/map",{
+			templateUrl:"views/map.html"
+		})
+		
+		
 })
