@@ -17,6 +17,7 @@
 		<th>Revenu Cadastral</th>
 		<th>Statut</th>
 		<th>Surface</th>
+		<th>Photo</th>
 		<th>Operations</th>
 	</tr>
 	<tr ng-repeat="achat in listeAchat">
@@ -34,6 +35,9 @@
 		<td>{{achat.revenuCadastral}}</td>
 		<td>{{achat.statut}}</td>
 		<td>{{achat.surface}}</td>
+		<td><img
+					ng-src="data:image/JPEG;base64,{{achat.photo}}"
+					style="max-height: 30px; max-width: 30px"></td>
 		<td><button class="btn btn-success" ng-click="supprimLien(achat)">Supprimer</button> | 
 		<button class="btn btn-success" ng-click="modifierLien(achat)">Modifier</button> </td>
 	</tr>
