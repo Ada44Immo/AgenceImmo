@@ -86,5 +86,9 @@ monApp.config(function($routeProvider){
 			templateUrl:"views/map.html"
 		})
 		
+		//************google agenda**************************************************
+		.when("/planning",{
+			templateUrl:"views/planning.html"
+		})
 		
 })
