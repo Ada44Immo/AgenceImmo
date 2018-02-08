@@ -1,0 +1,20 @@
+<table class="table table-bordered" style="text-align:center">
+	<tr >
+		<th style="text-align:center">Id</th>
+		<th style="text-align:center">Date</th>
+		<th style="text-align:center">Achat_Id</th>
+		<th style="text-align:center">Agent_Id</th>
+		<th style="text-align:center">Client_Id</th>
+		<th style="text-align:center">Loc_Id</th>
+	</tr>
+
+	<tr ng-repeat="l in listeVisiteAgent">
+		<td>{{l.id}}</td>
+		<td>{{l.date}}</td>
+		<td>{{l.agent.id}}</td>
+		<td>{{l.achat.id}}</td>
+		<td>{{l.client.id}}</td>
+		<td>{{l.location.id}}</td>
+	</tr>
+
+</table>
