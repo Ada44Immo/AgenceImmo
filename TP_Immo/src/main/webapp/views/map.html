@@ -9,13 +9,17 @@
        }
     </style>
   </head>
-  
-  
+
   <body>
     <h3 style="text-align: center;">Localisation des biens</h3>
-    <div id="map" ></div>
+     <div id="map" ></div>
+
+    
+    
     <script>
+
     function initMap() {
+    	
     	//variable de localisation
     	
     	  var adaming = {lat: 47.2134338, lng: -1.5616846};
@@ -41,12 +45,13 @@
     	    content: contentString
     	  });
 		
-    	  //ajout du marqueurs
+     	  //ajout du marqueurs
     	  var marker = new google.maps.Marker({
     	    position: adaming,    	   
     	    map: map,
     	    title: 'Agence'
     	  });
+
     	  //clic de l'info bulle
     	  marker.addListener('click', function() {
     	    infowindow.open(map, marker);
@@ -57,7 +62,9 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz2jm5RRGDAnvYharuQWuyKF6r9BI2MtY&callback=initMap">
     </script>
-    
+ 
+
+
     
     
   </body>
