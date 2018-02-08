@@ -130,6 +130,12 @@ monApp.config(function($routeProvider){
 			controller: "findAllVisiteCtrl"
 		})
 		
+				//************google agenda**************************************************
+		.when("/accueil",{
+			templateUrl:"views/planning.html",
+			controller: "findAllVisiteCtrl"
+		})
+		
 		//*****************Achat Routing ********************************************
 		
 		.when("/afficheAchat",{
