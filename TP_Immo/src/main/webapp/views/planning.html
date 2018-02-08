@@ -1,18 +1,257 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<style type="text/css">
+.agenda {  }
+
+/* Dates */
+.agenda .agenda-date { width: 170px; }
+.agenda .agenda-date .dayofmonth {
+  width: 40px;
+  font-size: 36px;
+  line-height: 36px;
+  float: left;
+  text-align: right;
+  margin-right: 10px; 
+}
+.agenda .agenda-date .shortdate {
+  font-size: 0.75em; 
+}
+
+
+/* Times */
+.agenda .agenda-time { width: 140px; } 
+
+
+/* Events */
+.agenda .agenda-events {  } 
+.agenda .agenda-events .agenda-event {  } 
+
+@media (max-width: 767px) {
+    
+}
+</style>
+
 </head>
 <body>
-<br>
-<a href="https://calendar.google.com/calendar/b/3/r?cid=mnog5qgr8mjnms4l2m6tq8nqrc@group.calendar.google.com" 
-style="background-color: plum" target="_blank">Ajouter un rendez-vous</a>
-<br><br>
-<iframe src="https://calendar.google.com/calendar/embed?src=adaagenceimmo%40gmail.com&ctz=Europe%2FParis"
- style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-<br>
+	<div class="container">
 
+<h2>Agenda</h2>
+    <p class="lead">
+     
+    </p>
+    
+    <div class="alert alert-warning">
+        <h4>Verifier votre planning au debut de votre journee</h4>
+        <p></p>
+    </div>
+
+    <hr />
+
+    <div class="agenda">
+        <div class="table-responsive">
+            <table class="table table-condensed table-bordered" style="background-color: plum">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Horaire</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <!-- Single event in a single day -->
+                    <tr style="background-color: orchid">
+                        <td class="agenda-date" class="active" rowspan="1">
+                            <div class="dayofmonth">12</div>
+                            <div class="dayofweek">Lundi</div>
+                            <div class="shortdate text-muted">Fevrier, 2018</div>
+                        </td>
+                        <td class="agenda-time">
+                            9:30 
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Visite du Manoir de Franconville
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Multiple events in a single day (note the rowspan) -->
+                    <tr>
+                        <td class="agenda-date" class="active" rowspan="3">
+                        	
+                            <div class="dayofmonth">13</div>
+                            <div class="dayofweek">Mardi</div>
+                            <div class="shortdate text-muted">Fevrier, 2018</div>
+                        </td>
+                        <td class="agenda-time">
+                            8:00 - 9:00  
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Rendez-vous avec Mr Dupuis pour signature de contrat
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="agenda-time">
+                            10:15  - 12:00 
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Meeting avec le responsable de l'agence
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="agenda-time">
+                            13:00 
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Viste de la Villa de Saint-Barthelemy
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Multiple events in a single day (note the rowspan) -->
+                    <tr style="background-color: orchid">
+                        <td class="agenda-date" class="active" rowspan="3">
+                        	
+                            <div class="dayofmonth">15</div>
+                            <div class="dayofweek">Jeudi</div>
+                            <div class="shortdate text-muted">Fevrier, 2018</div>
+                        </td>
+                        <td class="agenda-time">
+                            9:00  
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Visite de l'Hotel Fantasia
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="background-color: orchid">
+                        <td class="agenda-time">
+                            13:15  - 14:00 
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Rencontre avec Mme Smith pour mise en gerance
+                            </div>
+                        </td>
+                    </tr>
+
+               
+              </tbody>
+            </table>
+                        <table class="table table-condensed table-bordered" style="background-color: plum">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Horaire</th>
+                        <th>Event</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <!-- Single event in a single day -->
+                    <tr style="background-color: orchid">
+                        <td class="agenda-date" class="active" rowspan="1">
+                            <div class="dayofmonth">19</div>
+                            <div class="dayofweek">Lundi</div>
+                            <div class="shortdate text-muted">Fevrier, 2018</div>
+                        </td>
+                        <td class="agenda-time">
+                            9:30 
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Formation Paris
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Multiple events in a single day (note the rowspan) -->
+                    <tr>
+                        <td class="agenda-date" class="active" rowspan="3">
+                        	
+                            <div class="dayofmonth">21</div>
+                            <div class="dayofweek">Mercredi</div>
+                            <div class="shortdate text-muted">Fevrier, 2018</div>
+                        </td>
+                        <td class="agenda-time">
+                            8:00 - 9:00  
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Finalisation de la vente de la Villa de Saint-Barthelemy
+                            </div>
+                        </td>
+                    </tr>
+                                        <tr>
+                        <td class="agenda-time">
+                            13:00 
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Viste de l'Hotel de Saint-Emilion avec le vignoble
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="agenda-time">
+                            13:00 
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Viste de l'Hotel de Saint-Emilion avec le vignoble
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- Multiple events in a single day (note the rowspan) -->
+                    <tr style="background-color: orchid">
+                        <td class="agenda-date" class="active" rowspan="3">
+                        	
+                            <div class="dayofmonth">22</div>
+                            <div class="dayofweek">Jeudi</div>
+                            <div class="shortdate text-muted">Fevrier, 2018</div>
+                        </td>
+                        <td class="agenda-time">
+                            9:00  
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Rendez-vous avec Mr Dupont pour une mise en gerance
+                            </div>
+                        </td>
+                    </tr>
+                    <tr style="background-color: orchid">
+                        <td class="agenda-time">
+                            13:15  - 14:00 
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Rendez-vous avec Mr Loff pour une mise en gerance
+                            </div>
+                        </td>
+                    </tr>
+					 <tr style="background-color: orchid">
+                        <td class="agenda-time">
+                            13:00 
+                        </td>
+                        <td class="agenda-events">
+                            <div class="agenda-event">
+                                Viste de du Manoir de Dracula
+                            </div>
+                        </td>
+                    </tr>
+               
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
