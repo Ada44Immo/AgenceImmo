@@ -21,7 +21,8 @@
 
 <h1 style="text-align: center;" ng-show=indice>Resultat de la recherche</h1>
 <br/>
-<table class="table table-bordered" style="text-align: center;background-color: mistyrose" ng-show=indice >
+{{achatRechercheMC.id}}
+<table class="table table-bordered" style="text-align: center;background-color: mistyrose" ng-show="indice" >
 	<tr>
 		<th>ID</th>
 		<th>Etat</th>
@@ -40,22 +41,22 @@
 		<th>Photo</th>
 		<th>Operations</th>
 	</tr>
-	<tr >
-		<td>{{achatRechercheMC.id}}</td>
-		<td>{{achatRechercheMC.etat}}</td>	
-		<td>{{achatRechercheMC.prix}}</td>	
-		<td>{{achatRechercheMC.adresse.num}}</td>	
-		<td>{{achatRechercheMC.adresse.rue}}</td>
-		<td>{{achatRechercheMC.adresse.cp}}</td>
-		<td>{{achatRechercheMC.adresse.localite}}</td>
-		<td>{{achatRechercheMC.adresse.pays}}</td>
-		<td>{{achatRechercheMC.dateDispo}}</td>
-		<td>{{achatRechercheMC.dateMiseEnGerance}}</td>
-		<td>{{achatRechercheMC.description}}</td>
-		<td>{{achatRechercheMC.revenuCadastral}}</td>
-		<td>{{achatRechercheMC.statut}}</td>
-		<td>{{achatRechercheMC.surface}}</td>
-		<td><img ng-src="data:image/JPEG;base64,{{achatRechercheMC.photo}}"
+	<tr ng-repeat="achatRMC in achatRechercheMC">
+		<td>{{achatRMC.id}}</td>
+		<td>{{achatRMC.etat}}</td>	
+		<td>{{achatRMC.prix}}</td>	
+		<td>{{achatRMC.adresse.num}}</td>	
+		<td>{{achatRMC.adresse.rue}}</td>
+		<td>{{achatRMC.adresse.cp}}</td>
+		<td>{{achatRMC.adresse.localite}}</td>
+		<td>{{achatRMC.adresse.pays}}</td>
+		<td>{{achatRMC.dateDispo}}</td>
+		<td>{{achatRMC.dateMiseEnGerance}}</td>
+		<td>{{achatRMC.description}}</td>
+		<td>{{achatRMC.revenuCadastral}}</td>
+		<td>{{achatRMC.statut}}</td>
+		<td>{{achatRMC.surface}}</td>
+		<td><img ng-src="data:image/JPEG;base64,{{achatRMC.photo}}"
 					style="max-height: 50px; max-width: 50px"></td>
 
 	</tr>

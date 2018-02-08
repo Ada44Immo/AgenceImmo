@@ -180,12 +180,14 @@ monApp
 		
 		$scope.motCle = '';
 		$scope.indice = false;
-	
+		$scope.achatRechercheMC ={};
 	// fonction pour soumettre le pays a ajouter
 	$scope.rechercherMCAchat = function() {
 		// appel de la methode addPays du service
 		achatService.findByMCAchat($scope.motCle, function(callback) {
 			if (typeof callback == "object") {
+				 console.log("------------------------- ");
+				 console.log(callback);
 				$scope.achatRechercheMC = callback;
 				$scope.indice = true;
 			} else {
