@@ -52,4 +52,9 @@ public class ClientRestController {
 		return clientService.addClient(client);
 	}
 	
+	@RequestMapping(value="ById",method=RequestMethod.DELETE)
+	public Client getById(@RequestParam("pId") int id){
+		return clientService.getById(id);
+	}
+	
 }
