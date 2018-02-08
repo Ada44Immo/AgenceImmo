@@ -1,0 +1,32 @@
+
+<h1 style="text-align: center;">Liste des Acquereurs</h1>
+<br/>
+<table class="table table-bordered" style="text-align: center;background-color: mistyrose" >
+	<tr>
+		<th>ID</th>
+		<th>Nom</th>
+		<th>Numero</th>
+		<th>Rue</th>
+		<th>Code Postal</th>
+		<th>Ville</th>
+		<th>Pays</th>
+		<th>Telephone</th>
+		<th>date d'achat</th>
+		<th>prix</th>
+	</tr>
+	<tr ng-repeat="acquereur in listeAcquereur">
+		<td>{{acquereur.id}}</td>
+		<td>{{acquereur.nom}}</td>	
+		<td>{{acquereur.adresse.num}}</td>	
+		<td>{{acquereur.adresse.rue}}</td>
+		<td>{{acquereur.adresse.cp}}</td>
+		<td>{{acquereur.adresse.localite}}</td>
+		<td>{{acquereur.adresse.pays}}</td>
+		<td>{{acquereur.tel}}</td>
+		<td>{{acquereur.dateAchat}}</td>
+		<td>{{acquereur.prix}}</td>
+	</tr>
+</table>
+
+
+
