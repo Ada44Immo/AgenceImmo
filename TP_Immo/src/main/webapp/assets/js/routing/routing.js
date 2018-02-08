@@ -80,6 +80,34 @@ monApp.config(function($routeProvider){
 		})
 		
 		
+		//***********************Routing Proprietaire***********************************************
+		
+		.when("/afficheProprietaire",{
+			templateUrl: "views/afficheProprietaire.html",
+			controller: "findAllProprietaireCtrl"
+		})
+		
+		.when("/ajoutProprietaire",{
+			templateUrl: "views/ajoutProprietaire.html",
+			controller: "addProprietaireCtrl"
+		})
+		
+		.when("/supprProprietaire",{
+			templateUrl: "views/supprProprietaire.html",
+			controller: "deleteProprietaireCtrl"
+		})
+		
+		.when("/modifProprietaire",{
+			templateUrl: "views/modifProprietaire.html",
+			controller: "updateProprietaireCtrl"
+		})
+		
+		.when("/rechercheProprietaire",{
+			templateUrl: "views/rechercheProprietaire.html",
+			controller: "findByNomProprietaireCtrl"
+		})
+		
+		
 		//****************Routing map***********************************************
 		
 		.when("/map",{

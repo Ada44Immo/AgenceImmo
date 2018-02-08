@@ -1,0 +1,52 @@
+<h1 style="text-align: center">Formulaire de Recherche</h1>
+<br>
+<form class="form-horizontal">
+
+  <div class="form-group">
+    <label for="idNom" class="col-sm-2 control-label">Nom</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idNom" placeholder="Nom" ng-model="nom">
+    </div>
+  </div>
+  
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-default" ng-click="rechercherProprietaire()">Rechercher</button>
+    </div>
+  </div>
+</form>
+
+
+<h1 style="text-align: center;" ng-show=indice>Resultat de la recherche</h1>
+<br/>
+<table class="table table-bordered" style="text-align: center;background-color: mistyrose;" ng-show=indice>
+	<tr>
+		<th>ID</th>
+		<th>Nom</th>
+		<th>Numero</th>
+		<th>Rue</th>
+		<th>Code Postal</th>
+		<th>Ville</th>
+		<th>Pays</th>
+		<th>Telephone</th>
+		<th>Operation</th>
+	</tr>
+	<tr >
+		<td>{{proprioRecherche.id}}</td>
+		<td>{{proprioRecherche.nom}}</td>	
+		<td>{{proprioRecherche.adresse.num}}</td>	
+		<td>{{proprioRecherche.adresse.rue}}</td>
+		<td>{{proprioRecherche.adresse.cp}}</td>
+		<td>{{proprioRecherche.adresse.localite}}</td>
+		<td>{{proprioRecherche.adresse.pays}}</td>
+		<td>{{proprioRecherche.tel}}</td>
+		<td><button class="btn btn-success" ng-click="supprimerLien(proprioRecherche)">Supprimer</button> 
+	| 
+	<button class="btn btn-success" ng-click="modifierLien(proprioRecherche)">Modifier</button></td>
+	</tr>
+</table>
+
+
+
