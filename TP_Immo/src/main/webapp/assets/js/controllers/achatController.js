@@ -98,7 +98,7 @@ monApp
 			dateDispo:'',
 			dateMiseEnGerance:'',
 			description:'',
-			revenuCasdastral:'',
+			revenuCadastral:'',
 			statut:'',
 			surface:''
 	}
@@ -149,7 +149,7 @@ monApp
 			dateDispo:'',
 			dateMiseEnGerance:'',
 			description:'',
-			revenuCasdastral:'',
+			revenuCadastral:'',
 			statut:'',
 			surface:''
 	}
@@ -176,7 +176,7 @@ monApp
 			dateDispo:'',
 			dateMiseEnGerance:'',
 			description:'',
-			revenuCasdastral:'',
+			revenuCadastral:'',
 			statut:'',
 			surface:'',
 			proprietaire:{
@@ -219,7 +219,7 @@ monApp
 				dateDispo:'',
 				dateMiseEnGerance:'',
 				description:'',
-				revenuCasdastral:'',
+				revenuCadastral:'',
 				statut:'',
 				surface:'',
 				photo:null

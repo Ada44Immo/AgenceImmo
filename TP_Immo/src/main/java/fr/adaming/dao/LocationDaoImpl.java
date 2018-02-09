@@ -47,7 +47,7 @@ public class LocationDaoImpl implements ILocationDao {
 		locOut.setGarniture(location.isGarniture());
 		locOut.setLoyer(location.getLoyer());
 		locOut.setPhoto(location.getPhoto());
-		locOut.setRevenuCasdastral(location.getRevenuCasdastral());
+		locOut.setRevenuCadastral(location.getRevenuCadastral());
 		locOut.setStatut(location.getStatut());
 		locOut.setSurface(location.getSurface());
 		s.saveOrUpdate(locOut);

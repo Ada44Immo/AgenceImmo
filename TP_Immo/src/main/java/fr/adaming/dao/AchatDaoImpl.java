@@ -71,7 +71,7 @@ public class AchatDaoImpl implements IAchatDao{
 		aModif.setDateMiseEnGerance(achat.getDateMiseEnGerance());
 		aModif.setDescription(achat.getDescription());
 		aModif.setPhoto(achat.getPhoto());
-		aModif.setRevenuCasdastral(achat.getRevenuCasdastral());
+		aModif.setRevenuCadastral(achat.getRevenuCadastral());
 		aModif.setStatut(achat.getStatut());
 		aModif.setSurface(achat.getSurface());
 		
