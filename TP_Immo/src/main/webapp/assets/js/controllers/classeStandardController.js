@@ -44,6 +44,51 @@ monApp
 	
 })
 
+.controller("findClasseStandardParClientCtrl", function($scope, classeStandardService, $rootScope,$location) {
+
+	$scope.nom='',
+	// appel de la methode du service pour recup la liste du WS
+	classeStandardService.findListeParClient(function(nom,callback) {
+		// stocker la liste recup dans la variable listeCS du scope pour
+		// quelle soit accessible de la vue
+		$scope.listeCSParClient = callback;
+	});
+	
+
+	// fonction pour supprimer avec un lien dans la liste
+	$scope.supprimLien = function(classeStandard) {
+		classeStandardService.deleteClasseStandard(classeStandard.idCode, function(deletecallback) {
+			if (deletecallback == 'OK') {
+				// appel de la methode du service pour recup la liste du WS
+				classeStandardService.findListe(function(callbackList) {
+					// stocker la liste recup dans la variable listePays du
+					// scope pour quelle soit accessible de la vue
+					$scope.listeCS = callbackList;
+				});
+			}
+		})
+	}
+	// initialiser l'object classe standard dans le rootScope
+	
+	$rootScope.classeStandardUpdate={
+			idCode:undefined,
+			modeOffre : '',
+			prixMax:'',
+			surfaceMin : '',
+			type: ''				
+	}
+	
+	// fonction modifier avec un lien dans la liste
+	$scope.modifierLien=function(classeStandard){
+		// stocker les données du pays recupéré dans le rootscope
+		$rootScope.classeStandardUpdate=classeStandard;
+		// rediriger vers la vue modif
+		$location.path("modifClasseStandard")
+	}
+	
+	
+})
+
 .controller("addClasseStandardCtrl", function($scope, classeStandardService, $location) {
 	// initialiser le pays du formulaire
 	$scope.types = ["a vendre", "a louer"];

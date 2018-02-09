@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.ICStdDao;
+import fr.adaming.dao.IClientDao;
 import fr.adaming.model.ClasseStandard;
 
 @Service
@@ -15,10 +16,17 @@ public class CStdServiceImpl implements ICStdService {
 	
 	@Autowired
 	private ICStdDao cStdDao;
+	
+	@Autowired
+	private IClientDao clientDao;
 
 	@Override
 	public ClasseStandard addCStd(ClasseStandard cStd) {
 		return cStdDao.addCStd(cStd);
+	}
+	
+	public List<ClasseStandard> getCStdParClient(String nom) {
+		return clientDao.getByNom(nom).getListeCStd();
 	}
 
 	@Override

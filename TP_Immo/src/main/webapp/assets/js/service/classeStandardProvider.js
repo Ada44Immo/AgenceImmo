@@ -24,6 +24,26 @@ monApp.factory("classeStandardService",function($http){
 		
 	}
 	
+	//************************************GET ALL CLASSE STANDARD PAR CLIENT**************************************************************	
+	//definition de la fonction pour recuperer la liste
+	function recupListe(nom,callback){
+		// appel du webservice via le service $http(il est basé sur ajax(le bus
+		// transporte la requete et recupere le resultat
+		// du WS : XMLHttpRequest (XHR))
+
+		$http({
+			method : "GET",// methode http
+			url : urlWS+'listeParClient?nom='+nom// url de la methode dans le WS
+		}).then(function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter au controller
+			callback(reponse.data)
+	
+		}, function erreur(reponse) {
+			console.log("--------- Erreur du serveur pour liste : "+reponse.status+" "+reponse.statusText)
+		})
+		
+	}
+	
 //************************************ADD ClasseStandard**************************************************************
 	
 	function ajoutClasseStandard(classeStandardAjout,callback){
@@ -112,6 +132,7 @@ monApp.factory("classeStandardService",function($http){
 	return {
 		//recuperation de des fonction et utilisation en dehors via un nom de methode
 		findListe:recupListe,
+		findListeParClient:recupListeParClient,
 		addClasseStandard:ajoutClasseStandard,
 		updateClasseStandard:modifClasseStandard,
 		deleteClasseStandard:supprClasseStandard,

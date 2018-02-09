@@ -16,4 +16,5 @@ public interface ICStdService {
 	
 	public ClasseStandard getCStdByName(String name);
 
+	public List<ClasseStandard> getCStdParClient(String nom);
 }

@@ -1,0 +1,43 @@
+
+<h1 style="text-align: center;">Liste des Classes Standards par client</h1><br/>
+
+  <div class="form-group">
+    <label for="idNom" class="col-sm-2 control-label">Nom du client</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idNom" placeholder="Nom" ng-model="nom">
+    </div>
+  </div>
+  
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-default" ng-click="findListeParClient()">Rechercher</button>
+    </div>
+  </div>
+</form>
+
+
+<br />
+<table class="table table-bordered" style="text-align: center;background-color: mistyrose">
+	<tr>
+		<th>ID</th>
+		<th>Mode d'offre</th>
+		<th>Prix Maximum</th>
+		<th>Surface Minimum</th>
+		<th>Type de bien</th>
+		<th>Operations</th>
+	</tr>
+	<tr ng-repeat="classeStandard in listeCSparClient">
+		<td>{{classeStandard.idCode}}</td>
+		<td ng-if="!classeStandard.modeOffre">&agrave louer</td>
+		<td ng-if="classeStandard.modeOffre">&agrave acheter</td>
+		<td>{{classeStandard.prixMax}}</td>
+		<td>{{classeStandard.surfaceMin}}</td>
+		<td>{{classeStandard.type}}</td>
+		<td><button class="btn btn-success" ng-click="supprimLien(classeStandard)">Supprimer</button>
+			|
+			<button class="btn btn-success" ng-click="modifierLien(classeStandard)">Modifier</button>
+		</td>
+	</tr>
+</table>
