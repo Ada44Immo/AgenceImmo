@@ -188,4 +188,9 @@ monApp.config(function($routeProvider){
 			controller: "attribuerAcquereurCtrl"
 		})
 		
+		.when("/attribuerBienLoc",{
+			templateUrl:"views/attribuerBienLoc.html",
+			controller:"attribuerAcquereurLocCtrl"
+		})
+		
 })

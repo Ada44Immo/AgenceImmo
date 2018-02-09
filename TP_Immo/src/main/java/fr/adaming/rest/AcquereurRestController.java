@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.adaming.model.Achat;
 import fr.adaming.model.Acquereur;
 import fr.adaming.model.Client;
+import fr.adaming.model.Location;
 import fr.adaming.service.IAchatService;
 import fr.adaming.service.IAcquereurService;
 import fr.adaming.service.IClientService;
+import fr.adaming.service.ILocationService;
 
 @RestController
 @RequestMapping(value="acquereur")
@@ -26,6 +28,8 @@ public class AcquereurRestController {
 	private IAcquereurService acquereurService;
 	@Autowired
 	private IAchatService achatService;
+	@Autowired
+	private ILocationService locationService;
 	@Autowired
 	private IClientService clientService;
 
@@ -70,8 +74,30 @@ public class AcquereurRestController {
 		acquereur.setDateAchat(new Date());
 		acquereur.setAchat(achat);
 		acquereur.setAdresse(client.getAdresse());
+		achat.setStatut("acheté");
+		achatService.updateAchat(achat);
 		acquereurService.addAcquereur(acquereur);
-		clientService.deleteClient(idC);
+		//clientService.deleteClient(idC);
+		
+		return acquereur;
+	}
+	
+	@RequestMapping(value="attribuerLoc", method=RequestMethod.GET)
+	public Acquereur attribuerBienloc(@RequestParam("idLoc") int idL,@RequestParam("idClient") int idC){
+		
+		Location location= locationService.getLocationById(idL);
+		Client client=clientService.getById(idC);
+		Acquereur acquereur= new Acquereur();
+		acquereur.setPrix(location.getLoyer()+location.getCharge());
+		acquereur.setTel(client.getTel());
+		acquereur.setNom(client.getNom());
+		acquereur.setDateAchat(new Date());
+		acquereur.setLocation(location);
+		acquereur.setAdresse(client.getAdresse());
+		location.setStatut("loué");
+		locationService.updateLocation(location);
+		acquereurService.addAcquereur(acquereur);
+		//clientService.deleteClient(idC);
 		
 		return acquereur;
 	}

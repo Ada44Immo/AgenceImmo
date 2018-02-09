@@ -42,6 +42,20 @@ monApp.factory("acquereurService", function($http) {
 		})
 	}
 	
+	function attribuerBienLoc(idC,idL,callback) {
+		$http( {
+			method : "GET",
+			url : urlWS + 'attribuerLoc?idLoc='+idL+'&idClient='+idC
+			
+		}).then(function success(reponse){
+			callback(reponse.data)
+		},
+		function erreur(reponse){
+			console.log("--------- Erreur du serveur pour ajout : "+reponse.status+" "+reponse.statusText)
+
+		})
+	}
+	
 	return {
 		findListe : recupListe,
 		addAcquereur : ajoutAcquereur,

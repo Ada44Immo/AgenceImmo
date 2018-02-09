@@ -33,10 +33,10 @@ monApp
 .controller("attribuerAcquereurCtrl", function($scope, acquereurService, $location) {
 	
 	$scope.idC=''
-	$scope.idA=''
+	$scope.idBien=''
 		
 	$scope.attribuerAcquereur = function() {
-		acquereurService.attributeAcquereur($scope.idC,$scope.idA, function (callback) {
+		acquereurService.attributeAcquereur($scope.idC,$scope.idBien, function (callback) {
 			if (callback == 'OK') {
 				$location.path("listeVisite")
 			}
@@ -44,4 +44,18 @@ monApp
 	}
 })
 
-
+.controller("attribuerAcquereurLocCtrl", function($scope, acquereurService, $location) {
+	
+	$scope.idC=''
+	$scope.idBien=''
+		
+	$scope.attribuerAcquereur = function() {
+		acquereurService.attributeAcquereur($scope.idC,$scope.idBien, function (callback) {
+			if (callback == 'OK') {
+				$location.path("listeVisite")
+			}
+		});
+	}
+	
+	
+})
