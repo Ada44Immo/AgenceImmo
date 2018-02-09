@@ -46,25 +46,26 @@ monApp
 
 .controller("addClasseStandardCtrl", function($scope, classeStandardService, $location) {
 	// initialiser le pays du formulaire
-	$scope.types = ["a vendre", "a louer"]
+	$scope.types = ["a vendre", "a louer"];
 	$scope.classeStandardAjout = {
-			modeOffre : false,
+			modeOffre : '',
 			prixMax:'',
 			surfaceMin : '',
 			type: ''	
 		
 	}
-	$scope.test
+	$scope.test='';
 	
-	if( $scope.test=="a louer"){
-		$scope.classeStandardAjout.modeOffre = false;
-	} else {
-		$scope.classeStandardAjout.modeOffre = true;
-	}
-	
+
 	
 	// fonction pour soumettre le classeStandard a ajouter
 	$scope.ajouterClasseStandard = function() {
+		if( $scope.test=="a louer"){
+			$scope.classeStandardAjout.modeOffre = false;
+		} else {
+			$scope.classeStandardAjout.modeOffre = true;
+		}
+		
 		// appel de la methode addClasseStandard du service
 		classeStandardService.addClasseStandard($scope.classeStandardAjout, function(callback) {
 			if (callback == 'OK') {
@@ -78,7 +79,7 @@ monApp
 
 .controller("updateClasseStandardCtrl", function($scope, classeStandardService, $location,$rootScope) {
 	
-	$scope.types = ["a vendre", "a louer"]
+	$scope.types = ["a vendre", "a louer"];
 	if($rootScope.classeStandardUpdate.idCode==undefined){
 		$scope.classeStandardModif = {			
 				idCode:'',
