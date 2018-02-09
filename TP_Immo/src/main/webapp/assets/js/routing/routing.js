@@ -74,6 +74,11 @@ monApp.config(function($routeProvider){
 			controller: "findAllClasseStandardCtrl"
 		})
 		
+		.when("/afficheClasseStandardParClient",{
+			templateUrl: "views/listeCSParClient.html",
+			controller: "findClasseStandardParClientCtrl"
+		})
+		
 				.when("/ajoutClasseStandard",{
 			templateUrl: "views/ajoutClasseStandard.html",
 			controller: "addClasseStandardCtrl"
