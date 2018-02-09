@@ -5,18 +5,24 @@ import java.util.Date;
 import javax.persistence.Embedded;
 import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @MappedSuperclass
 public abstract class Bien {
 	
 	//attribut
 	private String statut;
+	
+	@Temporal(TemporalType.DATE)
 	private Date dateDispo;
+	
+	@Temporal(TemporalType.DATE)
 	private Date dateMiseEnGerance;
 	@Embedded 
 	private Adresse adresse;
 	private String description;
-	private double revenuCasdastral;
+	private double revenuCadastral;
 	private double surface;
 	@Lob
 	private byte[] photo;
@@ -27,27 +33,27 @@ public abstract class Bien {
 	}
 
 	public Bien(String statut, Date dateDispo, Date dateMiseEnGerance, Adresse adresse, String description,
-			double revenuCasdastral, double surface, byte[] photo) {
+			double revenuCadastral, double surface, byte[] photo) {
 		super();
 		this.statut = statut;
 		this.dateDispo = dateDispo;
 		this.dateMiseEnGerance = dateMiseEnGerance;
 		this.adresse = adresse;
 		this.description = description;
-		this.revenuCasdastral = revenuCasdastral;
+		this.revenuCadastral = revenuCadastral;
 		this.surface = surface;
 		this.photo = photo;
 	}
 
 	public Bien(String statut, Date dateDispo, Date dateMiseEnGerance, Adresse adresse, String description,
-			double revenuCasdastral, double surface) {
+			double revenuCadastral, double surface) {
 		super();
 		this.statut = statut;
 		this.dateDispo = dateDispo;
 		this.dateMiseEnGerance = dateMiseEnGerance;
 		this.adresse = adresse;
 		this.description = description;
-		this.revenuCasdastral = revenuCasdastral;
+		this.revenuCadastral = revenuCadastral;
 		this.surface = surface;
 	}
 	
@@ -92,12 +98,12 @@ public abstract class Bien {
 		this.description = description;
 	}
 
-	public double getRevenuCasdastral() {
-		return revenuCasdastral;
+	public double getRevenuCadastral() {
+		return revenuCadastral;
 	}
 
-	public void setRevenuCasdastral(double revenuCasdastral) {
-		this.revenuCasdastral = revenuCasdastral;
+	public void setRevenuCadastral(double revenuCadastral) {
+		this.revenuCadastral = revenuCadastral;
 	}
 
 	public double getSurface() {

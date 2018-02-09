@@ -39,7 +39,7 @@ monApp
 			dateDispo:'',
 			dateMiseEnGerance:'',
 			description:'',
-			revenuCasdastral:'',
+			revenuCadastral:'',
 			statut:'',
 			surface:'',
 			photo:null
