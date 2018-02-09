@@ -66,6 +66,9 @@ public class AcquereurRestController {
 	public Acquereur attribuerBien(@RequestParam("idAchat") int idA,@RequestParam("idClient") int idC){
 		
 		Achat achat= achatService.getAchatById(idA);
+		if(!achat.getStatut().equals("disponible")){
+			throw new RuntimeException("Ce bien n'est plus disponible !") ;
+		}
 		Client client=clientService.getById(idC);
 		Acquereur acquereur= new Acquereur();
 		acquereur.setPrix(achat.getPrix());
@@ -86,6 +89,9 @@ public class AcquereurRestController {
 	public Acquereur attribuerBienloc(@RequestParam("idLoc") int idL,@RequestParam("idClient") int idC){
 		
 		Location location= locationService.getLocationById(idL);
+		if(!location.getStatut().equals("disponible")){
+			throw new RuntimeException("Ce bien n'est plus disponible !") ;
+		}
 		Client client=clientService.getById(idC);
 		Acquereur acquereur= new Acquereur();
 		acquereur.setPrix(location.getLoyer()+location.getCharge());
