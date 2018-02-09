@@ -4,25 +4,20 @@
 <div class="table-responsive">
 <table class="table table-bordered" style="text-align: center;background-color: mistyrose" >
 	<tr >
-		<th>ID</th>
-		<th>Photo</th>
-		<th>Etat</th>
-		<th>Prix</th>
-		<th></th>
-		<th>Numero</th>
-		<th>Rue</th>
-		<th>Code Postal</th>
-		<th>Ville</th>
-		<th>Pays</th>
-		<th>Date de Disponibilite</th>
-		<th >Date de mise en Gerance</th>
-		<th>Description</th>
-		<th>Revenu Cadastral</th>
-		<th>Statut</th>
-		<th>Surface</th>
+		<th style="text-align: center;">ID</th>
+		<th style="text-align: center;">Photo</th>
+		<th style="text-align: center;">Etat</th>
+		<th style="text-align: center;">Prix</th>
+		<th style="text-align: center;">Adresse</th>
+		<th style="text-align: center;">Date de Disponibilite</th>
+		<th style="text-align: center;">Date de mise en Gerance</th>
+		<th style="text-align: center;">Description</th>
+		<th style="text-align: center;">Revenu Cadastral</th>
+		<th style="text-align: center;">Statut</th>
+		<th style="text-align: center;">Surface</th>
 		
 		
-		<th>Operations</th>
+		<th style="text-align: center;width: 300%">Operations</th>
 	</tr>
 	<tr ng-repeat="achat in listeAchat">
 		<td>{{achat.id}}</td>
@@ -31,20 +26,17 @@
 					style="max-height: 200px; max-width: 200px"></td>
 		<td>{{achat.etat}}</td>	
 		<td>{{achat.prix}}</td>	
-		<td>{{achat.adresse.num}}</td>	
-		<td>{{achat.adresse.rue}}</td>
-		<td>{{achat.adresse.cp}}</td>
-		<td>{{achat.adresse.localite}}</td>
-		<td>{{achat.adresse.pays}}</td>
+		<td style="width: 60%">{{achat.adresse.num}},{{achat.adresse.rue}}
+		{{achat.adresse.cp}} {{achat.adresse.localite}}, {{achat.adresse.pays}}</td>	
 		<td>{{achat.dateDispo}}</td>
-		<td>{{achat.dateMiseEnGerance}}</td>
-		<td>{{achat.description}}</td>
+		<td style="width: 40%">{{achat.dateMiseEnGerance}}</td>
+		<td style="width: 60%">{{achat.description}}</td>
 		<td>{{achat.revenuCadastral}}</td>
-		<td>{{achat.statut}}</td>
+		<td style="width: 60%">{{achat.statut}}</td>
 		<td>{{achat.surface}}</td>
 
-		<td><button class="btn btn-success" ng-click="supprimLien(achat)">Supprimer</button> | 
-		<button class="btn btn-success" ng-click="modifierLien(achat)">Modifier</button> | 
+		<td style="width: 700px"><button class="btn btn-success" ng-click="supprimLien(achat)">Supprimer</button> <br><br>
+		<button class="btn btn-success" ng-click="modifierLien(achat)">Modifier</button><br> <br>
 		<button class="btn btn-success" ng-click="obtenirCoordineesGPS(achat)">Localiser</button></td>
 	</tr>
 </table>
