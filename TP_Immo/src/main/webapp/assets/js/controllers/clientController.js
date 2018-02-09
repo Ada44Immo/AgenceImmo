@@ -75,6 +75,25 @@ monApp
 
 })
 
+.controller("addCSClientCtrl", function($scope, clientService, $location) {
+	// initialiser le pays du formulaire
+	$scope.nom = '';
+	$scope.nomCS = '';
+	
+	// fonction pour soumettre le client a ajouter
+	$scope.ajouterCSClient = function() {
+		// appel de la methode addClient du service
+		clientService.addCSClient($scope.nomCS,$scope.nom, function(callback) {
+			if (callback == 'OK') {
+				// redirection vers la methode afficher la liste
+				$location.path("afficheClient")
+			}
+		});
+	}
+
+})
+
+
 .controller("updateClientCtrl", function($scope, clientService, $location,$rootScope) {
 	
 	

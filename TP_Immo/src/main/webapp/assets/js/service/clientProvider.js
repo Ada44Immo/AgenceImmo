@@ -45,6 +45,26 @@ monApp.factory("clientService",function($http){
 		
 	}
 	
+	//************************************ADD CSTD a CLIENT**************************************************************
+
+	function setCStd(nomCS,nom,callback){
+		$http({
+	
+			method : "POST",// methode http
+			url : urlWS+'addCS?nomCS='+nomCS+'&nom='+nom,// url de la methode dans le WS
+		
+		
+		}).then(
+			function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter ua controller
+			callback(reponse.data)  			
+				},
+			function erreur(reponse) {
+					console.log("--------- Erreur du serveur pour findByNom : "+reponse.status+" "+reponse.statusText)
+				})
+		
+	}
+	
 	//************************************UPDATE PAYS**************************************************************
 	
 	function modifClient(clientModif,callback){
@@ -132,9 +152,11 @@ monApp.factory("clientService",function($http){
 		//recuperation de des fonction et utilisation en dehors via un nom de methode
 		findListe:recupListe,
 		addClient:ajoutClient,
+		addClient:ajoutClient,
 		updateClient:modifClient,
 		deleteClient:supprClient,
 		findByNomClient:rechercheClient,
+		addCSClient:setCStd,
 		findByIdClient:rechercheClientById
 		
 	}

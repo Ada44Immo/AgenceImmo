@@ -46,26 +46,6 @@ monApp.factory("achatService",function($http){
 		
 	}
 	
-	//************************************ADD CSTD a CLIENT**************************************************************
-
-	function setCStd(nomCS,nom,callback){
-		$http({
-	
-			method : "POST",// methode http
-			url : urlWS+'addCS?nomCS='+nomCS+'&nom='+nom,// url de la methode dans le WS
-		
-		
-		}).then(
-			function success(reponse) {
-			//stocker la reponse dans callback afin de le transporter ua controller
-			callback(reponse.data)  			
-				},
-			function erreur(reponse) {
-					console.log("--------- Erreur du serveur pour findByNom : "+reponse.status+" "+reponse.statusText)
-				})
-		
-	}
-	
 	//************************************UPDATE PAYS**************************************************************
 	
 	function modifAchat(achatModif,callback){
