@@ -1,3 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.agenda {
+	
+}
+
+/* Dates */
+.agenda .agenda-date {
+	width: 170px;
+}
+
+.agenda .agenda-date .dayofmonth {
+	width: 40px;
+	font-size: 36px;
+	line-height: 36px;
+	float: left;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.agenda .agenda-date .shortdate {
+	font-size: 0.75em;
+}
+
+/* Times */
+.agenda .agenda-time {
+	width: 140px;
+}
+
+/* Events */
+.agenda .agenda-events {
+	
+}
+
+.agenda .agenda-events .agenda-event {
+	
+}
+
+@media ( max-width : 767px) {
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+	width: 70%;
+	margin: auto;
+}
+</style>
+<body>
 <h1 style="text-align: center">Formulaire de Recherche</h1>
 <br>
 <form class="form-horizontal">
@@ -19,22 +68,52 @@
   </div>
 </form>
 
-<table class="table table-bordered" style="text-align:center">
-	<tr >
-		<th style="text-align:center">Date</th>
-		<th style="text-align:center">Agent</th>
-		<th style="text-align:center">Adresse</th>
-		<th style="text-align:center">Pays</th>
-		<th style="text-align:center">Client</th>
-		
-	</tr>
 
-	<tr ng-repeat="l in listeVisiteAchat">
-		<td>{{l.date}}</td>
-		<td>{{l.agent.mail}}</td>
-		<td>{{l.location.adresse.num}} {{l.achat.adresse.num}} {{l.location.adresse.rue}} {{l.achat.adresse.rue}} {{l.location.adresse.localite}} {{l.achat.adresse.localite}} {{l.location.adresse.cp}} {{l.achat.adresse.cp}}  </td>
-		<td>{{l.location.adresse.pays}} {{l.achat.adresse.pays}}</td>	
-		<td>{{l.client.nom}} {{l.client.tel}}</td>			
-	</tr>
+	<div class="container">
 
-</table>
+
+		<h2>Agenda</h2>
+		<p class="lead"></p>
+
+		<hr />
+
+		<div class="agenda">
+			<div class="table-responsive">
+				<table class="table table-condensed table-bordered"
+					style="background-color: plum">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Agent</th>
+							<th>Event</th>
+							<th>Proprietaire</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr ng-repeat="l in listeVisiteAchat | orderBy:'date':shouldBeReversedOrder ">
+							<td class="agenda-date" class="active" rowspan="1">
+								<div class="dayofmonth">{{l.date|date:"dd"}}</div>
+								<div class="dayofweek">{{l.date|date:"EEEE"}}</div>
+								<div class="shortdate text-muted">{{l.date|date:"LLLL"}},
+									{{l.date|date:"yyyy"}}</div>
+							</td>
+							<td class="agenda-events">
+								<div class="agenda-event">{{l.agent.mail}}</div>
+							</td>
+							<td class="agenda-events">
+								<div class="agenda-event">Visite avec {{l.client.nom}}, tel:
+									{{l.client.tel}} du bien 
+									{{l.achat.adresse.num}} {{l.achat.adresse.rue}} {{l.achat.adresse.localite}} {{l.achat.adresse.cp}} {{l.achat.adresse.pays}}</div>
+							</td>
+							<td class="agenda-events">
+								<div class="agenda-event">{{l.achat.proprietaire.nom}}, tel:
+									{{l.achat.proprietaire.tel}}</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
