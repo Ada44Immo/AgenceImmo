@@ -126,7 +126,8 @@ monApp.config(function($routeProvider){
 		//****************Routing map***********************************************
 		
 		.when("/map",{
-			templateUrl:"views/map.html"
+			templateUrl:"views/map.html",
+			controller: "mapCtrl"
 		})
 		
 		//************google agenda**************************************************

@@ -42,13 +42,6 @@ monApp
 			revenuCadastral:'',
 			statut:'',
 			surface:'',
-			photo:null,
-			proprietaire:{
-				id: '' 
-					},
-			cStd:{
-				nom: '' 
-			},
 			photo:null
 			
 	
@@ -107,14 +100,7 @@ monApp
 			description:'',
 			revenuCadastral:'',
 			statut:'',
-			surface:'',
-			proprietaire:{
-				id: '' 
-					},
-			cStd:{
-				nom: '' 
-			},
-			photo:null
+			surface:''
 	}
 	
 	$scope.modifierLien=function(achat){
@@ -165,14 +151,7 @@ monApp
 			description:'',
 			revenuCadastral:'',
 			statut:'',
-			surface:'',
-			proprietaire:{
-				id: '' 
-					},
-			cStd:{
-				nom: '' 
-			},
-			photo:null
+			surface:''
 	}
 	
 	$scope.modifierLien=function(achat){
@@ -243,12 +222,6 @@ monApp
 				revenuCadastral:'',
 				statut:'',
 				surface:'',
-				proprietaire:{
-					id: '' 
-						},
-				cStd:{
-					nom: '' 
-				},
 				photo:null
 			};
 	}else{
