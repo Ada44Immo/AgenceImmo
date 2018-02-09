@@ -84,10 +84,12 @@ monApp
 	// fonction pour soumettre le client a ajouter
 	$scope.ajouterCSClient = function() {
 		
-		console.log("---------------------------------------------coucou")
+		
 		// appel de la methode addClient du service
 		clientService.addCSClient($scope.nomCS,$scope.nom, function(callback) {
-			if (callback == 'object') {
+			console.log(callback)
+			if (typeof callback == "object") {
+			
 				// redirection vers la methode afficher la liste
 				$location.path("afficheClient")
 			}

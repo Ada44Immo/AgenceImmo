@@ -1,27 +1,34 @@
 
 <h1 style="text-align: center;">Liste des Achats </h1>
 <br/>
+<div class="table-responsive">
 <table class="table table-bordered" style="text-align: center;background-color: mistyrose" >
-	<tr>
+	<tr >
 		<th>ID</th>
+		<th>Photo</th>
 		<th>Etat</th>
 		<th>Prix</th>
+		<th></th>
 		<th>Numero</th>
 		<th>Rue</th>
 		<th>Code Postal</th>
 		<th>Ville</th>
 		<th>Pays</th>
 		<th>Date de Disponibilite</th>
-		<th>Date de mise en Gerance</th>
+		<th >Date de mise en Gerance</th>
 		<th>Description</th>
 		<th>Revenu Cadastral</th>
 		<th>Statut</th>
 		<th>Surface</th>
-		<th>Photo</th>
+		
+		
 		<th>Operations</th>
 	</tr>
 	<tr ng-repeat="achat in listeAchat">
 		<td>{{achat.id}}</td>
+		<td><img
+					ng-src="data:image/JPEG;base64,{{achat.photo}}"
+					style="max-height: 200px; max-width: 200px"></td>
 		<td>{{achat.etat}}</td>	
 		<td>{{achat.prix}}</td>	
 		<td>{{achat.adresse.num}}</td>	
@@ -35,13 +42,12 @@
 		<td>{{achat.revenuCadastral}}</td>
 		<td>{{achat.statut}}</td>
 		<td>{{achat.surface}}</td>
-		<td><img
-					ng-src="data:image/JPEG;base64,{{achat.photo}}"
-					style="max-height: 50px; max-width: 50px"></td>
+
 		<td><button class="btn btn-success" ng-click="supprimLien(achat)">Supprimer</button> | 
-		<button class="btn btn-success" ng-click="modifierLien(achat)">Modifier</button> </td>
+		<button class="btn btn-success" ng-click="modifierLien(achat)">Modifier</button> | 
+		<button class="btn btn-success" ng-click="obtenirCoordineesGPS(achat)">Localiser</button></td>
 	</tr>
 </table>
-
+</div>
 
 
