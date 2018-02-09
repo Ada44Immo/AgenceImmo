@@ -12,5 +12,6 @@ public interface IClientService {
 	public List<Client> getAllClient();
 	public Client getByNom(String nom);
 	public Client getById(int id);
+	public Client setCStd(String nomCS, String nom);
 
 }

@@ -1,0 +1,61 @@
+
+<h1 style="text-align: center;">Liste des Achats par client</h1>
+<br/>
+
+  <div class="form-group">
+    <label for="idNom" class="col-sm-2 control-label">Nom du client</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="idNom" placeholder="Nom" ng-model="nom">
+    </div>
+  </div>
+  
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-default" ng-click="findListeParCSParClient()">Rechercher</button>
+    </div>
+  </div>
+</form>
+
+<table class="table table-bordered" style="text-align: center;background-color: mistyrose" ng-show=indice>
+	<tr>
+		<th>ID</th>
+		<th>Etat</th>
+		<th>Prix</th>
+		<th>Numero</th>
+		<th>Rue</th>
+		<th>Code Postal</th>
+		<th>Ville</th>
+		<th>Pays</th>
+		<th>Date de Disponibilite</th>
+		<th>Date de mise en Gerance</th>
+		<th>Description</th>
+		<th>Revenu Cadastral</th>
+		<th>Statut</th>
+		<th>Surface</th>
+		<th>Photo</th>
+		<th>Operations</th>
+	</tr>
+	<tr ng-repeat="achat in listeAchatParCSParClient">
+		<td>{{achat.id}}</td>
+		<td>{{achat.etat}}</td>	
+		<td>{{achat.prix}}</td>	
+		<td>{{achat.adresse.num}}</td>	
+		<td>{{achat.adresse.rue}}</td>
+		<td>{{achat.adresse.cp}}</td>
+		<td>{{achat.adresse.localite}}</td>
+		<td>{{achat.adresse.pays}}</td>
+		<td>{{achat.dateDispo}}</td>
+		<td>{{achat.dateMiseEnGerance}}</td>
+		<td>{{achat.description}}</td>
+		<td>{{achat.revenuCadastral}}</td>
+		<td>{{achat.statut}}</td>
+		<td>{{achat.surface}}</td>
+		<td><img
+					ng-src="data:image/JPEG;base64,{{achat.photo}}"
+					style="max-height: 30px; max-width: 30px"></td>
+		<td><button class="btn btn-success" ng-click="supprimLien(achat)">Supprimer</button> | 
+		<button class="btn btn-success" ng-click="modifierLien(achat)">Modifier</button> </td>
+	</tr>
+</table>

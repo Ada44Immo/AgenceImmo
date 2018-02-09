@@ -57,4 +57,9 @@ public class ClientRestController {
 		return clientService.getById(id);
 	}
 	
+	@RequestMapping(value="addCS",method=RequestMethod.POST)
+	public Client setCStd(@RequestParam("nomCS") String nomCS,@RequestParam("nom") String nom){
+		return clientService.setCStd(nomCS, nom);
+	}
+	
 }

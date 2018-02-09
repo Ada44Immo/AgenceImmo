@@ -13,6 +13,11 @@ monApp.config(function($routeProvider){
 			controller: "addClientCtrl"
 		})
 		
+		.when("/ajoutCSClient",{
+			templateUrl: "views/ajoutCSClient.html",
+			controller: "addCSClientCtrl"
+		})
+		
 		.when("/supprClient",{
 			templateUrl: "views/supprClient.html",
 			controller: "deleteClientCtrl"
@@ -171,6 +176,11 @@ monApp.config(function($routeProvider){
 		.when("/afficheAchatParCS",{
 			templateUrl: "views/listeAchatParCS.html",
 			controller: "findParCSAchatCtrl"
+		})
+		
+		.when("/afficheAchatParCSParClient",{
+			templateUrl: "views/listeAchatParCSParClient.html",
+			controller: "findParCSParClientAchatCtrl"
 		})
 		
 		.when("/attribuerBien",{

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.dao.ICStdDao;
 import fr.adaming.dao.IClientDao;
+import fr.adaming.model.ClasseStandard;
 import fr.adaming.model.Client;
 
 @Service
@@ -14,6 +16,8 @@ import fr.adaming.model.Client;
 public class ClientServiceImpl implements IClientService{
 	@Autowired
 	IClientDao clientDao;	
+	@Autowired
+	ICStdDao cStdDao;
 	
 	
 	public void setClientDao(IClientDao clientDao) {
@@ -52,6 +56,15 @@ public class ClientServiceImpl implements IClientService{
 	@Override
 	public Client getById(int id) {
 		return clientDao.getById(id);
+	}
+	
+	@Override
+	public Client setCStd(String nomCS, String nom) {
+		Client c =clientDao.getByNom(nom);
+		List<ClasseStandard> liste = c.getListeCStd();
+		liste.add(cStdDao.getCStdByName(nomCS));
+		c.setListeCStd(liste);
+		return c;
 	}
 
 }

@@ -18,5 +18,6 @@ public interface IAchatService {
 	public int deleteAchat(int id);
 	public Achat getAchatById(int id);
 	public List<Achat> getAchatByCS(String name);
+	public List<Achat> getAchatByCSByClient(String nomClient);
 
 }

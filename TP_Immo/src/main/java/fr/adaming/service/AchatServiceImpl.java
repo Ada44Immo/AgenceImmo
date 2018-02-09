@@ -1,5 +1,6 @@
 package fr.adaming.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.dao.IAchatDao;
 import fr.adaming.dao.ICStdDao;
+import fr.adaming.dao.IClientDao;
 import fr.adaming.dao.IProprietaireDao;
 import fr.adaming.model.Achat;
 import fr.adaming.model.Acquereur;
@@ -23,6 +25,8 @@ public class AchatServiceImpl implements IAchatService{
 	ICStdDao cStdDao;
 	@Autowired
 	IProprietaireDao propDao;
+	@Autowired
+	IClientDao clientDao;
 	
 	public void setAchatDao(IAchatDao achatDao) {
 		this.achatDao = achatDao;
@@ -74,4 +78,13 @@ public class AchatServiceImpl implements IAchatService{
 		return achatDao.getAchatByCS(cStdDao.getCStdByName(nom));
 	}
 
+	public List<Achat> getAchatByCSByClient(String nomClient) {
+		List<ClasseStandard> liste = clientDao.getByNom(nomClient).getListeCStd();
+		List<Achat> listeCumule=new ArrayList();
+		for (ClasseStandard classeStandard : liste) {
+			List<Achat> listeA = getAchatByCS(classeStandard.getType());
+			listeCumule.addAll(listeA);
+		}
+		return listeCumule;
+	}
 }

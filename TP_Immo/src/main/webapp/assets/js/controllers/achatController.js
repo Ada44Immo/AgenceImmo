@@ -109,6 +109,57 @@ monApp
 	}
 })
 
+.controller("findParCSParClientAchatCtrl", function($scope, achatService,$location,$rootScope) {
+
+		$scope.nom = '';
+		$scope.indice = false;
+	
+	$scope.findListeParCSParClient = function() {
+		achatService.findListeParCSParClient($scope.nom, function(callback) {
+			if (typeof callback !=undefined){
+				$scope.listeAchatParCSParClient = callback;
+				$scope.indice = true;
+			} else {
+				$scope.indice = false;
+			}
+		});
+	}
+	
+	$scope.supprimLien = function(achat) {
+		achatService.deleteAchat(achat.id, function(deletecallback) {
+			if (deletecallback == 'OK') {
+				achatService.findListeParCSParClient(function(callbackList) {
+					$scope.listeAchatParCSParClient = callbackList;
+				});
+			}
+		})
+	}
+	$rootScope.achatUpdate={
+			id:undefined,
+			etat:'',
+			prix : '',
+			tel:'',
+			adresse : {
+				cp: '', 
+				localite:'', 
+				num:'', 
+				pays:'', 
+				rue:''
+			},
+			dateDispo:'',
+			dateMiseEnGerance:'',
+			description:'',
+			revenuCasdastral:'',
+			statut:'',
+			surface:''
+	}
+	
+	$scope.modifierLien=function(achat){
+		$rootScope.achatUpdate=achat;
+		$location.path("modifAchat")
+	}
+})
+
 .controller("addAchatCtrl", function($scope, achatService, $location) {
 	// initialiser le pays du formulaire
 	$scope.achatAjout = {

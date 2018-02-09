@@ -46,6 +46,26 @@ monApp.factory("achatService",function($http){
 		
 	}
 	
+	//************************************ADD CSTD a CLIENT**************************************************************
+
+	function setCStd(nomCS,nom,callback){
+		$http({
+	
+			method : "POST",// methode http
+			url : urlWS+'addCS?nomCS='+nomCS+'&nom='+nom,// url de la methode dans le WS
+		
+		
+		}).then(
+			function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter ua controller
+			callback(reponse.data)  			
+				},
+			function erreur(reponse) {
+					console.log("--------- Erreur du serveur pour findByNom : "+reponse.status+" "+reponse.statusText)
+				})
+		
+	}
+	
 	//************************************UPDATE PAYS**************************************************************
 	
 	function modifAchat(achatModif,callback){
@@ -126,7 +146,7 @@ monApp.factory("achatService",function($http){
 		
 	}
 	
-	//************************************GET PAR CS Client**************************************************************	
+	//************************************GET PAR CS**************************************************************	
 	//definition de la fonction pour recuperer la liste
 	function recupListeParCS(nom,callback){
 		// appel du webservice via le service $http(il est basé sur ajax(le bus
@@ -136,6 +156,26 @@ monApp.factory("achatService",function($http){
 		$http({
 			method : "GET",// methode http
 			url : urlWS+'ByCS?nomCS='+nom// url de la methode dans le WS
+		}).then(function success(reponse) {
+			//stocker la reponse dans callback afin de le transporter au controller
+			callback(reponse.data)
+	
+		}, function erreur(reponse) {
+			console.log("--------- Erreur du serveur pour liste : "+reponse.status+" "+reponse.statusText)
+		})
+		
+	}
+	
+	//************************************GET PAR CS Client**************************************************************	
+	//definition de la fonction pour recuperer la liste
+	function recupListeParCSParClient(nom,callback){
+		// appel du webservice via le service $http(il est basé sur ajax(le bus
+		// transporte la requete et recupere le resultat
+		// du WS : XMLHttpRequest (XHR))
+
+		$http({
+			method : "GET",// methode http
+			url : urlWS+'ByCSByClient?nomClient='+nom// url de la methode dans le WS
 		}).then(function success(reponse) {
 			//stocker la reponse dans callback afin de le transporter au controller
 			callback(reponse.data)
@@ -158,6 +198,7 @@ monApp.factory("achatService",function($http){
 		deleteAchat:supprAchat,
 		findByMCAchat:rechercheAchatByMC,
 		findListeParCS:recupListeParCS,
+		findListeParCSParClient:recupListeParCSParClient,
 		findByIdAchat:rechercheAchat
 		
 	}
