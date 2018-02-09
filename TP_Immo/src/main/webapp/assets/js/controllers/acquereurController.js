@@ -49,8 +49,8 @@ monApp
 	$scope.idC=''
 	$scope.idBien=''
 		
-	$scope.attribuerAcquereur = function() {
-		acquereurService.attributeAcquereur($scope.idC,$scope.idBien, function (callback) {
+	$scope.attribuerAcquereurLoc = function() {
+		acquereurService.attributeAcquereurLoc($scope.idC,$scope.idBien, function (callback) {
 			if (callback == 'OK') {
 				$location.path("listeVisite")
 			}

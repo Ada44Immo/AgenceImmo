@@ -12,6 +12,51 @@ monApp
 				// scope pour quelle soit accessible depuis al vue
 				$scope.listeVisite = callback;
 			});
+			
+			//Fonction pour supprimer grace au lien du tableau
+			$scope.supprimerLien=function(visite){
+				visiteService.deleteVisite(visite.id, function (deleteCallback){
+					if(deleteCallback=='OK'){
+						//Appel de la methode du service pour recuperer la liste du ws
+						visiteService.findListeVisite(function(callbackList){
+							//Stocker la liste recup dans la varivlae listePays pour quelle soit acessible de la vue
+							$scope.listeVisite=callbackList;
+						});
+					}
+				})
+			}
+			
+			//Initialiser les données à envoyer dans le rootScope
+			$rootScope.id = ''
+			$rootScope.date = ''
+			$rootScope.idC = ''
+			$rootScope.idBien = ''
+			$rootScope.idAg = ''
+			$rootScope.choix = 0
+			//Fonction pour modifier grace au lien du tableau
+			$scope.modifierLien=function(visite){
+				//Stocker les données  dans le rootScope
+				$rootScope.id = visite.id
+				$rootScope.date = visite.date
+				$rootScope.idC = visite.client.id
+				$rootScope.idAg = visite.agent.id
+				if(visite.location==null || visite.location==undefined)
+					{
+						//dans le cas d'un achat
+						$rootScope.choix=0
+						$rootScope.idBien=visite.achat.id
+					}else
+						{
+							//dans le cas d'une location
+							$rootScope.choix=1
+							$rootScope.idBien=visite.location.id
+						}
+				//Envoyer les données dans la page modifier
+				$location.path("modifVisite")
+				
+			}
+			
+			
 		})
 
 .controller("findVisiteAchatCtrl", function($scope, visiteService) {
@@ -57,16 +102,24 @@ monApp
 .controller(
 		"updateVisiteCtrl",
 		function($scope, visiteService, $location, $rootScope) {
-
-			// Initliaiser la visite du formulaire
-			$scope.id = ''
-			$scope.date = ''
-			$scope.idC = ''
-			$scope.idBien = ''
-			$scope.idAg = ''
-
-			$scope.choix = 0
-
+//if($rootScope.id==undefined){
+//				
+//			// Initliaiser la visite du formulaire
+//			$scope.id = ''
+//			$scope.date = ''
+//			$scope.idC = ''
+//			$scope.idBien = ''
+//			$scope.idAg = ''
+//			$scope.choix = 0
+//}else{
+	$scope.id=$rootScope.id
+	$scope.date=$rootScope.date
+	$scope.idC=$rootScope.idC
+	$scope.idBien=$rootScope.idBien 
+	$scope.idAg=$rootScope.idAg
+	$scope.choix=$rootScope.choix
+	
+//}
 			// Fonction pour soumettre le pays à ajouter
 			$scope.modifierVisite = function() {
 				// Appel de la methode du paysService

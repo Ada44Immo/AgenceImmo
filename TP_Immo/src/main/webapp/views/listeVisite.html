@@ -5,6 +5,7 @@
 		<th style="text-align:center">Adresse</th>
 		<th style="text-align:center">Pays</th>
 		<th style="text-align:center">Client</th>
+		<th style="text-align:center">Action</th>
 		
 	</tr>
 
@@ -13,7 +14,9 @@
 		<td>{{l.agent.mail}}</td>
 		<td>{{l.location.adresse.num}} {{l.achat.adresse.num}} {{l.location.adresse.rue}} {{l.achat.adresse.rue}} {{l.location.adresse.localite}} {{l.achat.adresse.localite}} {{l.location.adresse.cp}} {{l.achat.adresse.cp}}  </td>
 		<td>{{l.location.adresse.pays}} {{l.achat.adresse.pays}}</td>	
-		<td>{{l.client.nom}} {{l.client.tel}}</td>			
+		<td>{{l.client.nom}} {{l.client.tel}}</td>		
+		<td><button class="btn btn-success" ng-click="supprimerLien(l)">Supprimer</button>
+		/ <button class="btn btn-success" ng-click="modifierLien(l)">Modifier</button></td>
 	</tr>
 
 </table>

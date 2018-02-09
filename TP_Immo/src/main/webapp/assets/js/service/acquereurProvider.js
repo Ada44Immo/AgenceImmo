@@ -59,7 +59,8 @@ monApp.factory("acquereurService", function($http) {
 	return {
 		findListe : recupListe,
 		addAcquereur : ajoutAcquereur,
-		attributeAcquereur:attribuerBien
+		attributeAcquereur:attribuerBien,
+		attributeAcquereurLoc:attribuerBienLoc
 		//findByNomProprietaire : rechercherProprietaire
 	}
 	
