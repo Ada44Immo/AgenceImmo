@@ -3,24 +3,20 @@
 <br/>
 <table class="table table-bordered" style="text-align: center;background-color: mistyrose" >
 	<tr>
-		<th>ID</th>
-		<th>Nom</th>
-		<th>Numero</th>
-		<th>Rue</th>
-		<th>Code Postal</th>
-		<th>Ville</th>
-		<th>Pays</th>
-		<th>Telephone</th>
-		<th>Operation</th>
+		<th style="text-align: center;">ID</th>
+		<th style="text-align: center;">Nom</th>
+		<th style="text-align: center;">Adresse</th>
+		<th style="text-align: center;">Telephone</th>
+		<th style="text-align: center;">Operation</th>
 	</tr>
 	<tr ng-repeat="client in listeClient">
 		<td>{{client.id}}</td>
-		<td>{{client.nom}}</td>	
-		<td>{{client.adresse.num}}</td>	
-		<td>{{client.adresse.rue}}</td>
-		<td>{{client.adresse.cp}}</td>
-		<td>{{client.adresse.localite}}</td>
-		<td>{{client.adresse.pays}}</td>
+		<td>{{client.nom}}</td>			
+		<td>{{client.adresse.num}},
+		{{client.adresse.rue}}
+		{{client.adresse.cp}}
+		{{client.adresse.localite}},
+		{{client.adresse.pays}}</td>
 		<td>{{client.tel}}</td>
 		<td><button class="btn btn-success" ng-click="supprimLien(client)">Supprimer</button> | 
 		<button class="btn btn-success" ng-click="modifierLien(client)">Modifier</button> </td>
