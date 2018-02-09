@@ -35,6 +35,7 @@ monApp.factory("acquereurService", function($http) {
 			
 		}).then(function success(reponse){
 			callback(reponse.data)
+
 		},
 		function erreur(reponse){
 			console.log("--------- Erreur du serveur pour ajout : "+reponse.status+" "+reponse.statusText)

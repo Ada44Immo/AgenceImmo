@@ -37,7 +37,7 @@ monApp
 		
 	$scope.attribuerAcquereur = function() {
 		acquereurService.attributeAcquereur($scope.idC,$scope.idBien, function (callback) {
-			if (callback == 'OK') {
+			if (typeof callback == "object") {
 				$location.path("listeVisite")
 			}
 		});
@@ -51,7 +51,7 @@ monApp
 		
 	$scope.attribuerAcquereurLoc = function() {
 		acquereurService.attributeAcquereurLoc($scope.idC,$scope.idBien, function (callback) {
-			if (callback == 'OK') {
+			if (typeof callback == "object") {
 				$location.path("listeVisite")
 			}
 		});
