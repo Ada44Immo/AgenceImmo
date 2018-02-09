@@ -29,11 +29,15 @@ monApp
 				photo:null
 		}
 		
-		$scope.obtenirCoordineesGPS=function(){
+		$rootscope.obtenirCoordineesGPS=function(){
 
 			mapService.getCoordineesGPS($scope.achat,function(callback){
 				if (typeof callback=='object'){
-					$location.path("map");
+					$scope.map=callback;
+
+					$scope.lat=$scope.map.results[0].geometry.location.lat;
+
+					$scope.lng=$scope.map.results[0].geometry.location.lng;
 				}
 			})
 		}

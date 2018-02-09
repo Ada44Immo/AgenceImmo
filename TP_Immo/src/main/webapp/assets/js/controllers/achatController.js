@@ -298,3 +298,42 @@ monApp
 		});
 	}
 	})
+	
+	.controller("mapCtrl", function($scope, achatService,$location) {
+		console.log('YAYAYYA')
+		$scope.achat={
+				id:undefined,
+				etat:'',
+				prix : '',
+				tel:'',
+				adresse : {
+					cp: '', 
+					localite:'', 
+					num:'', 
+					pays:'', 
+					rue:''
+				},
+				dateDispo:'',
+				dateMiseEnGerance:'',
+				description:'',
+				revenuCadastral:'',
+				statut:'',
+				surface:'',
+				proprietaire:{
+					id: '' 
+						},
+				cStd:{
+					nom: '' 
+				},
+				photo:null
+		}
+		
+		$scope.obtenirCoordineesGPS=function(){
+				achatService.getCoordineesGPS($scope.achat,function(callback){
+				$scope.map=callback
+				console.log(callback)
+				console.log('YAYAYYA')
+			})
+		}
+})
+	
