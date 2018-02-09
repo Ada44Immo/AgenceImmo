@@ -79,12 +79,15 @@ monApp
 	// initialiser le pays du formulaire
 	$scope.nom = '';
 	$scope.nomCS = '';
+
 	
 	// fonction pour soumettre le client a ajouter
 	$scope.ajouterCSClient = function() {
+		
+		console.log("---------------------------------------------coucou")
 		// appel de la methode addClient du service
 		clientService.addCSClient($scope.nomCS,$scope.nom, function(callback) {
-			if (callback == 'OK') {
+			if (callback == 'object') {
 				// redirection vers la methode afficher la liste
 				$location.path("afficheClient")
 			}

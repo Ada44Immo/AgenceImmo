@@ -52,7 +52,7 @@ monApp.factory("clientService",function($http){
 	
 			method : "POST",// methode http
 			url : urlWS+'addCS?nomCS='+nomCS+'&nom='+nom,// url de la methode dans le WS
-		
+			header:{'content-type':"application/json"}
 		
 		}).then(
 			function success(reponse) {
