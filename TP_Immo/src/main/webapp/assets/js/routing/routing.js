@@ -140,6 +140,7 @@ monApp.config(function($routeProvider){
 			templateUrl:"views/affichePhoto.html",
 			
 		})
+
 		
 		//*****************Achat Routing ********************************************
 		
@@ -192,5 +193,7 @@ monApp.config(function($routeProvider){
 			templateUrl:"views/attribuerBienLoc.html",
 			controller:"attribuerAcquereurLocCtrl"
 		})
-		
+		.otherwise({
+			redirectTo: "/affichePhoto"
+		})
 })
