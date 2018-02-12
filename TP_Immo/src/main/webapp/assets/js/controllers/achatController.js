@@ -56,6 +56,27 @@ monApp
 	}
 	
 	
+	$scope.obtenirCoordineesGPS=function(achat){
+		achatService.getCoordineesGPS(achat,function(callbackGPS){
+		$scope.map=callbackGPS
+		
+		$rootScope.lat=$scope.map.results[0].geometry.location.lat;
+
+		$rootScope.lng=$scope.map.results[0].geometry.location.lng;
+		$location.path("map2")
+	})
+}	
+})
+
+
+.controller("map2Ctrl", function($scope, achatService,$location, $rootScope) {
+		
+		$scope.lat=$rootScope.lat;
+		$scope.lng=$rootScope.lng
+		
+		$location.path("map2")
+		
+		
 })
 
 .controller("findParCSAchatCtrl", function($scope, achatService,$location,$rootScope) {
@@ -299,41 +320,5 @@ monApp
 	}
 	})
 	
-	.controller("mapCtrl", function($scope, achatService,$location) {
-		console.log('YAYAYYA')
-		$scope.achat={
-				id:undefined,
-				etat:'',
-				prix : '',
-				tel:'',
-				adresse : {
-					cp: '', 
-					localite:'', 
-					num:'', 
-					pays:'', 
-					rue:''
-				},
-				dateDispo:'',
-				dateMiseEnGerance:'',
-				description:'',
-				revenuCadastral:'',
-				statut:'',
-				surface:'',
-				proprietaire:{
-					id: '' 
-						},
-				cStd:{
-					nom: '' 
-				},
-				photo:null
-		}
-		
-		$scope.obtenirCoordineesGPS=function(){
-				achatService.getCoordineesGPS($scope.achat,function(callback){
-				$scope.map=callback
-				console.log(callback)
-				console.log('YAYAYYA')
-			})
-		}
-})
+	
 	

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 50%;
+        left: 300px;
+       }
+    </style>
+  </head>
+
+  <body>
+    <h3 style="text-align: center;">Localisation des biens {{lat}} {{lng}}</h3>
+     <div id="map" ></div>
+
+    
+    
+    <script>
+
+   
+    function initMap() {
+    	
+    	//variable de localisation
+    	
+    	  var adaming = {lat: 47.2134338, lng: -1.5616846};
+    	
+    	//definition de l'initialisation de la map centré sur une variable
+    	  var map = new google.maps.Map(document.getElementById('map'), {
+    	    zoom: 10,
+    	    center: adaming
+    	  });
+    	
+			//text infos bulle
+    	  var contentString = '<div id="content">'+
+    	      '<div id="siteNotice">'+
+    	      '</div>'+
+    	      '<h1 id="firstHeading" class="firstHeading">Agence Chat Immo</h1>'+
+    	      '<div id="bodyContent">'+ '<img src="assets/css/images/chat.png" alt=""/>'+
+    	      '<p>24 , rue Crebillon ' +
+    	      '44000 Nantes '
+    	      '</div>'+
+    	      '</div>';
+		//affhage de l'info
+    	  var infowindow = new google.maps.InfoWindow({
+    	    content: contentString
+    	  });
+		
+     	  //ajout du marqueurs
+    	  var marker = new google.maps.Marker({
+    	    position: adaming,    	   
+    	    map: map,
+    	    title: 'Agence'
+    	  });
+
+    	  //clic de l'info bulle
+    	  marker.addListener('click', function() {
+    	    infowindow.open(map, marker);
+    	  });
+    	}
+      
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBz2jm5RRGDAnvYharuQWuyKF6r9BI2MtY&callback=initMap">
+    </script>
+ 
+
+
+    
+    
+  </body>
+</html>

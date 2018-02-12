@@ -135,6 +135,11 @@ monApp.config(function($routeProvider){
 			controller: "mapCtrl"
 		})
 		
+		.when("/map2",{
+			templateUrl:"views/map2.html",
+			controller: "map2Ctrl"
+		})
+		
 		//************google agenda**************************************************
 		.when("/planning",{
 			templateUrl: "views/listeVisite.html",
