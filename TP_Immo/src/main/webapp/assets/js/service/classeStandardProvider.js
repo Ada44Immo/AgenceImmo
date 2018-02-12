@@ -26,7 +26,7 @@ monApp.factory("classeStandardService",function($http){
 	
 	//************************************GET ALL CLASSE STANDARD PAR CLIENT**************************************************************	
 	//definition de la fonction pour recuperer la liste
-	function recupListe(nom,callback){
+	function recupListeParClient(nom,callback){
 		// appel du webservice via le service $http(il est basé sur ajax(le bus
 		// transporte la requete et recupere le resultat
 		// du WS : XMLHttpRequest (XHR))

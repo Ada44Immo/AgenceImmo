@@ -48,7 +48,7 @@ monApp
 
 	$scope.nom='',
 	// appel de la methode du service pour recup la liste du WS
-	classeStandardService.findListeParClient(function(nom,callback) {
+	$scope.findListeParClient(function(nom,callback) {
 		// stocker la liste recup dans la variable listeCS du scope pour
 		// quelle soit accessible de la vue
 		$scope.listeCSParClient = callback;
